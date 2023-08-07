@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemData
+public class ItemData : MonoBehaviour
 {
     public bool grabable;
 }
