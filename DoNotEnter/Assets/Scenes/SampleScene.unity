@@ -112,12 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &18323526 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1846418851}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &470419421
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,12 +242,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070132428}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17, y: 0, z: 0.39}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.16999996, y: -0.8, z: 0.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 18323526}
-  m_RootOrder: 1
+  m_Father: {fileID: 2124528901}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1271630756
 PrefabInstance:
@@ -442,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabable: 1
+  isGun: 1
 --- !u!1001 &1846418851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,6 +508,10 @@ PrefabInstance:
       propertyPath: m_StepInterval
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_UseHeadBob
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 151161141835044610, guid: 5e9e851c0e142814dac026a256ba2ac0,
         type: 3}
       propertyPath: hand
@@ -520,3 +519,9 @@ PrefabInstance:
       objectReference: {fileID: 1070132428}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+--- !u!4 &2124528901 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1846418851}
+  m_PrefabAsset: {fileID: 0}

@@ -5,4 +5,5 @@ using UnityEngine;
 public class ItemData : MonoBehaviour
 {
     public bool grabable;
+    public bool isGun;
 }

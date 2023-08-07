@@ -7,10 +7,13 @@ public class PlayerItemGrabber : MonoBehaviour
 {
     [SerializeField] GameObject hand;
     [SerializeField] GameObject grabbedItem;
-    private bool grabing = false;
-    private bool wasRigid = false;
-    private GameObject grabbedObject;
-    private Transform grabbedLastParent;
+    [SerializeField] private bool usingGunSlot = true;
+    [SerializeField] private int gunNum = 0;
+    [SerializeField] private int secondaryNum = 0;
+    public GameObject[] gunSlots = new GameObject[3];
+    private Transform[] gunLastParent = new Transform[3];
+    public GameObject[] secondarySlots = new GameObject[2];
+    private Transform[] secondaryLastParent = new Transform[2];
     private List<GameObject> itemNearPlayer = new List<GameObject>();
     private List<ItemData> itemNearPlayerData = new List<ItemData>();
     private bool interactKey = false;
@@ -27,27 +30,128 @@ public class PlayerItemGrabber : MonoBehaviour
         interactKey = CrossPlatformInputManager.GetButton("Interact");
         if (interactKey)
         {
-            if(!grabing)
+            GrabNearestItem();
+        }
+        GetButtons();
+    }
+    void GetButtons()
+    {
+        bool changeToSecondary = CrossPlatformInputManager.GetButtonDown("ChantoToSecondary");
+        if(changeToSecondary)
+        {
+            usingGunSlot = !usingGunSlot;
+            if (gunSlots[gunNum] != null)
             {
-                Debug.Log("Inter");
-                int nearestObject = 0;
-                if (itemNearPlayerData[nearestObject].grabable)
-                {
-                    grabing = true;
-                    grabbedLastParent = itemNearPlayer[nearestObject].transform.parent;
-                    itemNearPlayer[nearestObject].transform.SetParent(hand.transform);
-                    itemNearPlayer[nearestObject].transform.position = hand.transform.position;
-                    grabbedItem = itemNearPlayer[nearestObject];
-                }
+                gunSlots[gunNum].SetActive(usingGunSlot);
             }
-            else
+            if (secondarySlots[secondaryNum] != null)
             {
-                grabing = false;
-                grabbedItem.transform.SetParent(grabbedLastParent);
+                secondarySlots[secondaryNum].SetActive(usingGunSlot);
             }
         }
+        bool[] itemKey = new bool[3];
+        for(int i = 0; i < 3; i++)
+        {
+            itemKey[i] = CrossPlatformInputManager.GetButtonDown("Item" + (i + 1));
+        }
+        
+        for(int i = 0; i < 3; i++)
+        {
+            if(itemKey[i])
+            {
+                Debug.Log(i);
+                if (usingGunSlot)
+                {
+                    Debug.Log("a");
+                    if (gunSlots[gunNum] != null)
+                    {
+                        gunSlots[gunNum].SetActive(false);
+                    }
+                    gunNum = i;
+                    if (gunSlots[gunNum] != null)
+                    {
+                        gunSlots[gunNum].SetActive(true);
+                    }
+                }
+                else
+                {
+                    if (secondarySlots[secondaryNum] != null)
+                    {
+                        secondarySlots[secondaryNum].SetActive(false);
+                    }
+                    secondaryNum = i;
+                    if (secondarySlots[secondaryNum] != null)
+                    {
+                        secondarySlots[secondaryNum].SetActive(true);
+                    }
+                }
+                break;
+            }
+        }
+        
     }
+    void GrabNearestItem()
+    {
+        if (isCurrentItemSlotEmpty() && itemNearPlayerData.Count > 0)
+        {
+            int nearestObject = 0;
+            if (itemNearPlayerData[nearestObject].grabable)
+            {
+                if (usingGunSlot && itemNearPlayerData[nearestObject].isGun)
+                {
+                    gunSlots[gunNum] = itemNearPlayer[nearestObject];
+                    gunLastParent[gunNum] = itemNearPlayer[nearestObject].transform.parent;
+                    GrabingObjectSetup(gunSlots[gunNum]);
+                    itemNearPlayer.RemoveAt(nearestObject);
+                    itemNearPlayerData.RemoveAt(nearestObject);
+                }
+                else if(!usingGunSlot && !itemNearPlayerData[nearestObject].isGun)
+                {
+                    secondarySlots[secondaryNum] = itemNearPlayer[nearestObject];
+                    secondaryLastParent[secondaryNum] = itemNearPlayer[nearestObject].transform.parent;
+                    GrabingObjectSetup(secondarySlots[secondaryNum]);
+                    itemNearPlayer.RemoveAt(nearestObject);
+                    itemNearPlayerData.RemoveAt(nearestObject);
+                }
+            }
+        }
+        else
+        {
 
+        }
+    }
+    void GrabingObjectSetup(GameObject grabing)
+    {
+        Rigidbody rb = grabing.GetComponent<Rigidbody>();
+        if(rb != null)
+        {
+            rb.isKinematic = true;
+        }
+        Collider[] col = grabing.GetComponents<Collider>();
+        for(int i = 0; i < col.Length; i++)
+        {
+            col[i].enabled = false;
+        }
+        col = grabing.GetComponentsInChildren<Collider>();
+        for (int i = 0; i < col.Length; i++)
+        {
+            col[i].enabled = false;
+        }
+        grabing.transform.SetParent(hand.transform);
+        grabing.transform.position = hand.transform.position;
+        grabing.transform.rotation = hand.transform.rotation;
+    }
+    bool isCurrentItemSlotEmpty()
+    {
+        if(usingGunSlot)
+        {
+            return gunSlots[gunNum] == null;
+        }
+        else
+        {
+            return secondarySlots[secondaryNum] == null;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         ItemData data = other.transform.GetComponent<ItemData>();
