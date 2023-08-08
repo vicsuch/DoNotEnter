@@ -134,6 +134,8 @@ MonoBehaviour:
   vida: 100
   nuevaPosicion: {x: 0, y: 2, z: 0}
   controller: {fileID: 80167837}
+  balaslaser: 10
+  balasfuego: 10
 --- !u!143 &80167837 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0,
@@ -244,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c6fb6a35cd50b4eb7176713aafe883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 80167832}
   vida_zombie: 100
 --- !u!1 &869666555
 GameObject:
@@ -260,6 +263,7 @@ GameObject:
   - component: {fileID: 869666560}
   - component: {fileID: 869666561}
   - component: {fileID: 869666562}
+  - component: {fileID: 869666563}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -382,6 +386,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3359748b0b346034f8eba478d0c6b0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 80167832}
+--- !u!114 &869666563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869666555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a95393d76140544a9d3dbfd1f23e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alcance: 5
+  jugador: {fileID: 80167832}
 --- !u!1 &926914912
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c6fb6a35cd50b4eb7176713aafe883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 80167832}
   vida_zombie: 100
 --- !u!1001 &1458383582
 PrefabInstance:
