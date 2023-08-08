@@ -66,10 +66,11 @@
   <ItemGroup>
     <Compile Include="Assets\Enemigos\AtaqueZombie.cs" />
     <Compile Include="Assets\Enemigos\ZombieController.cs" />
-    <Compile Include="Assets\preuba arma\Balapistola.cs" />
-    <Compile Include="Assets\preuba arma\Laser.cs" />
-    <Compile Include="Assets\preuba arma\Pistola.cs" />
-    <Compile Include="Assets\preuba arma\raycas.cs" />
+    <Compile Include="Assets\preuba arma\basura\Balapistola.cs" />
+    <Compile Include="Assets\preuba arma\basura\Pistola.cs" />
+    <Compile Include="Assets\preuba arma\Scripts_Armas\lanzallamas.cs" />
+    <Compile Include="Assets\preuba arma\Scripts_Armas\Laser.cs" />
+    <Compile Include="Assets\preuba arma\Scripts_Armas\raycas.cs" />
     <Compile Include="Assets\preuba arma\vidaZombie.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\ItemData.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\PlayerItemGrabber.cs" />

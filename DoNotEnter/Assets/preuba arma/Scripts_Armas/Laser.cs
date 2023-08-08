@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+   public GameObject jugador;
+    private Saludjugador saludjugador;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        saludjugador = jugador.GetComponent<Saludjugador>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("o")) // Cambia "Fire1" a la entrada que uses para disparar
+        if (Input.GetKeyDown("o")&& saludjugador.balaslaser> 0) // Cambia "Fire1" a la entrada que uses para disparar
         {
             DispararRayoLaser();
+            saludjugador.balaslaser--;
         }
     }
     void DispararRayoLaser()
