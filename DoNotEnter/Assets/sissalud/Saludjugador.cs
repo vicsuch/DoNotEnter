@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class Saludjugador : MonoBehaviour
+public class SaludJugador : MonoBehaviour
 {
     public GameObject jugador;
     public int vida = 100;

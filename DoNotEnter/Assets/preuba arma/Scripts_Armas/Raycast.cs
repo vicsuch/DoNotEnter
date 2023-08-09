@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class raycas : MonoBehaviour
+public class Raycast : MonoBehaviour
 {
     public Transform puntoDisparo;
     public float alcance = 100f;
@@ -11,7 +11,6 @@ public class raycas : MonoBehaviour
     void Start()
     {
       
-
     }
 
     // Update is called once per frame
@@ -31,7 +30,7 @@ public class raycas : MonoBehaviour
         if (Physics.Raycast(rayo, out hitInfo, alcance))
         {
             GameObject objetoImpactado = hitInfo.collider.gameObject;
-            vidaZombie vidaZombie = objetoImpactado.GetComponent<vidaZombie>();
+            VidaZombie vidaZombie = objetoImpactado.GetComponent<VidaZombie>();
 
             int puntuacion = Random.Range(20, 40);
             vidaZombie.vida_zombie -= puntuacion;

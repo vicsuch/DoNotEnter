@@ -68,13 +68,13 @@
     <Compile Include="Assets\Enemigos\ZombieController.cs" />
     <Compile Include="Assets\preuba arma\basura\Balapistola.cs" />
     <Compile Include="Assets\preuba arma\basura\Pistola.cs" />
-    <Compile Include="Assets\preuba arma\Scripts_Armas\lanzallamas.cs" />
+    <Compile Include="Assets\preuba arma\Scripts_Armas\LanzaLlamas.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\Laser.cs" />
-    <Compile Include="Assets\preuba arma\Scripts_Armas\raycas.cs" />
-    <Compile Include="Assets\preuba arma\vidaZombie.cs" />
+    <Compile Include="Assets\preuba arma\Scripts_Armas\Raycast.cs" />
+    <Compile Include="Assets\preuba arma\VidaZombie.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\ItemData.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\PlayerItemGrabber.cs" />
-    <Compile Include="Assets\sissalud\Saludjugador.cs" />
+    <Compile Include="Assets\sissalud\SaludJugador.cs" />
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>C:/Users/47701283/Documents/GitHub/DoNotEnter/DoNotEnter/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
     </Reference>

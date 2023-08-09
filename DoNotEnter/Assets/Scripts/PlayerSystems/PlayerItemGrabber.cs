@@ -54,15 +54,12 @@ public class PlayerItemGrabber : MonoBehaviour
         {
             itemKey[i] = CrossPlatformInputManager.GetButtonDown("Item" + (i + 1));
         }
-        
-        for(int i = 0; i < 3; i++)
+        if (usingGunSlot)
         {
-            if(itemKey[i])
+            for (int i = 0; i < gunSlots.Length; i++)
             {
-                Debug.Log(i);
-                if (usingGunSlot)
+                if (itemKey[i])
                 {
-                    Debug.Log("a");
                     if (gunSlots[gunNum] != null)
                     {
                         gunSlots[gunNum].SetActive(false);
@@ -73,7 +70,13 @@ public class PlayerItemGrabber : MonoBehaviour
                         gunSlots[gunNum].SetActive(true);
                     }
                 }
-                else
+            }
+        }
+        else
+        {
+            for (int i = 0; i < secondarySlots.Length; i++)
+            {
+                if (itemKey[i])
                 {
                     if (secondarySlots[secondaryNum] != null)
                     {
@@ -85,10 +88,8 @@ public class PlayerItemGrabber : MonoBehaviour
                         secondarySlots[secondaryNum].SetActive(true);
                     }
                 }
-                break;
             }
         }
-        
     }
     void GrabNearestItem()
     {
@@ -160,7 +161,6 @@ public class PlayerItemGrabber : MonoBehaviour
             itemNearPlayer.Add(other.transform.gameObject);
             itemNearPlayerData.Add(data);
         }
-        Debug.Log("enter");
     }
 
     private void OnTriggerExit(Collider other)
