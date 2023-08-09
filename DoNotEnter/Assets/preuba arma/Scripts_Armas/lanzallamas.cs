@@ -7,6 +7,7 @@ public class LanzaLlamas : MonoBehaviour
     public float alcance = 5f;
     public GameObject jugador;
     private SaludJugador saludJugador;
+    public float anguloDisparo = 45f; // Ángulo de disparo en grados
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +25,30 @@ public class LanzaLlamas : MonoBehaviour
     }
     void Atacar()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, alcance, transform.forward, 0f);
+        Vector3 direccionDisparo = transform.forward;
+        float anguloRadianes = anguloDisparo * Mathf.Deg2Rad;
+        direccionDisparo = Quaternion.Euler(0, -anguloDisparo / 2, 0) * direccionDisparo;
 
-        foreach(RaycastHit hit in hits)
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, alcance, direccionDisparo, 0f);
+
+        foreach (RaycastHit hit in hits)
         {
             GameObject enemigo = hit.collider.gameObject;
+            VidaZombie vidaZombie = enemigo.GetComponent<VidaZombie>();
+
+            if (vidaZombie != null)
+            {
+                int puntuacion = Random.Range(25, 45);
+                vidaZombie.vida_zombie -= puntuacion;
+
+                Debug.Log("¡Daño a " + enemigo.name + ": " + puntuacion);
+            }
         }
+ 
+
+
+
+
     }
 
 }
