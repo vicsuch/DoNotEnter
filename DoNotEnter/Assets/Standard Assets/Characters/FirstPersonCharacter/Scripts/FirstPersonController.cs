@@ -42,8 +42,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private bool m_DoubleJumped;
         private AudioSource m_AudioSource;
-
-        public Vector3 m_MoveDir = Vector3.zero;
+        private Vector3 m_MoveDir = Vector3.zero;
 
         // Use this for initialization
         private void Start()
@@ -109,10 +108,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                m_CharacterController.height/2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
-            m_MoveDir.x = desiredMove.x*speed;
-            m_MoveDir.z = desiredMove.z*speed;
+            m_MoveDir.x = desiredMove.x * speed;
+            m_MoveDir.z = desiredMove.z * speed;
 
-            if(m_Jump && !m_DoubleJumped && m_Jumping)
+            if (m_Jump && !m_DoubleJumped && m_Jumping)
             {
                 m_MoveDir.y = m_DoubleJumpSpeed;
                 PlayJumpSound();
@@ -124,6 +123,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_CharacterController.isGrounded)
             {
                 m_MoveDir.y = -m_StickToGroundForce;
+
                 m_DoubleJumped = false;
 
                 if (m_Jump)
@@ -136,8 +136,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else
             {
-                m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
+                m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
             }
+
             m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
 
             ProgressStepCycle(speed);

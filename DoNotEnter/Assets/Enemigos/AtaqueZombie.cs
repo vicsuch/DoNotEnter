@@ -32,7 +32,6 @@ public class AtaqueZombie : MonoBehaviour
             Debug.Log("asda");
             atackStarted = true;
             UnityStandardAssets.Characters.FirstPerson.FirstPersonController a = transformAtacar.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
-            a.m_MoveDir += transform.forward * knockBack + transform.up * knockBack * 0.3f;
         }
         atackStarted = false;
     }
