@@ -43,6 +43,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_DoubleJumped;
         private AudioSource m_AudioSource;
         private Vector3 m_MoveDir = Vector3.zero;
+        private Vector3 velocity = Vector3.zero;
+
+        public bool addedForce = false;
+        public Vector3 addForce = Vector3.zero;
+        
 
         // Use this for initialization
         private void Start()
@@ -120,27 +125,33 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_DoubleJumped = true;
             }
 
+            if (addedForce)
+            {
+                velocity += addForce;
+            }
+
             if (m_CharacterController.isGrounded)
             {
-                m_MoveDir.y = -m_StickToGroundForce;
-
+                velocity *= 0.9f;
+                
                 m_DoubleJumped = false;
 
                 if (m_Jump)
                 {
                     m_MoveDir.y = m_JumpSpeed;
                     PlayJumpSound();
-                    m_Jump = false;
+                    m_Jump = false; 
                     m_Jumping = true;
                 }
             }
             else
             {
+                velocity *= 0.99f;
                 m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
             }
-
-            m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
-
+            
+            m_CollisionFlags = m_CharacterController.Move((m_MoveDir + velocity)*Time.fixedDeltaTime);
+            
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
 

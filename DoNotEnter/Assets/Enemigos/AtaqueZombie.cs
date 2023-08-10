@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AtaqueZombie : MonoBehaviour
 {
-    [SerializeField] private float knockBack = 10f;
+    [SerializeField] private float knockBackFoward = 5f;
+    [SerializeField] private float knockBackUp = 2.5f;
     Transform transformAtacar;
     bool atackStarted;
     private float atackTimer;
@@ -32,6 +33,8 @@ public class AtaqueZombie : MonoBehaviour
             Debug.Log("asda");
             atackStarted = true;
             UnityStandardAssets.Characters.FirstPerson.FirstPersonController a = transformAtacar.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
+            a.addedForce = true;
+            a.addForce += transform.forward * knockBackFoward + transform.up * knockBackUp;
         }
         atackStarted = false;
     }
