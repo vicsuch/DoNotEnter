@@ -19,6 +19,7 @@ public class VidaZombie : MonoBehaviour
         if (vida_zombie < 1)
         {
             Destroy(gameObject);
+            // falta agregar 1 al contador
         }
     }
 }

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    public GameObject jugador;
+    public GameObject jugador; // asignar al fpscontroller
     private SaludJugador saludJugador;
+    public Transform puntoDisparo; //asignar a la camara
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,24 +17,28 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("o")) // Cambia "Fire1" a la entrada que uses para disparar
+        if (Input.GetKeyDown("o")) // Cambiar a click
         {
             DispararRayoLaser();
+           
         }
     }
     void DispararRayoLaser()
     {
-        Ray rayo = new Ray(transform.position, transform.forward);
+        //raycast
+        Ray rayo = new Ray(puntoDisparo.position, puntoDisparo.forward);
         RaycastHit[] hits = Physics.RaycastAll(rayo, Mathf.Infinity);
 
         foreach (RaycastHit hit in hits)
         {
+            //accede al script del enemigo
             GameObject enemigo = hit.collider.gameObject;
             VidaZombie vidaZombie = enemigo.GetComponent<VidaZombie>();
-            Debug.Log("Enemigo detectado: " + enemigo.name);
+
+            // baja vida
             int puntuacion = Random.Range(40, 70);
             vidaZombie.vida_zombie -= puntuacion;
-            // Aquí puedes agregar lógica adicional, como daño al enemigo o efectos visuales.
+            
         }
     }
 }
