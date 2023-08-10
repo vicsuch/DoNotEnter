@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 627462738}
   m_Layer: 0
   m_Name: zonbi (1)
-  m_TagString: Untagged
+  m_TagString: cocotag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 80167832}
-  vida_zombie: 100
+  vida_zombie: 1
 --- !u!65 &627462739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 1585701700}
   m_Layer: 0
   m_Name: zonbi
-  m_TagString: Untagged
+  m_TagString: zombietag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 80167832}
-  vida_zombie: 100
+  vida_zombie: 1
 --- !u!65 &1585701701
 BoxCollider:
   m_ObjectHideFlags: 0
