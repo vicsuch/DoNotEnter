@@ -10,6 +10,7 @@ public class PlayerItemGrabber : MonoBehaviour
     [SerializeField] private bool usingGunSlot = true;
     [SerializeField] private int gunNum = 0;
     [SerializeField] private int secondaryNum = 0;
+    [SerializeField] private Transform puntoDeVista;
     public GameObject[] gunSlots = new GameObject[3];
     private Transform[] gunLastParent = new Transform[3];
     public GameObject[] secondarySlots = new GameObject[2];
@@ -102,6 +103,7 @@ public class PlayerItemGrabber : MonoBehaviour
                 {
                     gunSlots[gunNum] = itemNearPlayer[nearestObject];
                     gunLastParent[gunNum] = itemNearPlayer[nearestObject].transform.parent;
+                    itemNearPlayerData[nearestObject].puntoDeVista = 
                     GrabingObjectSetup(gunSlots[gunNum]);
                     itemNearPlayer.RemoveAt(nearestObject);
                     itemNearPlayerData.RemoveAt(nearestObject);

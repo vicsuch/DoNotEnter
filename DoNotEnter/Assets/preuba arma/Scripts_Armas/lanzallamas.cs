@@ -1,24 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class LanzaLlamas : MonoBehaviour
 {
+    [SerializeField] private SaludJugador saludJugador;
+
     public float alcance = 5f;
-    public GameObject jugador;
-    private SaludJugador saludJugador;
     public float anguloDisparo = 45f; // Ángulo de disparo en grados
 
     // Start is called before the first frame update
     void Start()
     {
-        saludJugador = jugador.GetComponent<SaludJugador>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("c")) // Cambia "Fire1" a la entrada que uses para disparar
+        if (CrossPlatformInputManager.GetButtonDown("Disparar")) // Cambia "Fire1" a la entrada que uses para disparar
         {
             Atacar();
         }
@@ -41,14 +42,8 @@ public class LanzaLlamas : MonoBehaviour
                 int puntuacion = Random.Range(25, 45);
                 vidaZombie.vida_zombie -= puntuacion;
 
-                Debug.Log("¡Daño a " + enemigo.name + ": " + puntuacion);
+                Debug.Log("Daño a " + enemigo.name + ": " + puntuacion);
             }
         }
- 
-
-
-
-
     }
-
 }

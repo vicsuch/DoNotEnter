@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8060215393550719501}
   - component: {fileID: 8060215393550719498}
   - component: {fileID: 8060215393550719499}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8060215394900602666}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: PuntoDeVista
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8060215395220688920}
   - component: {fileID: 8060215395220688917}
   - component: {fileID: 8060215395220688918}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,9 +201,10 @@ GameObject:
   - component: {fileID: 8060215395346246361}
   - component: {fileID: 8060215395346246362}
   - component: {fileID: 8060215395346246360}
-  m_Layer: 2
+  - component: {fileID: 1885170051}
+  m_Layer: 9
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: zombietag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,7 +216,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8060215395346246337}
-  m_LocalRotation: {x: -0, y: 0.7292715, z: -0, w: -0.6842246}
+  m_LocalRotation: {x: 0, y: 0.7292734, z: -0, w: -0.6842225}
   m_LocalPosition: {x: 7.59, y: 2.466, z: 5.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -287,11 +288,15 @@ MonoBehaviour:
   velVarietion: 0.7
   angularVelVarietion: 20
   accelerationVarietion: 3
+  maxRaycastDistance: 200
   maxViewDistance: 10
   maxViewAngle: 70
   startSleep: 0
   seeingPlayer: 0
   randomMovementStarted: 0
+  raycastLayerIgnore:
+    serializedVersion: 2
+    m_Bits: 1
   lastVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &8060215395346246366
 MonoBehaviour:
@@ -305,8 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e954b3d2aed77e48921bad39d5f275f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockBackFoward: 5
-  knockBackUp: 0
+  knockBackFoward: 10
+  knockBackUp: 10
 --- !u!195 &8060215395346246336
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -372,3 +377,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000005, y: 2, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0.75}
+--- !u!114 &1885170051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8060215395346246337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d332b902580250643ba9e89a6575241a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugador: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+  vida_zombie: 100
+  abcprueba: 1000
