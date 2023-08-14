@@ -11,11 +11,13 @@ public class ZombieController : MonoBehaviour
     [SerializeField] float velVarietion = 0.7f; 
     [SerializeField] float angularVelVarietion = 10f; 
     [SerializeField] float accelerationVarietion = 2f;
+    [SerializeField] float maxRaycastDistance = 200f;
     [SerializeField] float maxViewDistance = 100;
     [SerializeField] float maxViewAngle = 70;
     [SerializeField] private float startSleep = 0f;
     [SerializeField] private bool seeingPlayer = false;
     [SerializeField] private bool randomMovementStarted = false;
+    [SerializeField] private LayerMask raycastLayerIgnore;
     private CharacterController jugadorCC;
     [SerializeField] private Vector3 lastVelocity = Vector3.zero;
     Vector3 destination;
@@ -41,10 +43,10 @@ public class ZombieController : MonoBehaviour
     void UpdateLineOfSight()
     {
         RaycastHit hit;
-        Physics.Raycast(puntoDeVista.position, jugador.position - puntoDeVista.position, out hit);
+        Physics.Raycast(puntoDeVista.position, jugador.position - puntoDeVista.position, out hit, maxRaycastDistance, raycastLayerIgnore, QueryTriggerInteraction.Ignore);
         bool hasHit = false;
         hasHit = hit.transform == jugador;
-
+    
         if (seeingPlayer)
         {
             SeeingPlayer(hasHit);
@@ -57,6 +59,17 @@ public class ZombieController : MonoBehaviour
             sideView.y = 0;
             float angle = Vector3.Angle(fow, sideView);
             SeeingPlayer(hasHit && angle < maxViewAngle && Vector3.Distance(puntoDeVista.position, transform.position) < maxViewDistance);
+        }
+        if(hasHit)
+        {
+            Debug.DrawLine(puntoDeVista.position, hit.transform.position, Color.green);
+        }
+        else
+        {
+            if(hit.transform != null)
+            {
+                Debug.DrawLine(puntoDeVista.position, hit.transform.position, Color.red);
+            }
         }
     }
 

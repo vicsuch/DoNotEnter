@@ -1407,10 +1407,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8060215393550719502, guid: 8eaf0786ff507054fab75e6e3bc14f18,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060215394900602667, guid: 8eaf0786ff507054fab75e6e3bc14f18,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060215395220688921, guid: 8eaf0786ff507054fab75e6e3bc14f18,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8060215395346246337, guid: 8eaf0786ff507054fab75e6e3bc14f18,
         type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060215395346246337, guid: 8eaf0786ff507054fab75e6e3bc14f18,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060215395346246361, guid: 8eaf0786ff507054fab75e6e3bc14f18,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8060215395346246363, guid: 8eaf0786ff507054fab75e6e3bc14f18,
         type: 3}
@@ -1482,5 +1507,10 @@ PrefabInstance:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 1141753986}
+    - target: {fileID: 8060215395346246367, guid: 8eaf0786ff507054fab75e6e3bc14f18,
+        type: 3}
+      propertyPath: raycastLayerIgnore.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eaf0786ff507054fab75e6e3bc14f18, type: 3}
