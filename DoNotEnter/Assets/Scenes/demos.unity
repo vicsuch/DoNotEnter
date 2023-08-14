@@ -246,8 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586e95bed0aca904b9fe267b8383ed88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabable: 1
-  isGun: 1
+  grabable: 0
+  isGun: 0
   puntoDeVista: {fileID: 0}
 --- !u!120 &216999697
 LineRenderer:
@@ -410,6 +410,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &380215341 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653081673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &529622088
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d332b902580250643ba9e89a6575241a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugador: {fileID: 0}
+  jugador: {fileID: 2096948310}
   vida_zombie: 100
   abcprueba: 1000
 --- !u!1001 &548031041
@@ -727,18 +733,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
   alcance: 100
---- !u!114 &1243222512 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2472872440954152343, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1653081673}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea6a089b58d5b94189b3786cea8b5f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1243222516 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0,
@@ -794,7 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -950,7 +944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d4b3db4cc64784a898a36659d57da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saludJugador: {fileID: 1243222512}
+  saludJugador: {fileID: 0}
   alcance: 5
   anguloDisparo: 45
 --- !u!65 &1397131573
@@ -1050,8 +1044,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586e95bed0aca904b9fe267b8383ed88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabable: 1
-  isGun: 1
+  grabable: 0
+  isGun: 0
   puntoDeVista: {fileID: 0}
 --- !u!1001 &1653081673
 PrefabInstance:
@@ -1113,6 +1107,11 @@ PrefabInstance:
       propertyPath: grabbedItem
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 151161141835044610, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 3}
+      propertyPath: puntoDeVista
+      value: 
+      objectReference: {fileID: 2096948311}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!1 &1670856968
@@ -1196,7 +1195,6 @@ GameObject:
   - component: {fileID: 1881739998}
   - component: {fileID: 1881739997}
   - component: {fileID: 1881739996}
-  - component: {fileID: 1881739995}
   - component: {fileID: 1881740000}
   m_Layer: 0
   m_Name: Cube (2)
@@ -1205,18 +1203,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
   m_IsActive: 1
---- !u!114 &1881739995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881739994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3c6fb6a35cd50b4eb7176713aafe883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1881739996
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1301,7 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d332b902580250643ba9e89a6575241a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugador: {fileID: 0}
+  jugador: {fileID: 380215341}
   vida_zombie: 100
   abcprueba: 1000
 --- !u!1 &2089810660
@@ -1395,3 +1381,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2096948310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653081673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2096948311 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653081673}
+  m_PrefabAsset: {fileID: 0}

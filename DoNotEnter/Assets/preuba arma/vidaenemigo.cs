@@ -13,19 +13,6 @@ public class vidaenemigo : MonoBehaviour
     void Start()
     {
         saludJugador = jugador.GetComponent<SaludJugador>();
-        if (gameObject.CompareTag("zombietag"))
-        {
-            vida_zombie = 100;
-        }
-        else if (gameObject.CompareTag("cocotag"))
-        {
-            vida_zombie = 50;
-
-        }
-        else if (gameObject.CompareTag("maderatag"))
-        {
-            vida_zombie = 200;
-        }
     }
 
     // Update is called once per frame
@@ -33,7 +20,6 @@ public class vidaenemigo : MonoBehaviour
     {
         if (vida_zombie <= 0)
         {
-            // Realizar acciones cuando el zombie muere, como destruir el GameObject.
             Destroy(gameObject);
         }
     }

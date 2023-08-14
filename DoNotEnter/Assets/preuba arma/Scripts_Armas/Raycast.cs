@@ -12,7 +12,7 @@ public class Raycast : MonoBehaviour
 
     private void Start()
     {
-        itemData.GetComponent<ItemData>();
+        itemData = transform.GetComponent<ItemData>();
     }
 
     // Update is called once per frame
@@ -32,6 +32,7 @@ public class Raycast : MonoBehaviour
             Debug.Log("No se asigno el punto de disparo en la arma: " + this.name);
             return;
         }
+
         Ray rayo = new Ray(itemData.puntoDeVista.position, itemData.puntoDeVista.forward);
         RaycastHit hitInfo;
 
@@ -46,7 +47,7 @@ public class Raycast : MonoBehaviour
             int puntuacion = Random.Range(20, 40);
            
             vidzom.RestarVida(puntuacion);
-
         }
+        Debug.Log(hitInfo.transform.name);
     }
 }
