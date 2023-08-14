@@ -133,6 +133,13 @@ MonoBehaviour:
   jugador: {fileID: 80167832}
   vida: 100
   spawnPosition: {x: 0, y: 2, z: 0}
+  controller: {fileID: 80167838}
+--- !u!143 &80167838 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1458383582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &627462737
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627462737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.84, y: 3, z: 3.53}
+  m_LocalPosition: {x: 4.57, y: 3, z: 3.6}
   m_LocalScale: {x: 0.9999994, y: 3.1574404, z: 2.5646446}
   m_Children: []
   m_Father: {fileID: 0}
@@ -932,7 +939,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585701699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.56, y: 3, z: 0.337}
+  m_LocalPosition: {x: 1.9489999, y: 3, z: 3.2469997}
   m_LocalScale: {x: 0.9999994, y: 3.1574404, z: 2.5646446}
   m_Children: []
   m_Father: {fileID: 0}

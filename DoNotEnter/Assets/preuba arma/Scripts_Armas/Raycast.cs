@@ -7,6 +7,7 @@ public class Raycast : MonoBehaviour
     public Transform puntoDisparo; //asignar a la camara
 
     public float alcance = 100f;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class Raycast : MonoBehaviour
     {
         if (Input.GetKeyDown("g")) // cambiar a click
         {
-          
+            Debug.Log("dsparog");
             Disparar();
         }
     }
@@ -32,15 +33,15 @@ public class Raycast : MonoBehaviour
         if (Physics.Raycast(rayo, out hitInfo, alcance))
         {
             //accede al script del enemigo
-            GameObject objetoImpactado = hitInfo.collider.gameObject;
-            VidaZombie vidaZombie = objetoImpactado.GetComponent<VidaZombie>();
+            //  GameObject objetoImpactado = hitInfo.collider.gameObject;
+            //  VidaZombie vidzom = objetoImpactado.GetComponent<VidaZombie>();
 
-           
+            vidaenemigo vidzom = hitInfo.collider.gameObject.GetComponent<vidaenemigo>();
             // baja vida
             int puntuacion = Random.Range(20, 40);
-            vidaZombie.vida_zombie -= puntuacion;
-
            
+            vidzom.RestarVida(puntuacion);
+
         }
     }
 }

@@ -6,6 +6,7 @@ public class VidaZombie : MonoBehaviour
 {
     public GameObject jugador;
     public int vida_zombie = 100;
+    public int abcprueba = 1000;
     private SaludJugador saludJugador;
 
     // Start is called before the first frame update
@@ -28,10 +29,16 @@ public class VidaZombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (vida_zombie < 1)
+        if (vida_zombie <= 0)
         {
+            // Realizar acciones cuando el zombie muere, como destruir el GameObject.
             Destroy(gameObject);
-            // falta agregar 1 al contador
         }
+    } 
+     public void RestarVida(int amount)
+    {
+        vida_zombie -= amount;
+        
+        
     }
 }
