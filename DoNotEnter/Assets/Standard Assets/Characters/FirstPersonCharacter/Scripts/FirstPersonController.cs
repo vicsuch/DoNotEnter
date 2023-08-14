@@ -16,6 +16,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_DoubleJumpSpeed;
+        [SerializeField] private float groundDrag;
+        [SerializeField] private float airDrag;
+        [SerializeField] private float minSpeed;
         [SerializeField] private float m_StickToGroundForce;
         [SerializeField] private float m_GravityMultiplier;
         [SerializeField] private MouseLook m_MouseLook;
@@ -105,12 +108,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+            Vector3 desiredMove = transform.forward * m_Input.y + transform.right * m_Input.x;
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
             Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
-                               m_CharacterController.height/2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
+                               m_CharacterController.height / 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
             m_MoveDir.x = desiredMove.x * speed;
@@ -128,28 +131,41 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (addedForce)
             {
                 velocity += addForce;
+                addedForce = false;
+                addForce = Vector3.zero;
             }
 
             if (m_CharacterController.isGrounded)
             {
-                velocity *= 0.9f;
-                
+                m_MoveDir.y = 0;
+                velocity += velocity * -groundDrag * Time.fixedDeltaTime;
+                if (velocity.y < 0f)
+                {
+                    velocity.y = 0;
+                }
+                if (velocity.y <= 0f)
+                {
+                    m_MoveDir.y -= m_StickToGroundForce;
+                }
+                if(velocity.magnitude < minSpeed)
+                {
+                    velocity = Vector3.zero;
+                }
                 m_DoubleJumped = false;
 
                 if (m_Jump)
                 {
                     m_MoveDir.y = m_JumpSpeed;
                     PlayJumpSound();
-                    m_Jump = false; 
+                    m_Jump = false;
                     m_Jumping = true;
                 }
             }
             else
             {
-                velocity *= 0.99f;
-                m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
+                velocity += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
+                velocity += velocity * -airDrag * Time.fixedDeltaTime;
             }
-            
             m_CollisionFlags = m_CharacterController.Move((m_MoveDir + velocity)*Time.fixedDeltaTime);
             
             ProgressStepCycle(speed);

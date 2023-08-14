@@ -71,7 +71,7 @@
     <Compile Include="Assets\preuba arma\Scripts_Armas\lanzallamas.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\Laser.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\Raycast.cs" />
-    <Compile Include="Assets\preuba arma\VidaZombie.cs" />
+    <Compile Include="Assets\preuba arma\vidaZombie.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\ItemData.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\PlayerItemGrabber.cs" />
     <Compile Include="Assets\sissalud\SaludJugador.cs" />
