@@ -252,6 +252,7 @@ MonoBehaviour:
   grabable: 1
   isGun: 1
   puntoDeVista: {fileID: 0}
+  isGrabbed: 0
 --- !u!120 &216999697
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216999689}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -654,6 +655,7 @@ MonoBehaviour:
   grabable: 1
   isGun: 1
   puntoDeVista: {fileID: 0}
+  isGrabbed: 0
 --- !u!65 &761468486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1069,6 +1071,7 @@ MonoBehaviour:
   grabable: 1
   isGun: 1
   puntoDeVista: {fileID: 0}
+  isGrabbed: 0
 --- !u!1001 &1653081673
 PrefabInstance:
   m_ObjectHideFlags: 0

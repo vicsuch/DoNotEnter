@@ -11,21 +11,22 @@ public class rayoLaser : MonoBehaviour
     [SerializeField] private float laserPersistanceInSeconds;
     [SerializeField] private float coolDownInSeconds;
 
-    private bool IsCoolDownOver = true;
-   
+    private bool isCoolDownOver = true;
+    private ItemData itemData;
     private LineRenderer lineRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        itemData = GetComponent<ItemData>();
         lineRenderer.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Disparar") && IsCoolDownOver)
+        if (CrossPlatformInputManager.GetButtonDown("Disparar") && isCoolDownOver && itemData.isGrabbed)
         {
             ShootLaser();
         }
@@ -48,7 +49,7 @@ public class rayoLaser : MonoBehaviour
             }
         }
         lineRenderer.enabled = true;
-        IsCoolDownOver = false;
+        isCoolDownOver = false;
         Invoke("SetCoolDownOver", coolDownInSeconds);
         Invoke("DesaparecerLinea", laserPersistanceInSeconds);
     }
@@ -58,6 +59,6 @@ public class rayoLaser : MonoBehaviour
     }
     void SetCoolDownOver()
     {
-        IsCoolDownOver = true;
+        isCoolDownOver = true;
     }
 }

@@ -103,20 +103,20 @@ public class PlayerItemGrabber : MonoBehaviour
                 {
                     gunSlots[gunNum] = itemNearPlayer[nearestObject];
                     gunLastParent[gunNum] = itemNearPlayer[nearestObject].transform.parent;
-                    itemNearPlayerData[nearestObject].puntoDeVista = puntoDeVista;
                     GrabingObjectSetup(gunSlots[gunNum]);
-                    itemNearPlayer.RemoveAt(nearestObject);
-                    itemNearPlayerData.RemoveAt(nearestObject);
                 }
                 else if(!usingGunSlot && !itemNearPlayerData[nearestObject].isGun)
                 {
                     secondarySlots[secondaryNum] = itemNearPlayer[nearestObject];
                     secondaryLastParent[secondaryNum] = itemNearPlayer[nearestObject].transform.parent;
-                    itemNearPlayerData[nearestObject].puntoDeVista = puntoDeVista;
                     GrabingObjectSetup(secondarySlots[secondaryNum]);
-                    itemNearPlayer.RemoveAt(nearestObject);
-                    itemNearPlayerData.RemoveAt(nearestObject);
                 }
+
+                itemNearPlayerData[nearestObject].puntoDeVista = puntoDeVista;
+                itemNearPlayerData[nearestObject].isGrabbed = true;
+
+                itemNearPlayer.RemoveAt(nearestObject);
+                itemNearPlayerData.RemoveAt(nearestObject);
             }
         }
         else

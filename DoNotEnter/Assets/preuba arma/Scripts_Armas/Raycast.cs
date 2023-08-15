@@ -7,6 +7,8 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Raycast : MonoBehaviour
 {
     [SerializeField] private ItemData itemData; //asignar a la camara
+    private bool isCoolDownOver = true;
+    private float coolDownInSeconds = 0.1f;
 
     public float alcance = 100f;
 
@@ -18,15 +20,15 @@ public class Raycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Disparar")) // cambiar a click
+        if (CrossPlatformInputManager.GetButtonDown("Disparar") && isCoolDownOver && itemData.isGrabbed) // cambiar a click
         {
-            Debug.Log("dsparog");
             Disparar();
         }
     }
     
     void Disparar()
     {
+        isCoolDownOver = false;
         if(itemData.puntoDeVista == null)
         {
             Debug.Log("No se asigno el punto de disparo en la arma: " + this.name);
@@ -34,6 +36,7 @@ public class Raycast : MonoBehaviour
         }
 
         Ray rayo = new Ray(itemData.puntoDeVista.position, itemData.puntoDeVista.forward);
+        Debug.DrawLine(itemData.puntoDeVista.position, itemData.puntoDeVista.position + (itemData.puntoDeVista.forward * alcance));
         RaycastHit hitInfo;
 
         if (Physics.Raycast(rayo, out hitInfo, alcance))
@@ -46,8 +49,15 @@ public class Raycast : MonoBehaviour
             // baja vida
             int puntuacion = Random.Range(20, 40);
            
-            vidzom.RestarVida(puntuacion);
+            if (vidzom != null)
+            {
+                vidzom.RestarVida(puntuacion);
+            }
         }
-        Debug.Log(hitInfo.transform.name);
+        Invoke("SetCoolDownOver", coolDownInSeconds);
+    }
+    void SetCoolDownOver()
+    {
+        isCoolDownOver = true;
     }
 }

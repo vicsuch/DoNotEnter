@@ -7,4 +7,5 @@ public class ItemData : MonoBehaviour
     public bool grabable;
     public bool isGun;
     public Transform puntoDeVista;
+    public bool isGrabbed;
 }
