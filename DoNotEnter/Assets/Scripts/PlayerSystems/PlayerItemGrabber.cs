@@ -11,12 +11,12 @@ public class PlayerItemGrabber : MonoBehaviour
     [SerializeField] private int gunNum = 0;
     [SerializeField] private int secondaryNum = 0;
     [SerializeField] private Transform puntoDeVista;
+    [SerializeField] private List<GameObject> itemNearPlayer = new List<GameObject>();
+    private List<ItemData> itemNearPlayerData = new List<ItemData>();
     public GameObject[] gunSlots = new GameObject[3];
     private Transform[] gunLastParent = new Transform[3];
     public GameObject[] secondarySlots = new GameObject[2];
     private Transform[] secondaryLastParent = new Transform[2];
-    private List<GameObject> itemNearPlayer = new List<GameObject>();
-    private List<ItemData> itemNearPlayerData = new List<ItemData>();
     private bool interactKey = false;
 
     // Start is called before the first frame update
@@ -174,7 +174,6 @@ public class PlayerItemGrabber : MonoBehaviour
             {
                 itemNearPlayer.RemoveAt(i);
                 itemNearPlayerData.RemoveAt(i);
-                Debug.Log("exit");
             }
         }
     }

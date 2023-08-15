@@ -8,4 +8,5 @@ public class ItemData : MonoBehaviour
     public bool isGun;
     public Transform puntoDeVista;
     public bool isGrabbed;
+    public int balasRestantes;
 }

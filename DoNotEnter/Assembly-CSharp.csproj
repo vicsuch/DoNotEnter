@@ -64,8 +64,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Enemigos\AtaqueZombie.cs" />
-    <Compile Include="Assets\Enemigos\ZombieController.cs" />
+    <Compile Include="Assets\Enemigos\Zombie\AtaqueZombie.cs" />
+    <Compile Include="Assets\Enemigos\Zombie\ZombieController.cs" />
     <Compile Include="Assets\preuba arma\basura\Balapistola.cs" />
     <Compile Include="Assets\preuba arma\basura\Pistola.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\LanzaFuego.cs" />

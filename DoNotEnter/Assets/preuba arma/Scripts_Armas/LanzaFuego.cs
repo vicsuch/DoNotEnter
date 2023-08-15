@@ -6,46 +6,32 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class LanzaFuego : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem fuego;
+    [SerializeField] private float duracionDeDisparo;
 
-    public int damageMin = 25;
-    public int damageMax = 40;
-    public int maxRange = 10;
-    public int coneAngle = 30; // Ángulo del cono de fuego
-
-    public Transform flameSpawnPoint;
+    private ItemData itemData;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        itemData = GetComponent<ItemData>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Disparar")) // cambiar a click
+        if (CrossPlatformInputManager.GetButtonDown("Disparar") && itemData.isGrabbed && itemData.balasRestantes > 0 && !fuego.isEmitting) // cambiar a click
         {
             ShootFlame();
         }
     }
     private void ShootFlame()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(flameSpawnPoint.position, maxRange);
-
-        foreach (Collider collider in hitColliders)
-        {
-            Vector3 directionToCollider = collider.transform.position - flameSpawnPoint.position;
-            float angleToCollider = Vector3.Angle(directionToCollider, flameSpawnPoint.forward);
-
-            if (angleToCollider <= coneAngle * 0.5f)
-            {
-                vidaenemigo vidaEnemigoScript = collider.GetComponent<vidaenemigo>();
-                if (vidaEnemigoScript != null)
-                {
-                    int damage = Random.Range(damageMin, damageMax);
-                    vidaEnemigoScript.RestarVida(damage);
-                }
-            }
-        }
+        fuego.Play();
+        Invoke("StopFlame", duracionDeDisparo);
+    }
+    private void StopFlame()
+    {
+        fuego.Stop();
     }
 }
