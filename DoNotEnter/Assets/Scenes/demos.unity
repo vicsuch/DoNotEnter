@@ -246,8 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586e95bed0aca904b9fe267b8383ed88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabable: 0
-  isGun: 0
+  grabable: 1
+  isGun: 1
   puntoDeVista: {fileID: 0}
 --- !u!120 &216999697
 LineRenderer:
@@ -941,12 +941,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1397131571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d4b3db4cc64784a898a36659d57da4, type: 3}
+  m_Script: {fileID: 11500000, guid: c216a7d264c801d4c9f0ea4b1c1f9bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saludJugador: {fileID: 0}
-  alcance: 5
-  anguloDisparo: 45
+  damageMin: 25
+  damageMax: 40
+  maxRange: 10
+  coneAngle: 30
+  flameSpawnPoint: {fileID: 1243222516}
 --- !u!65 &1397131573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1044,8 +1046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586e95bed0aca904b9fe267b8383ed88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabable: 0
-  isGun: 0
+  grabable: 1
+  isGun: 1
   puntoDeVista: {fileID: 0}
 --- !u!1001 &1653081673
 PrefabInstance:
