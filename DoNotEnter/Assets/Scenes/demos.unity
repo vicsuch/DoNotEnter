@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 161725709}
   m_Layer: 0
   m_Name: PuntoDeDisparo
-  m_TagString: Untagged
+  m_TagString: Fuego
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -227,7 +227,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -712,7 +712,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 500
+    maxNumParticles: 1000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -977,7 +977,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 35
+      scalar: 60
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3638,7 +3638,7 @@ ParticleSystem:
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.8
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3691,7 +3691,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3801,10 +3801,10 @@ ParticleSystem:
       serializedVersion: 2
       m_Bits: 4294967295
     maxCollisionShapes: 256
-    quality: 1
+    quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
-    collidesWithDynamic: 0
+    collisionMessages: 1
+    collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
@@ -3944,13 +3944,13 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.34
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4078,7 +4078,7 @@ ParticleSystem:
     widthOverTrail:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4776,6 +4776,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5121,7 +5122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &313962093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5170,12 +5171,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &380215341 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1653081673}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &529622088
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,7 +5183,6 @@ GameObject:
   - component: {fileID: 529622091}
   - component: {fileID: 529622090}
   - component: {fileID: 529622089}
-  - component: {fileID: 529622093}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -5268,21 +5262,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &529622093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529622088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d332b902580250643ba9e89a6575241a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugador: {fileID: 2096948310}
-  vida_zombie: 100
-  abcprueba: 1000
 --- !u!1001 &548031041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5295,20 +5274,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 8060215395346246337, guid: 8eaf0786ff507054fab75e6e3bc14f18,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8060215395346246363, guid: 8eaf0786ff507054fab75e6e3bc14f18,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.31
+      value: -15.04
       objectReference: {fileID: 0}
     - target: {fileID: 8060215395346246363, guid: 8eaf0786ff507054fab75e6e3bc14f18,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.72
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 8060215395346246363, guid: 8eaf0786ff507054fab75e6e3bc14f18,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.83
+      value: -6.92
       objectReference: {fileID: 0}
     - target: {fileID: 8060215395346246363, guid: 8eaf0786ff507054fab75e6e3bc14f18,
         type: 3}
@@ -6049,7 +6033,7 @@ MonoBehaviour:
   isGun: 1
   puntoDeVista: {fileID: 0}
   isGrabbed: 0
-  balasRestantes: 0
+  balasRestantes: 100
 --- !u!1001 &1653081673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6198,7 +6182,6 @@ GameObject:
   - component: {fileID: 1881739998}
   - component: {fileID: 1881739997}
   - component: {fileID: 1881739996}
-  - component: {fileID: 1881740000}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -6278,21 +6261,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1881740000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881739994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d332b902580250643ba9e89a6575241a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugador: {fileID: 380215341}
-  vida_zombie: 100
-  abcprueba: 1000
 --- !u!1 &1892133400
 GameObject:
   m_ObjectHideFlags: 0
@@ -6461,12 +6429,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2096948310 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1653081673}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2096948311 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0,

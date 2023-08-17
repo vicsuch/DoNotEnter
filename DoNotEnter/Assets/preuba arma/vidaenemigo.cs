@@ -26,7 +26,14 @@ public class vidaenemigo : MonoBehaviour
     public void RestarVida(int amount)
     {
         vida_zombie -= amount;
+    }
 
-
+    private void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("parti");
+        if(other.CompareTag("Fuego"))
+        {
+            RestarVida(1);
+        }
     }
 }

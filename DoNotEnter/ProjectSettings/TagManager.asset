@@ -6,6 +6,7 @@ TagManager:
   tags:
   - zombietag
   - cocotag
+  - Fuego
   layers:
   - Default
   - TransparentFX
