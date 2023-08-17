@@ -4855,7 +4855,7 @@ MonoBehaviour:
   damage: 11
   damageVarietion: 10
   laserPersistanceInSeconds: 0.1
-  coolDownInSeconds: 10
+  coolDownInSeconds: 3
 --- !u!65 &216999691
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5173,6 +5173,28 @@ Transform:
 --- !u!1 &380215341 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1653081673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &380215344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380215341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea6a089b58d5b94189b3786cea8b5f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugador: {fileID: 380215341}
+  vida: 100
+  spawnPosition: {x: 0, y: 2, z: 0}
+  controller: {fileID: 380215347}
+--- !u!143 &380215347 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 14300000, guid: 5e9e851c0e142814dac026a256ba2ac0,
     type: 3}
   m_PrefabInstance: {fileID: 1653081673}
   m_PrefabAsset: {fileID: 0}
@@ -6115,7 +6137,8 @@ PrefabInstance:
       propertyPath: puntoDeVista
       value: 
       objectReference: {fileID: 2096948311}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2472872440954152343, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!1 &1670856968
 GameObject:
