@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class checkPoints : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Vector3 targetPosition;
+    public float distanceThreshold = 5f; // Distancia umbral para el cambio
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Encuentra el objeto del jugador por su etiqueta (asegúrate de etiquetar al jugador como "Player")
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+
+            if (distanceToPlayer <= distanceThreshold)
+            {
+                SaludJugador playerScript = player.GetComponent<SaludJugador>();
+                if (playerScript != null)
+                {
+                    playerScript.ChangeVariable(targetPosition);
+                }
+            }
+        }
     }
 }

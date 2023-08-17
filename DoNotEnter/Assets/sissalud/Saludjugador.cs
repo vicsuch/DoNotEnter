@@ -28,4 +28,12 @@ public class SaludJugador : MonoBehaviour
         }
      
     }
+    public void ChangeVariable(Vector3 nuevoSpawn)
+    {
+        spawnPosition = nuevoSpawn ; 
+    }
+    public void AtatqueZombie()
+    {
+        vida -= 20;
+    }
 }
