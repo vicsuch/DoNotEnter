@@ -39,7 +39,10 @@ public class ZombieController : MonoBehaviour
         UpdateLineOfSight();
         UpdateDestination();
     }
-    
+    public void Instanciar(Transform j)
+    {
+        jugador = j;
+    }
     void UpdateLineOfSight()
     {
         RaycastHit hit;

@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Assets\Enemigos\Zombie\AtaqueZombie.cs" />
     <Compile Include="Assets\Enemigos\Zombie\ZombieController.cs" />
+    <Compile Include="Assets\Instanciador enemigo\DataZombieDemo.cs" />
+    <Compile Include="Assets\Instanciador enemigo\InstanciadorEnemigo.cs" />
     <Compile Include="Assets\preuba arma\basura\Balapistola.cs" />
     <Compile Include="Assets\preuba arma\basura\Pistola.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\Descarte\lanzallamas.cs" />
