@@ -33,6 +33,7 @@ public class rayoLaser : MonoBehaviour
     }
     void ShootLaser()
     {
+        Debug.Log("llego");
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit[] hits = Physics.RaycastAll(ray, Mathf.Infinity);
         lineRenderer.SetPosition(0, transform.position);
