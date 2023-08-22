@@ -8,6 +8,7 @@ public class AtaqueZombie : MonoBehaviour
     [SerializeField] private float knockBackFoward = 5f;
     [SerializeField] private float knockBackUp = 2.5f;
     [SerializeField] private float maxAngleToPush = 30f;
+    [SerializeField] SaludJugador saludPlayer;
     NavMeshAgent agent;
     ZombieController controller;
     Transform transformAtacar;
@@ -39,6 +40,8 @@ public class AtaqueZombie : MonoBehaviour
             atackStarted = true;
             UnityStandardAssets.Characters.FirstPerson.FirstPersonController a = transformAtacar.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
             a.AddForce(transform.forward * knockBackFoward + transform.up * knockBackUp);
+            Debug.Log("abc");
+            saludPlayer.AtatqueZombie();
         }
         atackStarted = false;
     }
@@ -46,8 +49,9 @@ public class AtaqueZombie : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SaludJugador salud = other.GetComponent<SaludJugador>();
-        if(salud != null)
+        
+        saludPlayer = other.GetComponent<SaludJugador>();
+        if(saludPlayer != null)
         {
             transformAtacar = other.transform;
             Atack();
