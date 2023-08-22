@@ -48,8 +48,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Vector3 m_MoveDir = Vector3.zero;
         private Vector3 velocity = Vector3.zero;
 
-        public bool addedForce = false;
-        public Vector3 addForce = Vector3.zero;
+        private bool addedForce = false;
+        private Vector3 addForce = Vector3.zero;
         
 
         // Use this for initialization
@@ -172,6 +172,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             UpdateCameraPosition(speed);
 
             m_MouseLook.UpdateCursorLock();
+        }
+
+
+        public void AddForce(Vector3 forceToAdd)
+        {
+            addForce = forceToAdd;
+            addedForce = true;
         }
 
 

@@ -9,6 +9,7 @@ public class InstanciadorEnemigo : MonoBehaviour
     [SerializeField] float spawnRadius;
     [SerializeField] Transform jugador;
     [SerializeField] List<Transform> objetosGenerados = new List<Transform>();
+    [SerializeField] float chanceOfSpawningPerSecond = 1f;
 
     void Start()
     {
@@ -26,13 +27,25 @@ public class InstanciadorEnemigo : MonoBehaviour
             if(objetosGenerados[i] == null)
             {
                 objetosGenerados.RemoveAt(i);
-                InstanciarObjeto();
             }
+        }
+        if(objetosGenerados.Count < maxObjects)
+        {
+            TryToInstanciate();
+        }
+    }
+    void TryToInstanciate()
+    {
+        float a = Random.Range(0f, 1f);
+        Debug.Log("TRIED");
+        if(a < chanceOfSpawningPerSecond / Time.deltaTime)
+        {
+            InstanciarObjeto();
         }
     }
     void InstanciarObjeto()
     {
-        Transform a = Instantiate(objetoParaInstanciar, transform.position + (new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * spawnRadius), Quaternion.Euler(0f, Random.Range(-180f, 180f), 0f)).transform;
+        Transform a = Instantiate(objetoParaInstanciar, transform.position + (new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized * Random.Range(0, spawnRadius)), Quaternion.Euler(0f, Random.Range(-180f, 180f), 0f)).transform;
         ZombieController o = a.GetComponent<ZombieController>();
         if(o != null)
         {

@@ -81,7 +81,7 @@
     <Compile Include="Assets\Scripts\PlayerSystems\ItemData.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\PlayerItemGrabber.cs" />
     <Compile Include="Assets\sissalud\checkPoints.cs" />
-    <Compile Include="Assets\sissalud\Saludjugador.cs" />
+    <Compile Include="Assets\sissalud\SaludJugador.cs" />
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>C:/Users/47701283/Documents/GitHub/DoNotEnter/DoNotEnter/Library/ScriptAssemblies/UnityEngine.Purchasing.dll</HintPath>
     </Reference>

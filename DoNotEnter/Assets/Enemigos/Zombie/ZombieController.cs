@@ -15,29 +15,59 @@ public class ZombieController : MonoBehaviour
     [SerializeField] float maxViewDistance = 100;
     [SerializeField] float maxViewAngle = 70;
     [SerializeField] private float startSleep = 0f;
-    [SerializeField] private bool seeingPlayer = false;
+    [SerializeField] public bool seeingPlayer = false;
     [SerializeField] private bool randomMovementStarted = false;
     [SerializeField] private LayerMask raycastLayerIgnore;
     private CharacterController jugadorCC;
     [SerializeField] private Vector3 lastVelocity = Vector3.zero;
     Vector3 destination;
     NavMeshAgent agent;
+    bool agentExists = false;
 
     void Start()
     {
-        // Cache agent component and destination
-        agent = GetComponent<NavMeshAgent>();
         jugadorCC = jugador.GetComponent<CharacterController>();
-        agent.speed += Random.Range(-velVarietion, velVarietion);
-        agent.angularSpeed += Random.Range(-angularVelVarietion, angularVelVarietion);
-        agent.acceleration += Random.Range(-accelerationVarietion, accelerationVarietion);
-        destination = agent.destination;
+        Iniciar();
     }
 
     void Update()
     {
-        UpdateLineOfSight();
-        UpdateDestination();
+        if(agentExists)
+        {
+            UpdateLineOfSight();
+            UpdateDestination();
+        }
+        else
+        {
+            if(agent == null)
+            {
+                Iniciar();
+            }
+        }
+    }
+    void Iniciar()
+    {
+        try
+        {
+            NavMeshHit closestHit;
+            if (NavMesh.SamplePosition(transform.position, out closestHit, 500, 1))
+            {
+                transform.position = closestHit.position;
+                gameObject.AddComponent<NavMeshAgent>();
+                agentExists = true;
+            }
+        }
+        catch
+        {
+            agentExists = false;
+            return;
+        }
+        // Cache agent component and destination
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed += Random.Range(-velVarietion, velVarietion);
+        agent.angularSpeed += Random.Range(-angularVelVarietion, angularVelVarietion);
+        agent.acceleration += Random.Range(-accelerationVarietion, accelerationVarietion);
+        destination = agent.destination;
     }
     public void Instanciar(Transform j)
     {
@@ -81,7 +111,10 @@ public class ZombieController : MonoBehaviour
         if (seeingPlayer)
         {
             destination = jugador.position;
-            agent.destination = destination;
+            if (agent.isOnNavMesh)
+            {
+                agent.destination = destination;
+            }
         }
         else
         {
@@ -99,7 +132,10 @@ public class ZombieController : MonoBehaviour
     void MoveRandomly()
     {
         destination = lastVelocity.normalized * Random.Range(1f, 3f) + new Vector3(Random.Range(-0.5f, 0.5f), 0f, Random.Range(-0.5f, 0.5f));
-        agent.destination = destination;
+        if(agent.isOnNavMesh)
+        {
+            agent.destination = destination;
+        }
         randomMovementStarted = false;
     }
     void SeeingPlayer(bool state)

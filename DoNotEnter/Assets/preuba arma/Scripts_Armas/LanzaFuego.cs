@@ -20,7 +20,7 @@ public class LanzaFuego : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Disparar") && itemData.isGrabbed && itemData.balasRestantes > 0 && !fuego.isEmitting) // cambiar a click
+        if (CrossPlatformInputManager.GetButton("Disparar") && itemData.isGrabbed && itemData.balasRestantes > 0 && !fuego.isEmitting) // cambiar a click
         {
             ShootFlame();
         }
