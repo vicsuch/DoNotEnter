@@ -6,21 +6,29 @@ public class vidaenemigo : MonoBehaviour
 {
     public GameObject jugador;
     public int vida_zombie = 100;
-    private SaludJugador saludJugador;
+    public  SaludJugador componenteEncontrado;
     [SerializeField] private int dañoPorFuego = 4;
 
     // Start is called before the first frame update
     void Start()
     {
-        saludJugador = jugador.GetComponent<SaludJugador>();
+       //SaludJugador componenteEncontrado = FindObjectOfType<SaludJugador>();
+       jugador= GameObject.Find("FPSController");
+        componenteEncontrado = jugador.GetComponent<SaludJugador>();
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+
         if (vida_zombie <= 0)
         {
+
+           componenteEncontrado.SumarMuerte();
             Destroy(gameObject);
+            
+          
         }
     }
     public void RestarVida(int amount)
