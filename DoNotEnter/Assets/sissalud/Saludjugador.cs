@@ -9,7 +9,7 @@ public class SaludJugador : MonoBehaviour
     public int vida = 100;
     public Vector3 spawnPosition = new Vector3(0f, 2f, 0f);
     public CharacterController controller;
-    [SerializeField] int zombiesAsesinados = 0;
+    public int zombiesAsesinados = 0;
     // Start is called before the first frame update
     void Start()
     {
