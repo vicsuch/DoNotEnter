@@ -26,9 +26,10 @@ public class rayoLaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Disparar") && isCoolDownOver && itemData.isGrabbed)
+        if (CrossPlatformInputManager.GetButtonDown("Disparar") && isCoolDownOver && itemData.isGrabbed&& gameObject.GetComponent<ItemData>().balasRestantes>0)
         {
             ShootLaser();
+            gameObject.GetComponent<ItemData>().balasRestantes--;
         }
     }
     void ShootLaser()
