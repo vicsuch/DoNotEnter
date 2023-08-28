@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/preuba arma/pruebaArma.unity
+- path: Assets/preuba arma/DemoParaJero 1.unity
   isLoaded: 1
   isActive: 1

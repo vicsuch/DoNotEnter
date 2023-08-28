@@ -70,11 +70,14 @@
     <Compile Include="Assets\Instanciador enemigo\InstanciadorEnemigo.cs" />
     <Compile Include="Assets\preuba arma\basura\Balapistola.cs" />
     <Compile Include="Assets\preuba arma\basura\Pistola.cs" />
+    <Compile Include="Assets\preuba arma\Scripts_Armas\Descarte\explosivo.cs" />
+    <Compile Include="Assets\preuba arma\Scripts_Armas\Descarte\ExplosivoD.cs" />
+    <Compile Include="Assets\preuba arma\Scripts_Armas\Descarte\ExplosivoNuevo.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\Descarte\lanzallamas.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\Descarte\Laser.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\Descarte\rayoLaserViejo.cs" />
-    <Compile Include="Assets\preuba arma\Scripts_Armas\explosivo.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\LanzaFuego.cs" />
+    <Compile Include="Assets\preuba arma\Scripts_Armas\ParticulasGranada.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\Raycast.cs" />
     <Compile Include="Assets\preuba arma\Scripts_Armas\rayoLaser.cs" />
     <Compile Include="Assets\preuba arma\vidaenemigo.cs" />
