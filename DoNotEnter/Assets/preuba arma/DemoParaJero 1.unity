@@ -785,6 +785,11 @@ PrefabInstance:
       propertyPath: ShapeModule.randomDirectionAmount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8879658806652183677, guid: 04a5734437759394dbfbaaa705928e55,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8879658806652183679, guid: 04a5734437759394dbfbaaa705928e55,
         type: 3}
       propertyPath: m_LocalPosition.x

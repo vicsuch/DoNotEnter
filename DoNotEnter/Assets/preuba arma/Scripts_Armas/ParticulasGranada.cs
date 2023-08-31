@@ -11,6 +11,7 @@ public class ParticulasGranada : MonoBehaviour
     private bool thrown = false;
     private Transform originalParent;
     private bool particlesActive = false;
+    public bool unaVez=true;
 
     // Start is called before the first frame update
     void Start()
@@ -41,25 +42,39 @@ public class ParticulasGranada : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (thrown)
+        if (thrown&&unaVez)
         {
-            Explode();
+            Debug.Log("entra una ves");
+            StartCoroutine(explocion());
+            unaVez = false;
+            
         }
     }
     private void Throw()
     {
         rb.isKinematic = false;
-        rb.velocity = transform.forward * 10f;
+        rb.velocity = transform.forward * 18f;
         thrown = true;
         transform.SetParent(null);
         gameObject.GetComponent<BoxCollider>().enabled = true;
         rb.useGravity = true;
     }
+
+    private IEnumerator explocion()
+    {
+        Debug.Log("activacion");
+        yield return new WaitForSeconds(1f);
+        particlesActive = true;
+        particleSystem.Play();
+        StartCoroutine(Destruir(gameObject));
+
+    }
+
     private void Explode()
     {
         particlesActive = true;
         particleSystem.Play();
-        StartCoroutine(StopParticlesAfterDuration());
+       // StartCoroutine(StopParticlesAfterDuration());
 
         StartCoroutine(Destruir(gameObject));
 
