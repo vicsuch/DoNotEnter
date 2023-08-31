@@ -7,6 +7,7 @@ public class checkPoints : MonoBehaviour
     public Vector3 targetPosition;
     public float distanceThreshold = 5f; // Distancia umbral para el cambio
     public int minimoActivar;
+    public int numeroDeHoguera;
     SaludJugador comprobacion;
 
     void Update()
@@ -25,6 +26,7 @@ public class checkPoints : MonoBehaviour
                 if (playerScript != null)
                 {
                     playerScript.ChangeVariable(targetPosition);
+                    playerScript.ChangeVariableHoguera(numeroDeHoguera);
                 }
             }
         }
