@@ -7,7 +7,6 @@ public class AtaqueZombie : MonoBehaviour
 {
     [SerializeField] private float knockBackFoward = 5f;
     [SerializeField] private float knockBackUp = 2.5f;
-    [SerializeField] private float maxAngleToPush = 30f;
     [SerializeField] SaludJugador saludPlayer;
     NavMeshAgent agent;
     ZombieController controller;

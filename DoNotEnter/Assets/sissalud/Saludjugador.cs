@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class SaludJugador : MonoBehaviour
 {
-    public GameObject jugador;
     public int vida = 100;
     public Vector3 spawnPosition = new Vector3(0f, 2f, 0f);
     public CharacterController controller;
@@ -23,7 +22,7 @@ public class SaludJugador : MonoBehaviour
         {
            
             controller.enabled = false;
-            jugador.transform.position = spawnPosition;
+            transform.position = spawnPosition;
             controller.enabled = true;
             vida = 100;
         }

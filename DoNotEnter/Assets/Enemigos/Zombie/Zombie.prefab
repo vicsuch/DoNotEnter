@@ -296,7 +296,7 @@ MonoBehaviour:
   randomMovementStarted: 0
   raycastLayerIgnore:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 512
   lastVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &8060215395346246366
 MonoBehaviour:
@@ -312,8 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockBackFoward: 10
   knockBackUp: 10
-  chanceOfPushing: 0.5
-  maxAngleToPush: 30
+  saludPlayer: {fileID: 0}
 --- !u!195 &8060215395346246336
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -334,7 +333,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 1
 --- !u!136 &8060215395346246361
 CapsuleCollider:
@@ -393,4 +392,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jugador: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
   vida_zombie: 100
-  abcprueba: 1000
+  componenteEncontrado: {fileID: 0}
+  "da\xF1oPorFuego": 4
