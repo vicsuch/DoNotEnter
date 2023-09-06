@@ -296,7 +296,7 @@ MonoBehaviour:
   randomMovementStarted: 0
   raycastLayerIgnore:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1
   lastVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &8060215395346246366
 MonoBehaviour:
