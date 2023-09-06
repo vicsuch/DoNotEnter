@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityStandardAssets.CrossPlatformInput;
 public class ElCocoController : MonoBehaviour
 {
     [SerializeField] Transform jugador;
@@ -31,7 +31,6 @@ public class ElCocoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (hasSeenPlayer && !isAtacking)
         {
             GetPathToPlayer();
@@ -48,8 +47,17 @@ public class ElCocoController : MonoBehaviour
             SeeingPlayer();
         }
     }
+    void Death()
+    {
+        if(CrossPlatformInputManager.GetButtonDown("Interact") && atackPosLerp >= 1f)
+        {
+            vidaenemigo salud = GetComponent<vidaenemigo>();
+            salud.RestarVida(999999);
+        }
+    }
     void EnemyLerpToPlayerFace()
     {
+        Death();
         transform.position = Vector3.Lerp(startLerpPos, puntoParaAtacar.position, atackPosLerp);
         transform.rotation = Quaternion.Lerp(startLerpRotation, puntoParaAtacar.rotation, atackPosLerp);
         atackPosLerp += Time.deltaTime * lerpTimeMultiplier;

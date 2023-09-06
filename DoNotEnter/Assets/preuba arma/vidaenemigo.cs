@@ -20,15 +20,10 @@ public class vidaenemigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-
         if (vida_zombie <= 0)
         {
-
-           componenteEncontrado.SumarMuerte();
+            componenteEncontrado.SumarMuerte();
             Destroy(gameObject);
-            
-          
         }
     }
     public void RestarVida(int amount)
