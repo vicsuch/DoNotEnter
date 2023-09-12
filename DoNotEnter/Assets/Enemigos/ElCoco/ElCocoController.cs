@@ -16,7 +16,7 @@ public class ElCocoController : MonoBehaviour
     [SerializeField] LayerMask raycastLayerNotIgnore;
     [SerializeField] bool hasSeenPlayer;
     bool isAtacking = false;
-    float atackPosLerp = 0f;
+    [SerializeField] float atackPosLerp = 0f;
     [SerializeField] float lerpTimeMultiplier = 0.1f;
     Vector3 startLerpPos;
     Quaternion startLerpRotation;
@@ -62,9 +62,18 @@ public class ElCocoController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(startLerpRotation, puntoParaAtacar.rotation, atackPosLerp);
         atackPosLerp += Time.deltaTime * lerpTimeMultiplier;
     }
+    void DeactivateColliders()
+    {
+        Collider[] colliders = GetComponents<Collider>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            colliders[i].enabled = false;
+        }
+    }
     void IsAtackActive()
     {
         if (isAtacking) { return; }
+        DeactivateColliders();
         if (Vector3.Distance(jugador.transform.position, transform.position) < 1f)
         {
             isAtacking = true;
@@ -80,10 +89,7 @@ public class ElCocoController : MonoBehaviour
         Physics.Raycast(transform.position, jugador.position - transform.position, out hit, maxRaycastDistance, raycastLayerNotIgnore, QueryTriggerInteraction.Ignore);
         
         Debug.DrawRay(transform.position, jugador.position - transform.position);
-        if(hit.transform != null)
-        {
-            Debug.Log(hit.transform.name);
-        }
+        
         if (hit.transform == jugador)
         {
             hasSeenPlayer = true;

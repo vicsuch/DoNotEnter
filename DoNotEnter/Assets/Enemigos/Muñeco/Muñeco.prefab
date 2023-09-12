@@ -88,6 +88,8 @@ GameObject:
   - component: {fileID: 8350317348571276112}
   - component: {fileID: 7984089423267914542}
   - component: {fileID: 1032378045532917709}
+  - component: {fileID: 114737618393553306}
+  - component: {fileID: 114477216782746292}
   m_Layer: 0
   m_Name: "Mu\xF1eco"
   m_TagString: Untagged
@@ -147,6 +149,34 @@ CapsuleCollider:
   m_Height: 1.2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114737618393553306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910820667712380066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa6b79eba2fcbd46ab735db5e8b54fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114477216782746292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910820667712380066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d332b902580250643ba9e89a6575241a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugador: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+  vida_zombie: 100
+  componenteEncontrado: {fileID: 0}
+  "da\xF1oPorFuego": 4
 --- !u!1 &8385246698929326219
 GameObject:
   m_ObjectHideFlags: 0
