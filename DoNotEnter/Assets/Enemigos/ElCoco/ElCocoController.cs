@@ -14,6 +14,7 @@ public class ElCocoController : MonoBehaviour
     [SerializeField] float distanceBeforeEndingPath;
     [SerializeField] float maxRaycastDistance = 10f;
     [SerializeField] LayerMask raycastLayerNotIgnore;
+
     [SerializeField] bool hasSeenPlayer;
     bool isAtacking = false;
     [SerializeField] float atackPosLerp = 0f;
@@ -25,7 +26,7 @@ public class ElCocoController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(jugador == null)
+    /*    if(jugador == null)
         {
             jugador = GameObject.Find("FPSController").transform;
         }
@@ -33,7 +34,10 @@ public class ElCocoController : MonoBehaviour
         {
             puntoParaAtacar = GameObject.Find("PuntoParaCoco").transform;
         }
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();*/
+    
+    
+    
     }
 
     // Update is called once per frame

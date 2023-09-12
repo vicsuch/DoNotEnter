@@ -35,7 +35,7 @@ public class MuñecoController : MonoBehaviour
         {
             float distance = Vector3.Distance(validHidingPlaces[i].position, jugador.transform.position);
             float closestDistance = Vector3.Distance(validHidingPlaces[i].position, jugador.transform.position);
-            if ()
+           
             {
 
             }
