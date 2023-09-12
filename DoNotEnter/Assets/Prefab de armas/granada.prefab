@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabable: 1
-  isGun: 1
+  isGun: 0
   puntoDeVista: {fileID: 0}
   isGrabbed: 0
   balasRestantes: 0

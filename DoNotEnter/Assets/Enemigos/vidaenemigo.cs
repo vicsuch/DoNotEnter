@@ -14,7 +14,7 @@ public class vidaenemigo : MonoBehaviour
     {
        //SaludJugador componenteEncontrado = FindObjectOfType<SaludJugador>();
        jugador= GameObject.Find("FPSController");
-        componenteEncontrado = jugador.GetComponent<SaludJugador>();
+       componenteEncontrado = jugador.GetComponent<SaludJugador>();
     }
 
     // Update is called once per frame

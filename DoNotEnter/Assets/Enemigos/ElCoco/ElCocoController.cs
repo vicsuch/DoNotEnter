@@ -25,6 +25,14 @@ public class ElCocoController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(jugador == null)
+        {
+            jugador = GameObject.Find("FPSController").transform;
+        }
+        if(puntoParaAtacar == null)
+        {
+            puntoParaAtacar = GameObject.Find("PuntoParaCoco").transform;
+        }
         agent = GetComponent<NavMeshAgent>();
     }
 
