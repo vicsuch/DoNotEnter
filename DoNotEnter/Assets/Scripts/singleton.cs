@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class singleton : MonoBehaviour
 {
     public static singleton Instance;
-    public int score;
+ 
 
     private void Awake()
     {
@@ -22,14 +22,18 @@ public class singleton : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SceneManager.LoadScene(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SceneManager.LoadScene(1);
-        }
+       
+    }
+    public void EscenaJuego()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void SalirDelJuego()
+    {
+
+            // Si estás en una compilación independiente (por ejemplo, una aplicación ejecutable), usa Application.Quit()
+            Application.Quit();
+
     }
 }
 
