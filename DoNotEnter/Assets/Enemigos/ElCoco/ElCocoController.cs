@@ -111,24 +111,25 @@ public class ElCocoController : MonoBehaviour
     {
         try
         {
-            NavMeshHit closestHit;
-            if (NavMesh.SamplePosition(transform.position, out closestHit, 500, 1) && agent == null)
-            {
-                gameObject.AddComponent<NavMeshAgent>();
-            }
+            gameObject.AddComponent<NavMeshAgent>();
         }
         catch
         {
-            
+            Debug.Log("No c pudo");
         }
-        agent = GetComponent<NavMeshAgent>();
+        finally
+        {
+            agent = GetComponent<NavMeshAgent>();
+            Debug.Log("active and enabled: " + agent.isActiveAndEnabled + " on nav: " + agent.isOnNavMesh);
+        }
     }
     void WalkPath()
     {
+        if (agent == null) { Iniciar(); return; }
         if (pathToPlayerNodes.Count == 0) { if (hasSeenPlayer) { agent.destination = jugador.position; } return; }
         
         Debug.Log("active and enabled: " + agent.isActiveAndEnabled + " on nav: " + agent.isOnNavMesh);
-        if (agent.isActiveAndEnabled && agent.isOnNavMesh && agent != null)
+        if (agent.isActiveAndEnabled && agent.isOnNavMesh)
         {
             if(agent.isStopped || Vector3.Distance(transform.position, pathToPlayerNodes[0]) < 1.5f)
             {
