@@ -23,8 +23,8 @@ public class SaludJugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        killText.text ="Kills: "+ zombiesAsesinados.ToString();
-        hogueraText.text = "Numero de Hoguera: " + numHoguera.ToString();
+    //    killText.text ="Kills: "+ zombiesAsesinados.ToString();
+      //  hogueraText.text = "Numero de Hoguera: " + numHoguera.ToString();
         
         if (vida < 1)
         {

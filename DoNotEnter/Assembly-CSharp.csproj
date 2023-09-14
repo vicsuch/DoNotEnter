@@ -161,6 +161,7 @@
     <Compile Include="Assets\Descartes\Standard Assets\Vehicles\Car\Scripts\SkidTrail.cs" />
     <Compile Include="Assets\Descartes\Standard Assets\Vehicles\Car\Scripts\Suspension.cs" />
     <Compile Include="Assets\Descartes\Standard Assets\Vehicles\Car\Scripts\WheelEffects.cs" />
+    <Compile Include="Assets\Enemigos\ejemplo.cs" />
     <Compile Include="Assets\Enemigos\ElCoco\ElCocoController.cs" />
     <Compile Include="Assets\Enemigos\Muñeco\MuñecoController.cs" />
     <Compile Include="Assets\Enemigos\vidaenemigo.cs" />

@@ -7,7 +7,7 @@ public class vidaenemigo : MonoBehaviour
     public GameObject jugador;
     public int vida_zombie = 100;
     public  SaludJugador componenteEncontrado;
-    [SerializeField] private int dañoPorFuego = 4;
+    [SerializeField] private int dañoPorFuego = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,10 @@ public class vidaenemigo : MonoBehaviour
     {
         Debug.Log("parti");
         if(other.CompareTag("Fuego"))
+        {
+            RestarVida(dañoPorFuego);
+        }
+        else
         {
             RestarVida(dañoPorFuego);
         }
