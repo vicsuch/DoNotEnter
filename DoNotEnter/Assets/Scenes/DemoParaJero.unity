@@ -492,6 +492,11 @@ PrefabInstance:
       propertyPath: particleSystem
       value: 
       objectReference: {fileID: 1749644415}
+    - target: {fileID: 8879658806652183667, guid: 7e1ad0d97de0ea04fbf784dca8ce99a2,
+        type: 3}
+      propertyPath: damageAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8879658806652183670, guid: 7e1ad0d97de0ea04fbf784dca8ce99a2,
         type: 3}
       propertyPath: m_Name
@@ -1291,7 +1296,6 @@ GameObject:
   - component: {fileID: 1691447810}
   - component: {fileID: 1691447809}
   - component: {fileID: 1691447814}
-  - component: {fileID: 1691447813}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1371,22 +1375,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1691447813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691447808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d332b902580250643ba9e89a6575241a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugador: {fileID: 490610203}
-  vida_zombie: 100
-  componenteEncontrado: {fileID: 0}
-  "da\xF1oPorFuego": 100
 --- !u!54 &1691447814
 Rigidbody:
   m_ObjectHideFlags: 0

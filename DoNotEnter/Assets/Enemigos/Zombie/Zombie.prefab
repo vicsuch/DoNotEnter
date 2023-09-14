@@ -393,4 +393,4 @@ MonoBehaviour:
   jugador: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
   vida_zombie: 100
   componenteEncontrado: {fileID: 0}
-  "da\xF1oPorFuego": 4
+  "da\xF1oPorFuego": 5

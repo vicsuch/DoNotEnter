@@ -40,7 +40,7 @@ public class vidaenemigo : MonoBehaviour
         }
         else
         {
-            RestarVida(dañoPorFuego);
+            RestarVida(100);
         }
     }
 }
