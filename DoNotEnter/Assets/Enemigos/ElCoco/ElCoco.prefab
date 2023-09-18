@@ -201,7 +201,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
+  m_Speed: 23
   m_Acceleration: 300
   avoidancePriority: 49
   m_AngularSpeed: 400
@@ -273,14 +273,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
   puntoParaAtacar: {fileID: 0}
-  maxNodeDistanceFromPrevious: 5
+  maxNodeDistanceFromPrevious: 4
   pathToPlayerNodes: []
-  maxNodeCant: 6
-  nodeSideOffset: 1
+  maxNodeCant: 7
+  nodeSideOffset: 3
   distanceBeforeEndingPath: 2
   maxRaycastDistance: 10
   raycastLayerNotIgnore:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2049
   hasSeenPlayer: 0
+  atackPosLerp: 0
   lerpTimeMultiplier: 0.1

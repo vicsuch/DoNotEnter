@@ -12,6 +12,7 @@ public class PlayerItemGrabber : MonoBehaviour
     [SerializeField] private int secondaryNum = 0;
     [SerializeField] private Transform puntoDeVista;
     [SerializeField] private List<GameObject> itemNearPlayer = new List<GameObject>();
+    [SerializeField] private GameObject CrossHair;
     private List<ItemData> itemNearPlayerData = new List<ItemData>();
     public GameObject[] gunSlots = new GameObject[3];
     private Transform[] gunLastParent = new Transform[3];
@@ -34,6 +35,30 @@ public class PlayerItemGrabber : MonoBehaviour
             GrabNearestItem();
         }
         GetButtons();
+        ThrowObject();
+    }
+    void ThrowObject()
+    {
+        if(CrossPlatformInputManager.GetButtonDown("Disparar") && !usingGunSlot && secondarySlots[secondaryNum] != null)
+        {
+            if(secondarySlots[secondaryNum].GetComponent<ItemData>().throwAble)
+            {
+                secondarySlots[secondaryNum].transform.SetParent(secondaryLastParent[secondaryNum]);
+                secondarySlots[secondaryNum] = null;
+                secondaryLastParent[secondaryNum] = null;
+            }
+        }
+    }
+    void ActivateCrossHair()
+    {
+        if(usingGunSlot && gunSlots[gunNum] != null)
+        {
+            CrossHair.SetActive(true);
+        }
+        else
+        {
+            CrossHair.SetActive(false);
+        }
     }
     void GetButtons()
     {
@@ -49,6 +74,7 @@ public class PlayerItemGrabber : MonoBehaviour
             {
                 secondarySlots[secondaryNum].SetActive(usingGunSlot);
             }
+            ActivateCrossHair();
         }
         bool[] itemKey = new bool[3];
         for(int i = 0; i < 3; i++)
@@ -71,6 +97,7 @@ public class PlayerItemGrabber : MonoBehaviour
                         gunSlots[gunNum].SetActive(true);
                     }
                 }
+                ActivateCrossHair();
             }
         }
         else

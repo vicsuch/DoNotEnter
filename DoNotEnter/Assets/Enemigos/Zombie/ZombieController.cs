@@ -105,6 +105,10 @@ public class ZombieController : MonoBehaviour
             }
         }
     }
+    void EnemigoRecibioDaño()
+    {
+        seeingPlayer = true;
+    }
 
     void UpdateDestination()
     {
@@ -114,6 +118,7 @@ public class ZombieController : MonoBehaviour
             if (agent.isOnNavMesh)
             {
                 agent.destination = destination;
+                Debug.DrawLine(transform.position, destination);
             }
         }
         else
@@ -131,7 +136,7 @@ public class ZombieController : MonoBehaviour
     }
     void MoveRandomly()
     {
-        destination = lastVelocity.normalized * Random.Range(1f, 3f) + new Vector3(Random.Range(-0.5f, 0.5f), 0f, Random.Range(-0.5f, 0.5f));
+        destination += lastVelocity.normalized * Random.Range(1f, 3f) + new Vector3(Random.Range(-0.5f, 0.5f), 0f, Random.Range(-0.5f, 0.5f));
         if(agent.isOnNavMesh)
         {
             agent.destination = destination;

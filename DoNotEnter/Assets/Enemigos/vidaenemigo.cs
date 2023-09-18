@@ -29,11 +29,11 @@ public class vidaenemigo : MonoBehaviour
     public void RestarVida(int amount)
     {
         vida_zombie -= amount;
+        BroadcastMessage("EnemigoRecibioDaño");
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("parti");
         if(other.CompareTag("Fuego"))
         {
             RestarVida(dañoPorFuego);

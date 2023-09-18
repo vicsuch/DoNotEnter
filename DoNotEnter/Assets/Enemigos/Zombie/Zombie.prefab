@@ -296,7 +296,7 @@ MonoBehaviour:
   randomMovementStarted: 0
   raycastLayerIgnore:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2049
   lastVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &8060215395346246366
 MonoBehaviour:
@@ -323,7 +323,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1.3
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 130

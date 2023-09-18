@@ -19,6 +19,7 @@ public class ElCocoController : MonoBehaviour
     bool isAtacking = false;
     [SerializeField] float atackPosLerp = 0f;
     [SerializeField] float lerpTimeMultiplier = 0.1f;
+    private Vector2 randomOffset;
     Vector3 startLerpPos;
     Quaternion startLerpRotation;
     Vector3 playerLastPosition = Vector3.zero;
@@ -26,7 +27,8 @@ public class ElCocoController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    /*    if(jugador == null)
+        randomOffset = new Vector2(Random.Range(-0.4f, 0.4f), Random.Range(-0.4f, 0.4f));
+        if(jugador == null)
         {
             jugador = GameObject.Find("FPSController").transform;
         }
@@ -34,10 +36,7 @@ public class ElCocoController : MonoBehaviour
         {
             puntoParaAtacar = GameObject.Find("PuntoParaCoco").transform;
         }
-        agent = GetComponent<NavMeshAgent>();*/
-    
-    
-    
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -59,6 +58,10 @@ public class ElCocoController : MonoBehaviour
             SeeingPlayer();
         }
     }
+    void EnemigoRecibioDaño()
+    {
+        hasSeenPlayer = true;
+    }
     void Death()
     {
         if(CrossPlatformInputManager.GetButtonDown("Interact") && atackPosLerp >= 1f)
@@ -70,7 +73,10 @@ public class ElCocoController : MonoBehaviour
     void EnemyLerpToPlayerFace()
     {
         Death();
-        transform.position = Vector3.Lerp(startLerpPos, puntoParaAtacar.position, atackPosLerp);
+        Vector3 pos = puntoParaAtacar.position;
+        pos += randomOffset.y * puntoParaAtacar.forward;
+        pos += randomOffset.x * puntoParaAtacar.right;
+        transform.position = Vector3.Lerp(startLerpPos, pos, atackPosLerp);
         transform.rotation = Quaternion.Lerp(startLerpRotation, puntoParaAtacar.rotation, atackPosLerp);
         atackPosLerp += Time.deltaTime * lerpTimeMultiplier;
     }
@@ -85,9 +91,11 @@ public class ElCocoController : MonoBehaviour
     void IsAtackActive()
     {
         if (isAtacking) { return; }
-        DeactivateColliders();
+
         if (Vector3.Distance(jugador.transform.position, transform.position) < 1f)
         {
+            jugador.GetComponent<SaludJugador>().AtaqueCoco();
+            DeactivateColliders();
             isAtacking = true;
             startLerpPos = transform.position;
             startLerpRotation = transform.rotation;

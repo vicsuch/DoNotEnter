@@ -10,6 +10,8 @@ public class checkPoints : MonoBehaviour
     public int numeroDeHoguera;
     SaludJugador comprobacion;
     public GameObject hijo;
+    [SerializeField] GameObject[] objetosParaAparecer;
+
 
     void Update()
     {
@@ -21,7 +23,7 @@ public class checkPoints : MonoBehaviour
         {
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 
-            if (distanceToPlayer <= distanceThreshold &&comprobacion.zombiesAsesinados>=minimoActivar)
+            if (distanceToPlayer <= distanceThreshold && comprobacion.zombiesAsesinados>=minimoActivar)
             {
                 SaludJugador playerScript = player.GetComponent<SaludJugador>();
                 if (playerScript != null)
@@ -29,8 +31,16 @@ public class checkPoints : MonoBehaviour
                     playerScript.ChangeVariable(targetPosition);
                     playerScript.ChangeVariableHoguera(numeroDeHoguera);
                     hijo.SetActive(true);
+                    ActivarObjetos();
                 }
             }
+        }
+    }
+    void ActivarObjetos()
+    {
+        for (int i = 0; i < objetosParaAparecer.Length; i++)
+        {
+            objetosParaAparecer[i].SetActive(true);
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
+
 
 public class ParticulasGranada : MonoBehaviour
 
@@ -11,18 +13,18 @@ public class ParticulasGranada : MonoBehaviour
     private bool thrown = false;
     private Transform originalParent;
     private bool particlesActive = false;
+    private ItemData itemData;
     public bool unaVez=true;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        itemData = GetComponent<ItemData>();
         originalParent = transform.parent;
     }
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("jhaid");
-        // Verificar si el objeto colisionado es un enemigo (puedes ajustar esto según tus tags o componentes).
         vidaenemigo enemy = other.GetComponent<vidaenemigo>();
         if (enemy != null)
         {
@@ -34,7 +36,7 @@ public class ParticulasGranada : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J) && !thrown)
+        if (CrossPlatformInputManager.GetButtonDown("Disparar") && !thrown && itemData.isGrabbed)
         {
             Throw();
         }

@@ -9,7 +9,8 @@ public class InstanciadorEnemigo : MonoBehaviour
     [SerializeField] float spawnRadius;
     [SerializeField] Transform jugador;
     [SerializeField] List<Transform> objetosGenerados = new List<Transform>();
-    [SerializeField] float chanceOfSpawningPerSecond = 1f;
+    [SerializeField] float tiempoDeEsperaParaSpawn = 1f;
+    float tiempo = 0f;
 
     void Start()
     {
@@ -29,18 +30,17 @@ public class InstanciadorEnemigo : MonoBehaviour
                 objetosGenerados.RemoveAt(i);
             }
         }
-        if(objetosGenerados.Count < maxObjects)
-        {
-            TryToInstanciate();
-        }
+        
+        TryToInstanciate();
+        
     }
     void TryToInstanciate()
     {
-        float a = Random.Range(0f, 1f);
-        Debug.Log("TRIED");
-        if(a < chanceOfSpawningPerSecond / Time.deltaTime)
+        tiempo += Time.deltaTime;
+        if(tiempo >= tiempoDeEsperaParaSpawn && objetosGenerados.Count < maxObjects)
         {
             InstanciarObjeto();
+            tiempo = 0f;
         }
     }
     void InstanciarObjeto()

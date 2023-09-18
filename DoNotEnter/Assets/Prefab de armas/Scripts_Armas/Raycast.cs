@@ -6,7 +6,10 @@ using UnityStandardAssets.CrossPlatformInput;
 [RequireComponent(typeof(ItemData))]
 public class Raycast : MonoBehaviour
 {
+    [SerializeField] private int maxDamage = 50;
+    [SerializeField] private int minDamage = 30;
     [SerializeField] private ItemData itemData; //asignar a la camara
+    [SerializeField] private LayerMask ObjetosQueLePuedeDisparar;
     private bool isCoolDownOver = true;
     private float coolDownInSeconds = 0.1f;
 
@@ -20,7 +23,7 @@ public class Raycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Disparar") && isCoolDownOver && itemData.isGrabbed) // cambiar a click
+        if (CrossPlatformInputManager.GetButtonDown("Disparar") && isCoolDownOver && itemData.isGrabbed && itemData.balasRestantes > 0) // cambiar a click
         {
             Disparar();
         }
@@ -29,7 +32,8 @@ public class Raycast : MonoBehaviour
     void Disparar()
     {
         isCoolDownOver = false;
-        if(itemData.puntoDeVista == null)
+        itemData.balasRestantes--;
+        if (itemData.puntoDeVista == null)
         {
             Debug.Log("No se asigno el punto de disparo en la arma: " + this.name);
             return;
@@ -39,7 +43,7 @@ public class Raycast : MonoBehaviour
         Debug.DrawLine(itemData.puntoDeVista.position, itemData.puntoDeVista.position + (itemData.puntoDeVista.forward * alcance));
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(rayo, out hitInfo, alcance))
+        if (Physics.Raycast(rayo, out hitInfo, alcance, ObjetosQueLePuedeDisparar))
         {
             //accede al script del enemigo
             //  GameObject objetoImpactado = hitInfo.collider.gameObject;
@@ -47,7 +51,7 @@ public class Raycast : MonoBehaviour
             Debug.Log(hitInfo.collider.gameObject.name);
             vidaenemigo vidzom = hitInfo.collider.gameObject.GetComponent<vidaenemigo>();
             // baja vida
-            int puntuacion = Random.Range(20, 40);
+            int puntuacion = Random.Range(minDamage, maxDamage);
            
             if (vidzom != null)
             {

@@ -35,7 +35,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private Camera m_Camera;
         private bool m_Jump;
         private float m_YRotation;
-        [SerializeField] private Vector2 m_Input;
+        private Vector2 m_Input;
         private CharacterController m_CharacterController;
         private CollisionFlags m_CollisionFlags;
         private bool m_PreviouslyGrounded;
@@ -72,6 +72,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+            //Debug.Log(CrossPlatformInputManager.GetButtonDown("Mouse X") + " - " + CrossPlatformInputManager.GetButtonDown("Mouse Y"));
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump && (m_CharacterController.isGrounded || !m_DoubleJumped))
