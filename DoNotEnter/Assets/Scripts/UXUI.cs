@@ -30,8 +30,12 @@ public class UXUI : MonoBehaviour
        
         float fillAmount = componenteenc.vida / 100.0f;
         healthBarFill.fillAmount = fillAmount;
-        objetoMano=numin.PasarArma().name;
-        balas.text = "Blasa: "+ numin.PasarArma().GetComponent<ItemData>().balasRestantes.ToString();
+        if (numin.PasarArma() != null)
+        {
+            objetoMano = numin.PasarArma().name;
+            balas.text = "Blasa: " + numin.PasarArma().GetComponent<ItemData>().balasRestantes.ToString();
+
+        }
 
 
     }
