@@ -11,8 +11,12 @@ public class checkPoints : MonoBehaviour
     SaludJugador comprobacion;
     public GameObject hijo;
     [SerializeField] GameObject[] objetosParaAparecer;
-
-
+    AudioSource audiolas;
+    int a = 0;
+    private void Start()
+    {
+        audiolas = gameObject.GetComponent<AudioSource>();
+    }
     void Update()
     {
         // Encuentra el objeto del jugador por su etiqueta (asegúrate de etiquetar al jugador como "Player")
@@ -25,9 +29,18 @@ public class checkPoints : MonoBehaviour
 
             if (distanceToPlayer <= distanceThreshold && comprobacion.zombiesAsesinados>=minimoActivar)
             {
+               
                 SaludJugador playerScript = player.GetComponent<SaludJugador>();
                 if (playerScript != null)
                 {
+
+                    if (a == 0)
+                    {
+                        musica();
+                        a++;
+                    }
+                    Debug.Log("Empieza el audio");
+                
                     playerScript.ChangeVariable(targetPosition);
                     playerScript.ChangeVariableHoguera(numeroDeHoguera);
                     hijo.SetActive(true);
@@ -35,6 +48,10 @@ public class checkPoints : MonoBehaviour
                 }
             }
         }
+    }
+    void musica()
+    {
+        audiolas.Play();
     }
     void ActivarObjetos()
     {

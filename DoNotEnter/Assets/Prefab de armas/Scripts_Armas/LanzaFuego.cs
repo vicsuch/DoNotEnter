@@ -8,12 +8,13 @@ public class LanzaFuego : MonoBehaviour
 {
     [SerializeField] private ParticleSystem fuego;
     [SerializeField] private float duracionDeDisparo;
-
+    [SerializeField] AudioSource audiolas;
     private ItemData itemData;
 
     // Start is called before the first frame update
     void Start()
     {
+        audiolas = gameObject.GetComponent<AudioSource>();
         itemData = GetComponent<ItemData>();
     }
 
@@ -22,6 +23,7 @@ public class LanzaFuego : MonoBehaviour
     {
         if (gameObject.GetComponent<ItemData>().balasRestantes>0&&CrossPlatformInputManager.GetButton("Disparar") && itemData.isGrabbed && itemData.balasRestantes > 0 && !fuego.isEmitting) // cambiar a click
         {
+            audiolas.Play();
             ShootFlame();
             gameObject.GetComponent<ItemData>().balasRestantes--;
         }
@@ -33,6 +35,7 @@ public class LanzaFuego : MonoBehaviour
     }
     private void StopFlame()
     {
+        audiolas.Stop();
         fuego.Stop();
     }
 }

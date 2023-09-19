@@ -15,10 +15,12 @@ public class ParticulasGranada : MonoBehaviour
     private bool particlesActive = false;
     private ItemData itemData;
     public bool unaVez=true;
+    AudioSource audiolas;
 
     // Start is called before the first frame update
     void Start()
     {
+        audiolas = gameObject.GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
         itemData = GetComponent<ItemData>();
         originalParent = transform.parent;
@@ -68,6 +70,7 @@ public class ParticulasGranada : MonoBehaviour
         yield return new WaitForSeconds(1f);
         particlesActive = true;
         particleSystem.Play();
+        audiolas.Play();
         StartCoroutine(Destruir(gameObject));
 
     }
@@ -90,7 +93,7 @@ public class ParticulasGranada : MonoBehaviour
     }
     private IEnumerator Destruir(GameObject explosivo)
     {
-        yield return new WaitForSeconds(10.2f); // Adjust the delay as needed
+        yield return new WaitForSeconds(5.2f); // Adjust the delay as needed
         Destroy(gameObject);
     }
 }
