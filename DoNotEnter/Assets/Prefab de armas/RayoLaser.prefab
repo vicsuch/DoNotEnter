@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1123102920155077399}
   - component: {fileID: 1123102920155077394}
   - component: {fileID: 1123102920155077385}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RayoLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,8 @@ MonoBehaviour:
   isGun: 1
   puntoDeVista: {fileID: 0}
   isGrabbed: 0
-  balasRestantes: 0
+  balasRestantes: 20
+  throwAble: 0
 --- !u!135 &1123102920155077399
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -92,10 +93,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 20
-  damage: 11
+  damage: 400
   damageVarietion: 10
   laserPersistanceInSeconds: 0.1
-  coolDownInSeconds: 10
+  coolDownInSeconds: 7
 --- !u!120 &1123102920155077385
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -219,17 +220,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: tirador2
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 42543cb1c793f2d4490533450432cb8d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 42543cb1c793f2d4490533450432cb8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 42543cb1c793f2d4490533450432cb8d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 42543cb1c793f2d4490533450432cb8d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 42543cb1c793f2d4490533450432cb8d, type: 3}
       propertyPath: m_LocalRotation.x
