@@ -153,10 +153,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     velocity = Vector3.zero;
                 }
                 m_DoubleJumped = false;
-
+                m_Jumping = false;
                 if (m_Jump)
                 {
-                    m_MoveDir.y = m_JumpSpeed;
+                    velocity.y = m_DoubleJumpSpeed;
                     PlayJumpSound();
                     m_Jump = false;
                     m_Jumping = true;
