@@ -10,7 +10,7 @@ public class rayoLaser : MonoBehaviour
     [SerializeField] private int damageVarietion;
     [SerializeField] private float laserPersistanceInSeconds;
     [SerializeField] private float coolDownInSeconds;
-
+    [SerializeField] AudioSource audiolas;
     private bool isCoolDownOver = true;
     private ItemData itemData;
     private LineRenderer lineRenderer;
@@ -21,6 +21,7 @@ public class rayoLaser : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
         itemData = GetComponent<ItemData>();
         lineRenderer.enabled = false;
+        audiolas = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,7 +31,12 @@ public class rayoLaser : MonoBehaviour
         {
             ShootLaser();
             gameObject.GetComponent<ItemData>().balasRestantes--;
+            disparolaser();
         }
+    }
+    public void disparolaser()
+    {
+        audiolas.Play();
     }
     void ShootLaser()
     {

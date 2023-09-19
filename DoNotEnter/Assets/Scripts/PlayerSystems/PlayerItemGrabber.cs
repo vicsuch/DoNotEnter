@@ -204,4 +204,9 @@ public class PlayerItemGrabber : MonoBehaviour
             }
         }
     }
+    public GameObject PasarArma()
+    {
+
+        return gunSlots[gunNum];
+    }
 }
