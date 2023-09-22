@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5825352822371167549}
   m_Layer: 0
   m_Name: Pistola
-  m_TagString: Untagged
+  m_TagString: gunsTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   ObjetosQueLePuedeDisparar:
     serializedVersion: 2
     m_Bits: 0
+  audio: {fileID: 0}
   alcance: 100
 --- !u!82 &5825352822371167549
 AudioSource:
