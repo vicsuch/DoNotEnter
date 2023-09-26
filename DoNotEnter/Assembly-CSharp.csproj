@@ -189,9 +189,13 @@
     <Compile Include="Assets\Scripts\sissalud\checkPoints.cs" />
     <Compile Include="Assets\Scripts\sissalud\SaludJugador.cs" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <Compile Include="Assets\Scripts\sol.cs" />
     <Compile Include="Assets\Scripts\UXUI.cs" />
 =======
+>>>>>>> Stashed changes
+=======
+    <Compile Include="Assets\Scripts\UXUI.cs" />
 >>>>>>> Stashed changes
     <None Include="Assets\Descartes\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Descartes\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< Updated upstream
 - path: Assets/Scenes/EscenaIsla.unity
+=======
+- path: Assets/Scenes/DemoParaJero.unity
+>>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
