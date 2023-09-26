@@ -79,9 +79,9 @@ public class ParticulasGranada : MonoBehaviour
     {
         particlesActive = true;
         particleSystem.Play();
-       // StartCoroutine(StopParticlesAfterDuration());
+        // StartCoroutine(StopParticlesAfterDuration());
 
-        StartCoroutine(Destruir(gameObject));
+        Destroy(gameObject);
 
 
     }
@@ -93,7 +93,7 @@ public class ParticulasGranada : MonoBehaviour
     }
     private IEnumerator Destruir(GameObject explosivo)
     {
-        yield return new WaitForSeconds(5.2f); // Adjust the delay as needed
+        yield return new WaitForSeconds(1.2f); // Adjust the delay as needed
         Destroy(gameObject);
     }
 }

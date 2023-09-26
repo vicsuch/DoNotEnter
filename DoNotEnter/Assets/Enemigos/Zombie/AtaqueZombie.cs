@@ -13,9 +13,11 @@ public class AtaqueZombie : MonoBehaviour
     Transform transformAtacar;
     bool atackStarted;
     private float atackTimer;
+    public animacionzombie animscript;
     // Start is called before the first frame update
     void Start()
     {
+        
         atackTimer = Time.time;
         agent = GetComponent<NavMeshAgent>();
         controller = GetComponent<ZombieController>();
@@ -41,6 +43,7 @@ public class AtaqueZombie : MonoBehaviour
             a.AddForce(transform.forward * knockBackFoward + transform.up * knockBackUp);
             Debug.Log("abc");
             saludPlayer.AtatqueZombie();
+            animscript.animationpegar();
         }
         atackStarted = false;
     }
