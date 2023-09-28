@@ -1338,17 +1338,17 @@ PrefabInstance:
         type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 1882808803}
+      objectReference: {fileID: 0}
     - target: {fileID: 1584211726132154981, guid: 8eaf0786ff507054fab75e6e3bc14f18,
         type: 3}
       propertyPath: animscript
       value: 
-      objectReference: {fileID: 998805497}
+      objectReference: {fileID: 1779194262}
     - target: {fileID: 3298286081262604329, guid: 8eaf0786ff507054fab75e6e3bc14f18,
         type: 3}
       propertyPath: animzombiescript
       value: 
-      objectReference: {fileID: 998805497}
+      objectReference: {fileID: 1779194262}
     - target: {fileID: 4655778542382139892, guid: 8eaf0786ff507054fab75e6e3bc14f18,
         type: 3}
       propertyPath: jugador
@@ -1368,6 +1368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060215395346246337, guid: 8eaf0786ff507054fab75e6e3bc14f18,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8060215395346246363, guid: 8eaf0786ff507054fab75e6e3bc14f18,
         type: 3}
@@ -1608,18 +1613,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1496649969}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &998805497 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1172140713398922897, guid: 8eaf0786ff507054fab75e6e3bc14f18,
-    type: 3}
-  m_PrefabInstance: {fileID: 668020259}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c4cb8c9987fd140bb4e6d28bf4a44a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1003163370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6326778941534722919, guid: 3c44dcef3d364ca478b67df8b3f17f32,
@@ -2925,6 +2918,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1779194262 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5119194542452004131, guid: 8eaf0786ff507054fab75e6e3bc14f18,
+    type: 3}
+  m_PrefabInstance: {fileID: 668020259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c4cb8c9987fd140bb4e6d28bf4a44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1783065830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3242,12 +3247,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300006, guid: 3f9e4d0bb740bd9438e911c1e34614cd, type: 3}
---- !u!95 &1882808803 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7477700808207737708, guid: 8eaf0786ff507054fab75e6e3bc14f18,
-    type: 3}
-  m_PrefabInstance: {fileID: 668020259}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1909390291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: 3f9e4d0bb740bd9438e911c1e34614cd,
@@ -3851,7 +3850,7 @@ PrefabInstance:
     - target: {fileID: 8393948590705501803, guid: b37ac0d6d8aa20941917920ed60efdbb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b37ac0d6d8aa20941917920ed60efdbb, type: 3}

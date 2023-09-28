@@ -18,6 +18,7 @@ public class vidaenemigo : MonoBehaviour
        //SaludJugador componenteEncontrado = FindObjectOfType<SaludJugador>();
        jugador= GameObject.Find("FPSController");
        componenteEncontrado = jugador.GetComponent<SaludJugador>();
+        animzombiescript = transform.GetChild(1).gameObject.GetComponent<animacionzombie>();
     }
 
     // Update is called once per frame

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class animacionzombie : MonoBehaviour
 {
     public Animator anim;
+    NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,9 +14,14 @@ public class animacionzombie : MonoBehaviour
     }
 
     // Update is called once per frame
+    public void asignarnav(NavMeshAgent agen)
+    {
+        agent = agen;
+
+    }
     void Update()
     {
-        
+        anim.SetFloat("velocidad", agent.velocity.magnitude);
     }
     public void animationpegar()
     {
