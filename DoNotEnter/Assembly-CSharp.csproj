@@ -180,6 +180,7 @@
     <Compile Include="Assets\Prefab de armas\Scripts_Armas\ParticulasGranada.cs" />
     <Compile Include="Assets\Prefab de armas\Scripts_Armas\Raycast.cs" />
     <Compile Include="Assets\Prefab de armas\Scripts_Armas\rayoLaser.cs" />
+    <Compile Include="Assets\Scripts\aparicionUI.cs" />
     <Compile Include="Assets\Scripts\Ciclodianoche.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\ItemData.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\PlayerItemGrabber.cs" />

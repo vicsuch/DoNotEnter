@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8200000}
   m_Layer: 0
   m_Name: FPSController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,6 +337,7 @@ MonoBehaviour:
   secondaryNum: 0
   puntoDeVista: {fileID: 400002}
   itemNearPlayer: []
+  CrossHair: {fileID: 0}
   gunSlots:
   - {fileID: 0}
   - {fileID: 0}
@@ -360,6 +361,7 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: 2, z: 0}
   controller: {fileID: 0}
   zombiesAsesinados: 0
+  numHoguera: 0
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 0
