@@ -11,12 +11,13 @@ public class PlayerItemGrabber : MonoBehaviour
     [SerializeField] private int gunNum = 0;
     [SerializeField] private int secondaryNum = 0;
     [SerializeField] private Transform puntoDeVista;
+    [SerializeField] private List<GameObject> itemNearPlayer = new List<GameObject>();
+    [SerializeField] private GameObject CrossHair;
+    private List<ItemData> itemNearPlayerData = new List<ItemData>();
     public GameObject[] gunSlots = new GameObject[3];
     private Transform[] gunLastParent = new Transform[3];
     public GameObject[] secondarySlots = new GameObject[2];
     private Transform[] secondaryLastParent = new Transform[2];
-    private List<GameObject> itemNearPlayer = new List<GameObject>();
-    private List<ItemData> itemNearPlayerData = new List<ItemData>();
     private bool interactKey = false;
 
     // Start is called before the first frame update
@@ -34,6 +35,30 @@ public class PlayerItemGrabber : MonoBehaviour
             GrabNearestItem();
         }
         GetButtons();
+        ThrowObject();
+    }
+    void ThrowObject()
+    {
+        if(CrossPlatformInputManager.GetButtonDown("Disparar") && !usingGunSlot && secondarySlots[secondaryNum] != null)
+        {
+            if(secondarySlots[secondaryNum].GetComponent<ItemData>().throwAble)
+            {
+                secondarySlots[secondaryNum].transform.SetParent(secondaryLastParent[secondaryNum]);
+                secondarySlots[secondaryNum] = null;
+                secondaryLastParent[secondaryNum] = null;
+            }
+        }
+    }
+    void ActivateCrossHair()
+    {
+        if(usingGunSlot && gunSlots[gunNum] != null)
+        {
+            CrossHair.SetActive(true);
+        }
+        else
+        {
+            CrossHair.SetActive(false);
+        }
     }
     void GetButtons()
     {
@@ -49,6 +74,7 @@ public class PlayerItemGrabber : MonoBehaviour
             {
                 secondarySlots[secondaryNum].SetActive(usingGunSlot);
             }
+            ActivateCrossHair();
         }
         bool[] itemKey = new bool[3];
         for(int i = 0; i < 3; i++)
@@ -71,6 +97,7 @@ public class PlayerItemGrabber : MonoBehaviour
                         gunSlots[gunNum].SetActive(true);
                     }
                 }
+                ActivateCrossHair();
             }
         }
         else
@@ -103,20 +130,20 @@ public class PlayerItemGrabber : MonoBehaviour
                 {
                     gunSlots[gunNum] = itemNearPlayer[nearestObject];
                     gunLastParent[gunNum] = itemNearPlayer[nearestObject].transform.parent;
-                    itemNearPlayerData[nearestObject].puntoDeVista = puntoDeVista;
                     GrabingObjectSetup(gunSlots[gunNum]);
-                    itemNearPlayer.RemoveAt(nearestObject);
-                    itemNearPlayerData.RemoveAt(nearestObject);
                 }
                 else if(!usingGunSlot && !itemNearPlayerData[nearestObject].isGun)
                 {
                     secondarySlots[secondaryNum] = itemNearPlayer[nearestObject];
                     secondaryLastParent[secondaryNum] = itemNearPlayer[nearestObject].transform.parent;
-                    itemNearPlayerData[nearestObject].puntoDeVista = puntoDeVista;
                     GrabingObjectSetup(secondarySlots[secondaryNum]);
-                    itemNearPlayer.RemoveAt(nearestObject);
-                    itemNearPlayerData.RemoveAt(nearestObject);
                 }
+
+                itemNearPlayerData[nearestObject].puntoDeVista = puntoDeVista;
+                itemNearPlayerData[nearestObject].isGrabbed = true;
+
+                itemNearPlayer.RemoveAt(nearestObject);
+                itemNearPlayerData.RemoveAt(nearestObject);
             }
         }
         else
@@ -174,8 +201,12 @@ public class PlayerItemGrabber : MonoBehaviour
             {
                 itemNearPlayer.RemoveAt(i);
                 itemNearPlayerData.RemoveAt(i);
-                Debug.Log("exit");
             }
         }
+    }
+    public GameObject PasarArma()
+    {
+
+        return gunSlots[gunNum];
     }
 }
