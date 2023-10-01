@@ -12,6 +12,7 @@ public class MuñecoController : MonoBehaviour
     [SerializeField] float ValidHidingPlaceMinDistance;
     [SerializeField] float ValidHidingPlaceMaxDistance;
     NavMeshAgent agent;
+    bool hasSeenPlayer = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +23,30 @@ public class MuñecoController : MonoBehaviour
     void Update()
     {
         RotateTowardsPlayer();
-        if(Input.GetKeyDown(KeyCode.B))
+        CheckForPlayer();
+        if(hasSeenPlayer)
         {
             CheckHidingPlaces();
             SelectHidingPlace();
+        }
+    }
+    void CheckForPlayer()
+    {
+        if(hasSeenPlayer)
+        {
+            return;
+        }
+        RaycastHit hit;
+        Physics.Raycast(
+            transform.position,
+            jugador.transform.position - transform.position,
+            out hit,
+            maxViewDistance,
+            raycastLayerNotIgnore,
+            QueryTriggerInteraction.Ignore);
+        if (hit.transform == jugador.transform)
+        {
+            hasSeenPlayer = true;
         }
     }
     void RotateTowardsPlayer()
@@ -48,7 +69,6 @@ public class MuñecoController : MonoBehaviour
         }
         agent.destination = validHidingPlaces[closest].position;
     }
-
     void CheckHidingPlaces()
     {
         validHidingPlaces = new List<Transform>();

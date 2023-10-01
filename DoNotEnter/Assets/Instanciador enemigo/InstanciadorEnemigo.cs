@@ -46,7 +46,7 @@ public class InstanciadorEnemigo : MonoBehaviour
     void InstanciarObjeto()
     {
         Transform a = Instantiate(objetoParaInstanciar, transform.position + (new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized * Random.Range(0, spawnRadius)), Quaternion.Euler(0f, Random.Range(-180f, 180f), 0f)).transform;
-        ZombieController o = a.GetComponent<ZombieController>();
+        ZombieController o = a.GetComponentInChildren<ZombieController>();
         if(o != null)
         {
             o.Instanciar(jugador);
