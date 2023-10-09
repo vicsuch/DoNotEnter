@@ -18,7 +18,11 @@ public class vidaenemigo : MonoBehaviour
        //SaludJugador componenteEncontrado = FindObjectOfType<SaludJugador>();
        jugador= GameObject.Find("FPSController");
        componenteEncontrado = jugador.GetComponent<SaludJugador>();
-        animzombiescript = transform.GetChild(1).gameObject.GetComponent<animacionzombie>();
+        if (CompareTag("zombietag"))
+        {
+            animzombiescript = transform.GetChild(1).gameObject.GetComponent<animacionzombie>();
+        }
+      
     }
 
     // Update is called once per frame
@@ -33,7 +37,16 @@ public class vidaenemigo : MonoBehaviour
     public void matarzombieanim()
     {
         movimiento.enabled = false;
-        animzombiescript.muerto();
+        if (CompareTag("zombietag"))
+        {
+            animzombiescript.muerto();
+        }
+        if (CompareTag("cocotag"))
+        {
+            componenteEncontrado.SumarMuerte();
+            Destroy(gameObject);
+        }
+           
         Invoke("matarzombie", 3);
     }
     public void matarzombie()

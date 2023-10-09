@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 4041585801198742329}
   m_Layer: 9
   m_Name: ElCoco
-  m_TagString: zombietag
+  m_TagString: cocotag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,6 +259,8 @@ MonoBehaviour:
   vida_zombie: 100
   componenteEncontrado: {fileID: 0}
   "da\xF1oPorFuego": 4
+  animzombiescript: {fileID: 0}
+  movimiento: {fileID: 0}
 --- !u!114 &4041585801198742329
 MonoBehaviour:
   m_ObjectHideFlags: 0

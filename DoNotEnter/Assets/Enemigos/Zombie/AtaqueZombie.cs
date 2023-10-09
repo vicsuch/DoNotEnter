@@ -15,6 +15,10 @@ public class AtaqueZombie : MonoBehaviour
     private float atackTimer;
     public animacionzombie animscript;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        saludPlayer = GameObject.Find("FPSController").GetComponent<SaludJugador>();
+    }
     void Start()
     {
         
