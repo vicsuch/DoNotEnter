@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class vidaenemigo : MonoBehaviour
 {
@@ -8,13 +9,16 @@ public class vidaenemigo : MonoBehaviour
     public int vida_zombie = 100;
     public  SaludJugador componenteEncontrado;
     [SerializeField] private int dañoPorFuego = 100;
-
+    public animacionzombie animzombiescript;
+    public NavMeshAgent movimiento;
     // Start is called before the first frame update
     void Start()
     {
+       movimiento = GetComponent<NavMeshAgent>();
        //SaludJugador componenteEncontrado = FindObjectOfType<SaludJugador>();
        jugador= GameObject.Find("FPSController");
        componenteEncontrado = jugador.GetComponent<SaludJugador>();
+        animzombiescript = transform.GetChild(1).gameObject.GetComponent<animacionzombie>();
     }
 
     // Update is called once per frame
@@ -22,9 +26,20 @@ public class vidaenemigo : MonoBehaviour
     {
         if (vida_zombie <= 0)
         {
-            componenteEncontrado.SumarMuerte();
-            Destroy(gameObject);
+           
+            matarzombieanim();
         }
+    }
+    public void matarzombieanim()
+    {
+        movimiento.enabled = false;
+        animzombiescript.muerto();
+        Invoke("matarzombie", 3);
+    }
+    public void matarzombie()
+    {
+        componenteEncontrado.SumarMuerte();
+        Destroy(gameObject);
     }
     public void RestarVida(int amount)
     {

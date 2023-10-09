@@ -71,6 +71,7 @@ public class ZombieController : MonoBehaviour
     }
     public void Instanciar(Transform j)
     {
+        Debug.Log("instancio");
         jugador = j;
     }
     void UpdateLineOfSight()
