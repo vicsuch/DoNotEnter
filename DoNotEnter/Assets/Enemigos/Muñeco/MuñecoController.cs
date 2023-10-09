@@ -11,6 +11,7 @@ public class MuñecoController : MonoBehaviour
     [SerializeField] LayerMask raycastLayerNotIgnore;
     [SerializeField] float ValidHidingPlaceMinDistance;
     [SerializeField] float ValidHidingPlaceMaxDistance;
+    [SerializeField] float maxViewDistance;
     NavMeshAgent agent;
     bool hasSeenPlayer = false;
     // Start is called before the first frame update
