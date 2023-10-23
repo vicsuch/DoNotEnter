@@ -62,6 +62,7 @@ public class vidaenemigo : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        Debug.Log("Onparticle collision");
         if(other.CompareTag("Fuego"))
         {
             RestarVida(dañoPorFuego);

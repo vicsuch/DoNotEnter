@@ -4239,8 +4239,14 @@ PrefabInstance:
     - target: {fileID: 8393948590705501802, guid: b37ac0d6d8aa20941917920ed60efdbb,
         type: 3}
       propertyPath: maxObjects
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8393948590705501802, guid: b37ac0d6d8aa20941917920ed60efdbb,
+        type: 3}
+      propertyPath: objetoParaInstanciar
+      value: 
+      objectReference: {fileID: 8060215395346246337, guid: 8eaf0786ff507054fab75e6e3bc14f18,
+        type: 3}
     - target: {fileID: 8393948590705501803, guid: b37ac0d6d8aa20941917920ed60efdbb,
         type: 3}
       propertyPath: m_Name
