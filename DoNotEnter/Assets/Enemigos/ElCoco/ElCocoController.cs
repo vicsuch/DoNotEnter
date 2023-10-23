@@ -37,6 +37,8 @@ public class ElCocoController : MonoBehaviour
             puntoParaAtacar = GameObject.Find("PuntoParaCoco").transform;
         }
         agent = GetComponent<NavMeshAgent>();
+
+
     }
 
     // Update is called once per frame

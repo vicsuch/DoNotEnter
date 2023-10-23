@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/granada.unity
+- path: Assets/Scenes/isla.unity
   isLoaded: 1
   isActive: 1
