@@ -22,6 +22,6 @@ public class cocoanimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("velocidad", agent.velocity.magnitude);
+        anim.SetFloat("velociti", agent.velocity.magnitude);
     }
 }
