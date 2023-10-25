@@ -11,7 +11,16 @@ public class MuñecoController : MonoBehaviour
     [SerializeField] LayerMask raycastLayerNotIgnore;
     [SerializeField] float ValidHidingPlaceMinDistance;
     [SerializeField] float ValidHidingPlaceMaxDistance;
+<<<<<<< Updated upstream
     [SerializeField] float maxViewDistance;
+=======
+    [SerializeField] bool hasSeenPlayer = false;
+    [SerializeField] float maxViewDistance;
+    [SerializeField] float fov;
+    [SerializeField] float backwardsStepDistance = 5f;
+    [SerializeField] float distanceToPlayerToStopEscaping = 2f;
+    [SerializeField] bool escaping = false;
+>>>>>>> Stashed changes
     NavMeshAgent agent;
     bool hasSeenPlayer = false;
     // Start is called before the first frame update
@@ -24,13 +33,20 @@ public class MuñecoController : MonoBehaviour
     void Update()
     {
         RotateTowardsPlayer();
+<<<<<<< Updated upstream
         CheckForPlayer();
         if(hasSeenPlayer)
+=======
+        if(SeeingPlayer())
+>>>>>>> Stashed changes
         {
             CheckHidingPlaces();
+            float distancia = Vector3.Distance(jugador.transform.position, transform.position);
             SelectHidingPlace();
+
         }
     }
+<<<<<<< Updated upstream
     void CheckForPlayer()
     {
         if(hasSeenPlayer)
@@ -49,14 +65,34 @@ public class MuñecoController : MonoBehaviour
         {
             hasSeenPlayer = true;
         }
+=======
+    bool SeeingPlayer()
+    {
+        if (hasSeenPlayer) { return true; }
+        RaycastHit hit;
+        Physics.Raycast(transform.position, jugador.transform.position - transform.position, out hit, maxViewDistance, raycastLayerNotIgnore, QueryTriggerInteraction.Ignore);
+        bool hasHit = false;
+        hasHit = hit.transform == jugador.transform;
+        if (!hasHit) { return false; }
+        Vector3 sideView = jugador.transform.position - transform.position;
+        Vector3 fow = transform.forward;
+        fow.y = 0;
+        sideView.y = 0;
+        float angle = Vector3.Angle(fow, sideView);
+        hasSeenPlayer = (hasHit && angle < fov && Vector3.Distance(transform.position, jugador.transform.position) < maxViewDistance);
+        return hasSeenPlayer;
+>>>>>>> Stashed changes
     }
     void RotateTowardsPlayer()
     {
+        if (!hasSeenPlayer) { return; }
         Vector3 dir = jugador.transform.position - transform.position;
-        transform.rotation = Quaternion.Euler(0f, Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg, 0f);
+        transform.rotation = Quaternion.Lerp(Quaternion.Euler(0f, Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg, 0f),transform.rotation, 0.4f * Time.deltaTime);
     }
     void SelectHidingPlace()
     {
+        if(validHidingPlaces.Count == 0) { WalkBackWards(); return; }
+        escaping = false;
         int closest = 0;
         float closestDistance = Vector3.Distance(validHidingPlaces[closest].position, jugador.transform.position);
         for (int i = 0; i < validHidingPlaces.Count; i++)
@@ -70,6 +106,41 @@ public class MuñecoController : MonoBehaviour
         }
         agent.destination = validHidingPlaces[closest].position;
     }
+<<<<<<< Updated upstream
+=======
+    void WalkBackWards()
+    {
+        if ((agent.remainingDistance > 1f && escaping) || distanceToPlayerToStopEscaping < Vector3.Distance(jugador.transform.position, transform.position)) { return; }
+        escaping = true;
+        agent.destination = ReflectRay(transform.position, transform.forward * -1f, backwardsStepDistance);
+    }
+    Vector3 ReflectRay(Vector3 start, Vector3 dir, float distance)
+    {
+        bool hasHit = Physics.Raycast(start, dir, out RaycastHit hit, distance, raycastLayerNotIgnore, QueryTriggerInteraction.Ignore);
+        if (!hasHit) 
+        {
+            Vector3 destination = start + dir * distance;
+            Debug.DrawLine(start, destination, Color.red, 2f);
+            return (destination);
+        }
+        float distanceRemainingToTravel = distance - Vector3.Distance(start, hit.point);
+        Vector3 newDir = dir;
+        Vector3 normal = hit.normal;
+        dir.y = 0;
+        normal.y = 0f;
+        dir.Normalize();
+        normal.Normalize();
+        newDir = Vector3.Reflect(newDir, normal);
+
+        Vector3 newDestination = ReflectRay(hit.point, newDir, distanceRemainingToTravel);
+        //Vector3 newDestination = hit.point;
+        
+        Debug.DrawLine(start, hit.point, Color.red, 10f);
+        Debug.DrawLine(hit.point, hit.point + normal * 2, Color.blue, 10f);
+
+        return newDestination;
+    }
+>>>>>>> Stashed changes
     void CheckHidingPlaces()
     {
         validHidingPlaces = new List<Transform>();

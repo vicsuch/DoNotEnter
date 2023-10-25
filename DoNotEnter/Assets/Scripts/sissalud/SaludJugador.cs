@@ -55,4 +55,8 @@ public class SaludJugador : MonoBehaviour
         Debug.Log("Sumar");
         zombiesAsesinados++; ;
     }
+    public void AtaqueProyectilMuñeco()
+    {
+        vida -= 20;
+    }
 }

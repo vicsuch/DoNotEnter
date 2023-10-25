@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 7984089423267914542}
   - component: {fileID: 1032378045532917709}
   - component: {fileID: 114737618393553306}
+  - component: {fileID: 3574877980870839449}
   - component: {fileID: 114477216782746292}
   m_Layer: 0
   m_Name: "Mu\xF1eco"
@@ -110,6 +111,7 @@ Transform:
   m_Children:
   - {fileID: 5776925793383776208}
   - {fileID: 907989583416919790}
+  - {fileID: 1802600221491268988}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -161,6 +163,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa6b79eba2fcbd46ab735db5e8b54fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
+  hidingPlaces: []
+  validHidingPlaces: []
+  raycastLayerNotIgnore:
+    serializedVersion: 2
+    m_Bits: 0
+  ValidHidingPlaceMinDistance: 0
+  ValidHidingPlaceMaxDistance: 0
+  hasSeenPlayer: 0
+  maxViewDistance: 0
+  fov: 0
+  backwardsStepDistance: 5
+  distanceToPlayerToStopEscaping: 2
+  escaping: 0
+--- !u!114 &3574877980870839449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7910820667712380066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda6afd68885a5f479ed0c934fff9712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jugador: {fileID: 0}
+  mano: {fileID: 0}
+  proyectil: {fileID: 8445680971688585732, guid: d9ae2a6ecc2d62340bf0e00d39f7018f,
+    type: 3}
+  atackForce: 0
+  atackCoolDownInSeconds: 0
+  seeingPlayer: 0
+  maxViewingDistance: 0
+  raycastLayerNotIgnore:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &114477216782746292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +216,8 @@ MonoBehaviour:
   vida_zombie: 100
   componenteEncontrado: {fileID: 0}
   "da\xF1oPorFuego": 4
+  animzombiescript: {fileID: 0}
+  movimiento: {fileID: 0}
 --- !u!1 &8385246698929326219
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8385246698929326219}
   m_LocalRotation: {x: 0.7928487, y: -0, z: -0, w: 0.60941863}
-  m_LocalPosition: {x: 0.298, y: 0, z: 0}
+  m_LocalPosition: {x: 0.298, y: -0.125, z: 0.167}
   m_LocalScale: {x: 0.1, y: 0.3, z: 0.1}
   m_Children: []
   m_Father: {fileID: 8350317348571276112}
@@ -254,3 +295,33 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &8728863634765358812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1802600221491268988}
+  m_Layer: 0
+  m_Name: Mano
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1802600221491268988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728863634765358812}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.706, y: 0.168, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8350317348571276112}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
