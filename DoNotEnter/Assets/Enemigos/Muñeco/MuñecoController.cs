@@ -11,18 +11,13 @@ public class MuñecoController : MonoBehaviour
     [SerializeField] LayerMask raycastLayerNotIgnore;
     [SerializeField] float ValidHidingPlaceMinDistance;
     [SerializeField] float ValidHidingPlaceMaxDistance;
-<<<<<<< Updated upstream
     [SerializeField] float maxViewDistance;
-=======
     [SerializeField] bool hasSeenPlayer = false;
-    [SerializeField] float maxViewDistance;
     [SerializeField] float fov;
     [SerializeField] float backwardsStepDistance = 5f;
     [SerializeField] float distanceToPlayerToStopEscaping = 2f;
     [SerializeField] bool escaping = false;
->>>>>>> Stashed changes
     NavMeshAgent agent;
-    bool hasSeenPlayer = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,12 +28,8 @@ public class MuñecoController : MonoBehaviour
     void Update()
     {
         RotateTowardsPlayer();
-<<<<<<< Updated upstream
         CheckForPlayer();
-        if(hasSeenPlayer)
-=======
         if(SeeingPlayer())
->>>>>>> Stashed changes
         {
             CheckHidingPlaces();
             float distancia = Vector3.Distance(jugador.transform.position, transform.position);
@@ -46,10 +37,9 @@ public class MuñecoController : MonoBehaviour
 
         }
     }
-<<<<<<< Updated upstream
     void CheckForPlayer()
     {
-        if(hasSeenPlayer)
+        if (hasSeenPlayer)
         {
             return;
         }
@@ -65,7 +55,8 @@ public class MuñecoController : MonoBehaviour
         {
             hasSeenPlayer = true;
         }
-=======
+    }
+
     bool SeeingPlayer()
     {
         if (hasSeenPlayer) { return true; }
@@ -81,7 +72,6 @@ public class MuñecoController : MonoBehaviour
         float angle = Vector3.Angle(fow, sideView);
         hasSeenPlayer = (hasHit && angle < fov && Vector3.Distance(transform.position, jugador.transform.position) < maxViewDistance);
         return hasSeenPlayer;
->>>>>>> Stashed changes
     }
     void RotateTowardsPlayer()
     {
@@ -106,8 +96,6 @@ public class MuñecoController : MonoBehaviour
         }
         agent.destination = validHidingPlaces[closest].position;
     }
-<<<<<<< Updated upstream
-=======
     void WalkBackWards()
     {
         if ((agent.remainingDistance > 1f && escaping) || distanceToPlayerToStopEscaping < Vector3.Distance(jugador.transform.position, transform.position)) { return; }
@@ -140,7 +128,6 @@ public class MuñecoController : MonoBehaviour
 
         return newDestination;
     }
->>>>>>> Stashed changes
     void CheckHidingPlaces()
     {
         validHidingPlaces = new List<Transform>();
