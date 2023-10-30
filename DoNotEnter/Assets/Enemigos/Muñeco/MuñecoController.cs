@@ -40,6 +40,7 @@ public class MuñecoController : MonoBehaviour
 
         }
     }
+   
     void CheckForPlayer()
     {
         if (hasSeenPlayer)

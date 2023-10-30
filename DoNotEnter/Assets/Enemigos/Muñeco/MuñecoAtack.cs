@@ -20,11 +20,14 @@ public class MuñecoAtack : MonoBehaviour
     {
         
     }
-
+    public void matarmunie()
+    {
+        anim.SetBool("muerto", true);
+    }
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("velocidad", velocidad);
+        anim.SetFloat("velocida", velocidad);
 
         IsSeeingPlayer();
         Debug.Log(seeingPlayer);

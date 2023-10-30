@@ -46,7 +46,12 @@ public class vidaenemigo : MonoBehaviour
             componenteEncontrado.SumarMuerte();
             Destroy(gameObject);
         }
-           
+        if (CompareTag("muniecotag"))
+        {
+            GetComponent<MuñecoAtack>().matarmunie();
+            
+        }
+
         Invoke("matarzombie", 3);
     }
     public void matarzombie()

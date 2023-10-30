@@ -8,6 +8,7 @@ TagManager:
   - cocotag
   - Fuego
   - gunsTag
+  - muniecotag
   layers:
   - Default
   - TransparentFX
