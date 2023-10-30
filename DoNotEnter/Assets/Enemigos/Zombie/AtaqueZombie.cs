@@ -15,13 +15,10 @@ public class AtaqueZombie : MonoBehaviour
     private float atackTimer;
     public animacionzombie animscript;
     // Start is called before the first frame update
-    private void Awake()
-    {
-        saludPlayer = GameObject.Find("FPSController").GetComponent<SaludJugador>();
-    }
+    
     void Start()
     {
-        
+        Debug.Log(saludPlayer);
         atackTimer = Time.time;
         agent = GetComponent<NavMeshAgent>();
         controller = GetComponent<ZombieController>();
@@ -47,8 +44,7 @@ public class AtaqueZombie : MonoBehaviour
             atackStarted = true;
             UnityStandardAssets.Characters.FirstPerson.FirstPersonController a = transformAtacar.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
             a.AddForce(transform.forward * knockBackFoward + transform.up * knockBackUp);
-            Debug.Log("abc");
-            saludPlayer.AtatqueZombie();
+            saludPlayer.AtaqueZombie();
             
         }
         atackStarted = false;
@@ -58,9 +54,10 @@ public class AtaqueZombie : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        saludPlayer = other.GetComponent<SaludJugador>();
-        if(saludPlayer != null)
+        SaludJugador nuevo = other.GetComponent<SaludJugador>();
+        if(nuevo)
         {
+            saludPlayer = nuevo;
             transformAtacar = other.transform;
             animscript.animationpegar();
             Invoke("Atack",0.8f);

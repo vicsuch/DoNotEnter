@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6354715697174094249}
   - component: {fileID: 7359425451120175515}
   - component: {fileID: 4465981444969767201}
+  - component: {fileID: 383163267583843676}
   m_Layer: 0
   m_Name: PrefabFogata
   m_TagString: Untagged
@@ -94,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   distanceThreshold: 5
-  minimoActivar: 0
+  minimoActivar: 4
   numeroDeHoguera: 0
   hijo: {fileID: 3982203455719607805}
   objetosParaAparecer: []
@@ -194,6 +195,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &383163267583843676
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354715697172168553}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25753042
+  m_Center: {x: -0.080803014, y: -0.0702957, z: -0.19543606}
 --- !u!1001 &4246605408711672092
 PrefabInstance:
   m_ObjectHideFlags: 0

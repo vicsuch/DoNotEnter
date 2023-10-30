@@ -22,17 +22,13 @@ public class SaludJugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
-        
         if (vida < 1)
         {
-           
             controller.enabled = false;
             transform.position = spawnPosition;
             controller.enabled = true;
             vida = 100;
         }
-     
     }
     public void ChangeVariable(Vector3 nuevoSpawn)
     {
@@ -42,7 +38,7 @@ public class SaludJugador : MonoBehaviour
     {
         numHoguera = numero_;
     }
-    public void AtatqueZombie()
+    public void AtaqueZombie()
     {
         vida -= 20;
     }
@@ -52,8 +48,7 @@ public class SaludJugador : MonoBehaviour
     }
     public void SumarMuerte()
     {
-        Debug.Log("Sumar");
-        zombiesAsesinados++; ;
+        zombiesAsesinados++;
     }
     public void AtaqueProyectilMuñeco()
     {

@@ -10,7 +10,17 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Tree_Spruce_small_01
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hojas
+    second: {fileID: 2100000, guid: f7cd625f3542f2b4babcee05d2dcba13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pino
+    second: {fileID: 2100000, guid: bf17ddd6195c0b94182845eb9d0d26e6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
