@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &5381294562458972603
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835670982575585772}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9e00a50d01c5aa4468ea4b6e454ad342, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2b8308233fc479f478402d2782af748b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7910820667712380066
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,6 +118,7 @@ MonoBehaviour:
   backwardsStepDistance: 5
   distanceToPlayerToStopEscaping: 2
   escaping: 0
+  scriptatack: {fileID: 0}
 --- !u!114 &3574877980870839449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda6afd68885a5f479ed0c934fff9712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocidad: 0
   jugador: {fileID: 0}
   mano: {fileID: 0}
   proyectil: {fileID: 8445680971688585732, guid: d9ae2a6ecc2d62340bf0e00d39f7018f,
@@ -121,6 +142,7 @@ MonoBehaviour:
   raycastLayerNotIgnore:
     serializedVersion: 2
     m_Bits: 0
+  anim: {fileID: 5381294562458972603}
 --- !u!114 &114477216782746292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +260,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91713a7a64b55a64aaaf5acd73652c10, type: 3}
+--- !u!1 &835670982575585772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 91713a7a64b55a64aaaf5acd73652c10,
+    type: 3}
+  m_PrefabInstance: {fileID: 835670982575619916}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &835670982575482316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 91713a7a64b55a64aaaf5acd73652c10,

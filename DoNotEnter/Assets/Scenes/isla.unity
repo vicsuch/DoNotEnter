@@ -292,6 +292,11 @@ PrefabInstance:
       propertyPath: maxViewingDistance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3574877980870839449, guid: 71094f5b8f94ac440bb2e96c4dd0a576,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1166039437}
     - target: {fileID: 7910820667712380066, guid: 71094f5b8f94ac440bb2e96c4dd0a576,
         type: 3}
       propertyPath: m_Name
@@ -1914,6 +1919,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6326778941534722919, guid: 3c44dcef3d364ca478b67df8b3f17f32,
     type: 3}
   m_PrefabInstance: {fileID: 1117524505}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1166039437 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5381294562458972603, guid: 71094f5b8f94ac440bb2e96c4dd0a576,
+    type: 3}
+  m_PrefabInstance: {fileID: 304880932}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1169962620
 PrefabInstance:

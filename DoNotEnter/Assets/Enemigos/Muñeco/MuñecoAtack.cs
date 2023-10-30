@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MuñecoAtack : MonoBehaviour
 {
+    public float velocidad;
     [SerializeField] Transform jugador;
     [SerializeField] Transform mano;
     [SerializeField] Transform proyectil;
@@ -12,6 +13,7 @@ public class MuñecoAtack : MonoBehaviour
     [SerializeField] float maxViewingDistance;
     [SerializeField] LayerMask raycastLayerNotIgnore;
     bool coolDownOver = true;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,8 @@ public class MuñecoAtack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        anim.SetFloat("velocidad", velocidad);
+
         IsSeeingPlayer();
         Debug.Log(seeingPlayer);
         if(seeingPlayer)
@@ -33,10 +37,22 @@ public class MuñecoAtack : MonoBehaviour
     void Atack()
     {
         if (!coolDownOver) { return; }
+        anim.SetBool("atac", true);
+        Invoke("spawnproyectil", 2.1f);
+    }
+    void spawnproyectil()
+    {
+        
         Transform proyectilActual = Instantiate(proyectil, mano.position, Quaternion.identity);
         proyectilActual.GetComponent<ProyectoMuñeco>().objetivo = jugador.position;
         coolDownOver = false;
         Invoke("CoolDownCountDown", atackCoolDownInSeconds);
+        Invoke("terminaranimacion", 1.9f);
+    }
+    
+    void terminaranimacion()
+    {
+        anim.SetBool("atac", false);
     }
 
     void CoolDownCountDown()
