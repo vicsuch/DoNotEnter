@@ -18,15 +18,18 @@ public class MuñecoController : MonoBehaviour
     [SerializeField] float distanceToPlayerToStopEscaping = 2f;
     [SerializeField] bool escaping = false;
     NavMeshAgent agent;
+    public MuñecoAtack scriptatack;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        scriptatack = GetComponent<MuñecoAtack>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        scriptatack.velocidad = agent.velocity.magnitude;
         RotateTowardsPlayer();
         CheckForPlayer();
         if(SeeingPlayer())
@@ -37,6 +40,7 @@ public class MuñecoController : MonoBehaviour
 
         }
     }
+   
     void CheckForPlayer()
     {
         if (hasSeenPlayer)

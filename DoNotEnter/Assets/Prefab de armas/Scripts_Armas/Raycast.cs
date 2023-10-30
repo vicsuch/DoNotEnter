@@ -11,10 +11,12 @@ public class Raycast : MonoBehaviour
     [SerializeField] private ItemData itemData; //asignar a la camara
     [SerializeField] private LayerMask ObjetosQueLePuedeDisparar;
     private bool isCoolDownOver = true;
-    private float coolDownInSeconds = 0.1f;
+    private float coolDownInSeconds = 0.4f;
     [SerializeField] AudioSource audio;
     public float alcance = 100f;
-
+    public Animator anim;
+   
+        
     private void Start()
     {
         audio = gameObject.GetComponent<AudioSource>();
@@ -23,10 +25,18 @@ public class Raycast : MonoBehaviour
     }
 
     // Update is called once per frame
+    void desactivo()
+    {
+        anim.SetBool("disparo", false);
+        isCoolDownOver = true;
+    }
     void Update()
     {
         if (CrossPlatformInputManager.GetButtonDown("Disparar") && isCoolDownOver && itemData.isGrabbed && itemData.balasRestantes > 0) // cambiar a click
         {
+            isCoolDownOver = false;
+            anim.SetBool("disparo", true);
+            Invoke("desactivo", 0.4f);
             Disparar();
             SonidoDisparo();
         }
