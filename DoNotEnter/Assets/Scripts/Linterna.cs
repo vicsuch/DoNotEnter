@@ -10,6 +10,6 @@ public class Linterna : MonoBehaviour
     void Update()
     {
         linterna.enabled = sol.forward.y > 0f;
-        Debug.Log(sol.forward.y);
+       
     }
 }

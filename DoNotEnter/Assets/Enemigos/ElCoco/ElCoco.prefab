@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4041585800137889855}
   - component: {fileID: 4041585801198742329}
   - component: {fileID: 3261936505302759914}
+  - component: {fileID: 8876930004210379107}
   m_Layer: 9
   m_Name: ElCoco
   m_TagString: cocotag
@@ -132,6 +133,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
+--- !u!65 &8876930004210379107
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6326778941534722941}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1788176687055675736
 MonoBehaviour:
   m_ObjectHideFlags: 0
