@@ -17,7 +17,7 @@ public class MuñecoController : MonoBehaviour
     [SerializeField] float backwardsStepDistance = 5f;
     [SerializeField] float distanceToPlayerToStopEscaping = 2f;
     [SerializeField] bool escaping = false;
-    NavMeshAgent agent;
+    [SerializeField] NavMeshAgent agent;
     public MuñecoAtack scriptatack;
     // Start is called before the first frame update
     void Start()

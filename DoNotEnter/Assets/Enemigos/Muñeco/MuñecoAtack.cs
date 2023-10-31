@@ -27,6 +27,7 @@ public class MuñecoAtack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("velocidad: " + velocidad);
         anim.SetFloat("velocida", velocidad);
 
         IsSeeingPlayer();
@@ -42,13 +43,14 @@ public class MuñecoAtack : MonoBehaviour
         if (!coolDownOver) { return; }
         anim.SetBool("atac", true);
         Invoke("spawnproyectil", 2.1f);
+        coolDownOver = false;
     }
     void spawnproyectil()
     {
         
         Transform proyectilActual = Instantiate(proyectil, mano.position, Quaternion.identity);
         proyectilActual.GetComponent<ProyectoMuñeco>().objetivo = jugador.position;
-        coolDownOver = false;
+    
         Invoke("CoolDownCountDown", atackCoolDownInSeconds);
         Invoke("terminaranimacion", 1.9f);
     }
