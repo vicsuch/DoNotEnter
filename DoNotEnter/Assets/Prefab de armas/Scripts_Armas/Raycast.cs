@@ -10,13 +10,14 @@ public class Raycast : MonoBehaviour
     [SerializeField] private int minDamage = 30;
     [SerializeField] private ItemData itemData; //asignar a la camara
     [SerializeField] private LayerMask ObjetosQueLePuedeDisparar;
+    [SerializeField] GameObject prefabdardo;
     private bool isCoolDownOver = true;
     private float coolDownInSeconds = 0.4f;
     [SerializeField] AudioSource audio;
     public float alcance = 100f;
     public Animator anim;
-   
-        
+
+
     private void Start()
     {
         audio = gameObject.GetComponent<AudioSource>();
@@ -45,7 +46,7 @@ public class Raycast : MonoBehaviour
     {
         audio.Play();
     }
-    
+
     void Disparar()
     {
         isCoolDownOver = false;
@@ -62,6 +63,14 @@ public class Raycast : MonoBehaviour
 
         if (Physics.Raycast(rayo, out hitInfo, alcance, ObjetosQueLePuedeDisparar))
         {
+            GameObject dardo = Instantiate(prefabdardo, hitInfo.point, Quaternion.identity);
+            dardo.transform.SetParent(hitInfo.collider.transform.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
+            Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
+            if (dardoRigidbody != null)
+            {
+                dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
+            }
+
             //accede al script del enemigo
             //  GameObject objetoImpactado = hitInfo.collider.gameObject;
             //  VidaZombie vidzom = objetoImpactado.GetComponent<VidaZombie>();
@@ -69,7 +78,7 @@ public class Raycast : MonoBehaviour
             vidaenemigo vidzom = hitInfo.collider.gameObject.GetComponent<vidaenemigo>();
             // baja vida
             int puntuacion = Random.Range(minDamage, maxDamage);
-           
+
             if (vidzom != null)
             {
                 vidzom.RestarVida(puntuacion);
