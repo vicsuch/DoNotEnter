@@ -8558,7 +8558,8 @@ PrefabInstance:
         type: 3}
       propertyPath: prefabdardo
       value: 
-      objectReference: {fileID: 1984870591}
+      objectReference: {fileID: 4082624881691889991, guid: 4071f8ec2947ee744b8ba9f1846d7ea2,
+        type: 3}
     - target: {fileID: 2246327062093051665, guid: bc46122932b4fc448b679fa1d5de13a0,
         type: 3}
       propertyPath: m_Radius

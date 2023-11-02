@@ -63,7 +63,9 @@ public class Raycast : MonoBehaviour
 
         if (Physics.Raycast(rayo, out hitInfo, alcance, ObjetosQueLePuedeDisparar))
         {
-            GameObject dardo = Instantiate(prefabdardo, hitInfo.point, Quaternion.identity);
+            Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
+
+            GameObject dardo = Instantiate(prefabdardo, hitInfo.point, dardoRotation);
             dardo.transform.SetParent(hitInfo.collider.transform.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
             Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
             if (dardoRigidbody != null)
