@@ -5,7 +5,6 @@ using UnityEngine;
 public class checkPoints : MonoBehaviour
 {
     public Vector3 targetPosition;
-    public float distanceThreshold = 5f; // Distancia umbral para el cambio
     public int minimoActivar;
     public int numeroDeHoguera;
     SaludJugador comprobacion;
@@ -25,9 +24,8 @@ public class checkPoints : MonoBehaviour
 
         if (player != null)
         {
-            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 
-            if (distanceToPlayer <= distanceThreshold && comprobacion.zombiesAsesinados>=minimoActivar)
+            if (comprobacion.zombiesAsesinados>=minimoActivar)
             {
                
                 SaludJugador playerScript = player.GetComponent<SaludJugador>();
