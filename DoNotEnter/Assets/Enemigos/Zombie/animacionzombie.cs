@@ -21,7 +21,11 @@ public class animacionzombie : MonoBehaviour
     }
     void Update()
     {
-        anim.SetFloat("velocidad", agent.velocity.magnitude);
+        if (gameObject.transform.parent != null)
+        {
+            anim.SetFloat("velocidad", agent.velocity.magnitude);
+        }
+       
     }
     public void animationpegar()
     {

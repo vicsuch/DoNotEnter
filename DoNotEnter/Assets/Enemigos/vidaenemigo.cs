@@ -11,6 +11,7 @@ public class vidaenemigo : MonoBehaviour
     [SerializeField] private int dañoPorFuego = 100;
     public animacionzombie animzombiescript;
     public NavMeshAgent movimiento;
+    [SerializeField]  bool muerto = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,13 +40,22 @@ public class vidaenemigo : MonoBehaviour
         movimiento.enabled = false;
         if (CompareTag("zombietag"))
         {
-            animzombiescript.muerto();
-            // Encuentra el GameObject hijo que deseas desligar
-            GameObject objetoHijo = gameObject.transform.GetChild(0).gameObject; // Cambia el índice (0) según tus necesidades
-            componenteEncontrado.SumarMuerte();
-            // Desliga el objeto hijo del objeto padre
-            objetoHijo.transform.parent = null;
-            Invoke("desmayo", 3);
+            if (muerto)
+            {
+
+            }
+            else
+            {
+                animzombiescript.muerto();
+                // Encuentra el GameObject hijo que deseas desligar
+                GameObject objetoHijo = gameObject.transform.GetChild(0).gameObject; // Cambia el índice (0) según tus necesidades
+
+                // Desliga el objeto hijo del objeto padre
+                objetoHijo.transform.parent = null;
+                Invoke("desmayo", 3);
+                muerto = true;
+            }
+            
         }
         if (CompareTag("cocotag"))
         {
@@ -59,12 +69,12 @@ public class vidaenemigo : MonoBehaviour
             Invoke("matarzombie", 3);
         }
 
-        Invoke("matarzombie", 3);
+    
 
     }
     public void desmayo()
     {
-
+        componenteEncontrado.SumarMuerte();
 
         // Destruye el objeto padre
         Destroy(gameObject);
