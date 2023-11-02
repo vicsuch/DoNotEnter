@@ -31,7 +31,6 @@ public class vidaenemigo : MonoBehaviour
     {
         if (vida_zombie <= 0)
         {
-
             matarzombieanim();
         }
     }
