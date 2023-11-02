@@ -7,22 +7,22 @@ public class vidaenemigo : MonoBehaviour
 {
     public GameObject jugador;
     public int vida_zombie = 100;
-    public  SaludJugador componenteEncontrado;
+    public SaludJugador componenteEncontrado;
     [SerializeField] private int dañoPorFuego = 100;
     public animacionzombie animzombiescript;
     public NavMeshAgent movimiento;
     // Start is called before the first frame update
     void Start()
     {
-       movimiento = GetComponent<NavMeshAgent>();
-       //SaludJugador componenteEncontrado = FindObjectOfType<SaludJugador>();
-       jugador= GameObject.Find("FPSController");
-       componenteEncontrado = jugador.GetComponent<SaludJugador>();
+        movimiento = GetComponent<NavMeshAgent>();
+        //SaludJugador componenteEncontrado = FindObjectOfType<SaludJugador>();
+        jugador = GameObject.Find("FPSController");
+        componenteEncontrado = jugador.GetComponent<SaludJugador>();
         if (CompareTag("zombietag"))
         {
             animzombiescript = transform.GetChild(1).gameObject.GetComponent<animacionzombie>();
         }
-      
+
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class vidaenemigo : MonoBehaviour
     {
         if (vida_zombie <= 0)
         {
-           
+
             matarzombieanim();
         }
     }
@@ -40,6 +40,12 @@ public class vidaenemigo : MonoBehaviour
         if (CompareTag("zombietag"))
         {
             animzombiescript.muerto();
+            // Encuentra el GameObject hijo que deseas desligar
+            GameObject objetoHijo = gameObject.transform.GetChild(0).gameObject; // Cambia el índice (0) según tus necesidades
+            componenteEncontrado.SumarMuerte();
+            // Desliga el objeto hijo del objeto padre
+            objetoHijo.transform.parent = null;
+            Invoke("desmayo", 3);
         }
         if (CompareTag("cocotag"))
         {
@@ -49,10 +55,19 @@ public class vidaenemigo : MonoBehaviour
         if (CompareTag("muniecotag"))
         {
             GetComponent<MuñecoAtack>().matarmunie();
-            
+
+            Invoke("matarzombie", 3);
         }
 
         Invoke("matarzombie", 3);
+
+    }
+    public void desmayo()
+    {
+
+
+        // Destruye el objeto padre
+        Destroy(gameObject);
     }
     public void matarzombie()
     {
@@ -68,7 +83,7 @@ public class vidaenemigo : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         Debug.Log("Onparticle collision");
-        if(other.CompareTag("Fuego"))
+        if (other.CompareTag("Fuego"))
         {
             RestarVida(dañoPorFuego);
         }
@@ -78,3 +93,4 @@ public class vidaenemigo : MonoBehaviour
         }
     }
 }
+
