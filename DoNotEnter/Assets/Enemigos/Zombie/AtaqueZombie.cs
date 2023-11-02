@@ -18,7 +18,6 @@ public class AtaqueZombie : MonoBehaviour
     
     void Start()
     {
-        Debug.Log(saludPlayer);
         atackTimer = Time.time;
         agent = GetComponent<NavMeshAgent>();
         controller = GetComponent<ZombieController>();

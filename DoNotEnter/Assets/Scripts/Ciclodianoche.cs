@@ -19,10 +19,6 @@ public class Ciclodianoche : MonoBehaviour
     {
         rotacionxactual = transform.rotation.eulerAngles.x;
         transform.Rotate(rotationscale * Time.deltaTime, 0, 0);
-      /*  if (rotacionxactual > 180)
-        {
-            transform.Rotate(25 * Time.deltaTime, 0, 0);
-        }*/
-       
+        //RenderSettings.skybox.SetFloat("_Exposure", -luz.transform.forward.y * 0.5f + 0.5f);
     }
 }
