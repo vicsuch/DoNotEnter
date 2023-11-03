@@ -63,14 +63,29 @@ public class Raycast : MonoBehaviour
 
         if (Physics.Raycast(rayo, out hitInfo, alcance, ObjetosQueLePuedeDisparar))
         {
-            Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
+            if (hitInfo.collider.gameObject.CompareTag("zombietag"))
+               {
+                Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 
-            GameObject dardo = Instantiate(prefabdardo, hitInfo.point, dardoRotation);
-            dardo.transform.SetParent(hitInfo.collider.transform.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
-            Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
-            if (dardoRigidbody != null)
+                GameObject dardo = Instantiate(prefabdardo, hitInfo.point, dardoRotation);
+                dardo.transform.SetParent(hitInfo.collider.transform.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
+                Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
+                if (dardoRigidbody != null)
+                {
+                    dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
+                }
+
+            }
+            else
             {
-                dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
+                Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
+
+                GameObject dardo = Instantiate(prefabdardo, hitInfo.point, dardoRotation);
+                Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
+                if (dardoRigidbody != null)
+                {
+                    dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
+                }
             }
 
             //accede al script del enemigo

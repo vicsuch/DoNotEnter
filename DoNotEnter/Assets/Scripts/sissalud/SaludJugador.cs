@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class SaludJugador : MonoBehaviour
@@ -24,10 +24,8 @@ public class SaludJugador : MonoBehaviour
     {
         if (vida < 1)
         {
-            controller.enabled = false;
-            transform.position = spawnPosition;
-            controller.enabled = true;
-            vida = 100;
+            SceneManager.LoadScene(2);
+          
         }
     }
     public void ChangeVariable(Vector3 nuevoSpawn)
