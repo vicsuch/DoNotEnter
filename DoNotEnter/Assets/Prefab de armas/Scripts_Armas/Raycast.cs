@@ -77,6 +77,18 @@ public class Raycast : MonoBehaviour
                 }
 
             }
+            else if (hitInfo.collider.gameObject.CompareTag("muniecotag"))
+            {
+                Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
+
+                GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
+                dardo.transform.SetParent(hitInfo.collider.transform.GetChild(0).gameObject.transform.GetChild(1)); // Hacer que el dardo sea hijo del objeto impactado
+                Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
+                if (dardoRigidbody != null)
+                {
+                    dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
+                }
+            }
             else
            
             {
