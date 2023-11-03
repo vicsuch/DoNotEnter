@@ -8,9 +8,10 @@ public class Raycast : MonoBehaviour
 {
     [SerializeField] private int maxDamage = 50;
     [SerializeField] private int minDamage = 30;
-    [SerializeField] private ItemData itemData; //asignar a la camara
+    private ItemData itemData; //asignar a la camara
     [SerializeField] private LayerMask ObjetosQueLePuedeDisparar;
     [SerializeField] GameObject prefabdardo;
+    [SerializeField] float dardoSumaRecorrido = 0.1f;
     private bool isCoolDownOver = true;
     private float coolDownInSeconds = 0.4f;
     [SerializeField] AudioSource audio;
@@ -67,6 +68,7 @@ public class Raycast : MonoBehaviour
                {
                 Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 
+<<<<<<< Updated upstream
                 GameObject dardo = Instantiate(prefabdardo, hitInfo.point, dardoRotation);
                 dardo.transform.SetParent(hitInfo.collider.transform.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
                 Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
@@ -77,6 +79,12 @@ public class Raycast : MonoBehaviour
 
             }
             else
+=======
+            GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
+            dardo.transform.SetParent(hitInfo.collider.transform.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
+            Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
+            if (dardoRigidbody != null)
+>>>>>>> Stashed changes
             {
                 Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 

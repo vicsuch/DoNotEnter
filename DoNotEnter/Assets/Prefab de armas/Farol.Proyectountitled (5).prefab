@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3464044572863203100}
   - component: {fileID: 3464044572862433084}
   - component: {fileID: 3464044572861302268}
-  - component: {fileID: 1790768137657428311}
   - component: {fileID: 2978529989060930501}
+  - component: {fileID: 2701671765169533174}
   m_Layer: 0
   m_Name: Farol.Proyectountitled (5)
   m_TagString: Untagged
@@ -80,19 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1790768137657428311
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3464044572863503164}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.69, y: 6.2484174, z: 0.69}
-  m_Center: {x: -0.007362338, y: 2.8742087, z: -0.06}
 --- !u!65 &2978529989060930501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -106,6 +93,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7192437, y: 0.68, z: 1.6558983}
   m_Center: {x: -0.007362338, y: 5.67, z: -0.6020364}
+--- !u!136 &2701671765169533174
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3464044572863503164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 6.2484174
+  m_Direction: 1
+  m_Center: {x: -0.007362338, y: 2.8742087, z: 0}
 --- !u!1 &5576932570073722800
 GameObject:
   m_ObjectHideFlags: 0
