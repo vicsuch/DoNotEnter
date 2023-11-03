@@ -11,7 +11,7 @@ public class Raycast : MonoBehaviour
     private ItemData itemData; //asignar a la camara
     [SerializeField] private LayerMask ObjetosQueLePuedeDisparar;
     [SerializeField] GameObject prefabdardo;
-    [SerializeField] float dardoSumaRecorrido = 0.1f;
+    [SerializeField] float dardoSumaRecorrido = 0.3f;
     private bool isCoolDownOver = true;
     private float coolDownInSeconds = 0.4f;
     [SerializeField] AudioSource audio;
@@ -65,11 +65,10 @@ public class Raycast : MonoBehaviour
         if (Physics.Raycast(rayo, out hitInfo, alcance, ObjetosQueLePuedeDisparar))
         {
             if (hitInfo.collider.gameObject.CompareTag("zombietag"))
-               {
+            {
                 Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 
-<<<<<<< Updated upstream
-                GameObject dardo = Instantiate(prefabdardo, hitInfo.point, dardoRotation);
+                GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
                 dardo.transform.SetParent(hitInfo.collider.transform.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
                 Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
                 if (dardoRigidbody != null)
@@ -79,16 +78,11 @@ public class Raycast : MonoBehaviour
 
             }
             else
-=======
-            GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
-            dardo.transform.SetParent(hitInfo.collider.transform.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
-            Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
-            if (dardoRigidbody != null)
->>>>>>> Stashed changes
+           
             {
                 Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 
-                GameObject dardo = Instantiate(prefabdardo, hitInfo.point, dardoRotation);
+                GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
                 Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
                 if (dardoRigidbody != null)
                 {

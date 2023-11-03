@@ -188,6 +188,7 @@
     <Compile Include="Assets\Scripts\Linterna.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\ItemData.cs" />
     <Compile Include="Assets\Scripts\PlayerSystems\PlayerItemGrabber.cs" />
+    <Compile Include="Assets\Scripts\postprocesingscript.cs" />
     <Compile Include="Assets\Scripts\singleton.cs" />
     <Compile Include="Assets\Scripts\sissalud\checkPoints.cs" />
     <Compile Include="Assets\Scripts\sissalud\SaludJugador.cs" />

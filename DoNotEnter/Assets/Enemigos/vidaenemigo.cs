@@ -47,8 +47,8 @@ public class vidaenemigo : MonoBehaviour
             {
                 animzombiescript.muerto();
                 // Encuentra el GameObject hijo que deseas desligar
-                GameObject objetoHijo = gameObject.transform.GetChild(0).gameObject; // Cambia el índice (0) según tus necesidades
-
+                GameObject objetoHijo = gameObject.transform.GetChild(1).gameObject; // Cambia el índice (0) según tus necesidades
+                Debug.Log(objetoHijo);
                 // Desliga el objeto hijo del objeto padre
                 objetoHijo.transform.parent = null;
                 Invoke("desmayo", 3);
