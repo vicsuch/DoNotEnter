@@ -12,18 +12,34 @@ public class MuñecoController : MonoBehaviour
     [SerializeField] float ValidHidingPlaceMinDistance;
     [SerializeField] float ValidHidingPlaceMaxDistance;
     [SerializeField] float maxViewDistance;
-    [SerializeField] bool hasSeenPlayer = false;
+    [SerializeField] float chanceToUseHidingPlace = 0.40f;
+    public bool hasSeenPlayer = false;
     [SerializeField] float fov;
     [SerializeField] float backwardsStepDistance = 5f;
     [SerializeField] float distanceToPlayerToStopEscaping = 2f;
     [SerializeField] bool escaping = false;
-    [SerializeField] NavMeshAgent agent;
+    NavMeshAgent agent;
     public MuñecoAtack scriptatack;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         scriptatack = GetComponent<MuñecoAtack>();
+        GameObject[]a = GameObject.FindGameObjectsWithTag("Target");
+        hidingPlaces = new Transform[a.Length];
+        List <Transform> b = new List < Transform >();
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (Random.Range(0f, 1f) <= chanceToUseHidingPlace)
+            {
+                b.Add(a[i].transform);
+            }
+        }
+        hidingPlaces = new Transform[b.Count];
+        for (int i = 0; i < b.Count; i++)
+        {
+            hidingPlaces[i] = b[i].transform;
+        }
     }
 
     // Update is called once per frame

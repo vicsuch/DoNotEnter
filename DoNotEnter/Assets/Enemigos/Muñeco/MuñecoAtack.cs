@@ -14,11 +14,12 @@ public class MuñecoAtack : MonoBehaviour
     [SerializeField] LayerMask raycastLayerNotIgnore;
     bool coolDownOver = true;
     public Animator anim;
+    MuñecoController controller;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        controller = GetComponent<MuñecoController>();
     }
     public void matarmunie()
     {
@@ -30,7 +31,7 @@ public class MuñecoAtack : MonoBehaviour
         anim.SetFloat("velocida", velocidad);
 
         IsSeeingPlayer();
-        if(seeingPlayer)
+        if(seeingPlayer && controller.hasSeenPlayer)
         {
             Atack();
         }

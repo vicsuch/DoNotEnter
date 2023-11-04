@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5953057497146715144}
   - component: {fileID: 5953057497147682504}
   - component: {fileID: 5393680880901392053}
-  - component: {fileID: 4550909667619112988}
+  - component: {fileID: 4471927310249075164}
   m_Layer: 0
   m_Name: piinoo
   m_TagString: Untagged
@@ -93,8 +93,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.07, y: 9.28, z: 5}
   m_Center: {x: 0.13887143, y: 7.11, z: -0.064118974}
---- !u!65 &4550909667619112988
-BoxCollider:
+--- !u!136 &4471927310249075164
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,6 +103,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 3.35, z: 1.5}
-  m_Center: {x: 0.13887143, y: 1.45, z: -0.064118974}
+  m_Radius: 0.52
+  m_Height: 6.42
+  m_Direction: 1
+  m_Center: {x: 0.03, y: 3.21, z: -0.064118974}

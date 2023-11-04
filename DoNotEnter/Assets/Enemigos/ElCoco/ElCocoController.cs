@@ -65,8 +65,6 @@ public class ElCocoController : MonoBehaviour
     void ModeloAngulo()
     {
         Physics.Raycast(transform.position, transform.up * -1f, out RaycastHit hit, 2f, raycastLayerNotIgnore, QueryTriggerInteraction.Ignore);
-        Debug.Log(hit.collider.name);
-        Debug.DrawLine(hit.point, hit.point + hit.normal);
         modelo3D.rotation = Quaternion.LookRotation(new Vector3(hit.normal.y, -hit.normal.x, hit.normal.z), hit.normal);
     }
     void EnemigoRecibioDaño()
