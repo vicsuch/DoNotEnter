@@ -876,7 +876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &555225625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2047,18 +2047,6 @@ MeshCollider:
 --- !u!114 &1240474295 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6192349559537091289, guid: ec4365f03694d264b9a6671789e613fa,
-    type: 3}
-  m_PrefabInstance: {fileID: 1355820208}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1273093101 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8288909227290278852, guid: ec4365f03694d264b9a6671789e613fa,
     type: 3}
   m_PrefabInstance: {fileID: 1355820208}
   m_PrefabAsset: {fileID: 0}
@@ -3710,7 +3698,7 @@ MonoBehaviour:
   balas: {fileID: 507597259}
   componenteenc: {fileID: 0}
   healthBarFill: {fileID: 1240474295}
-  agarre: {fileID: 1273093101}
+  agarre: {fileID: 0}
   a: 0
   numin: {fileID: 0}
   objetoMano: 
