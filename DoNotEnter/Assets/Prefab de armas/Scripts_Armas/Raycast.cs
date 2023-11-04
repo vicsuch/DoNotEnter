@@ -66,6 +66,7 @@ public class Raycast : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.CompareTag("zombietag"))
             {
+                Debug.Log("dA AEN CUERPO");
                 Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 
                 GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
@@ -75,6 +76,20 @@ public class Raycast : MonoBehaviour
                 {
                     dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
                 }
+
+            }else if (hitInfo.collider.gameObject.CompareTag("headshot"))
+            {
+                Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
+
+                GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
+                dardo.transform.SetParent(hitInfo.collider.gameObject.transform.parent.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
+                Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
+                if (dardoRigidbody != null)
+                {
+                    dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
+                }
+                Debug.Log("DA EN CABEZA");
+                hitInfo.collider.transform.parent.GetComponent<vidaenemigo>().matarzombieanim();
 
             }
             else if (hitInfo.collider.gameObject.CompareTag("muniecotag"))
@@ -89,8 +104,7 @@ public class Raycast : MonoBehaviour
                     dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
                 }
             }
-            else
-           
+            else    
             {
                 Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 
@@ -105,7 +119,7 @@ public class Raycast : MonoBehaviour
             //accede al script del enemigo
             //  GameObject objetoImpactado = hitInfo.collider.gameObject;
             //  VidaZombie vidzom = objetoImpactado.GetComponent<VidaZombie>();
-            Debug.Log(hitInfo.collider.gameObject.name);
+
             vidaenemigo vidzom = hitInfo.collider.gameObject.GetComponent<vidaenemigo>();
             // baja vida
             int puntuacion = Random.Range(minDamage, maxDamage);

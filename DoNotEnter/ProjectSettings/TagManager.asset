@@ -9,6 +9,7 @@ TagManager:
   - Fuego
   - gunsTag
   - muniecotag
+  - headshot
   layers:
   - Default
   - TransparentFX
