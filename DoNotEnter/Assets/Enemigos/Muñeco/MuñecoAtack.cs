@@ -27,11 +27,9 @@ public class MuñecoAtack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("velocidad: " + velocidad);
         anim.SetFloat("velocida", velocidad);
 
         IsSeeingPlayer();
-        Debug.Log(seeingPlayer);
         if(seeingPlayer)
         {
             Atack();

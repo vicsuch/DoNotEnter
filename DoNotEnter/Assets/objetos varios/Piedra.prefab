@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5646406769222285789}
   - component: {fileID: 8913929946976998411}
   - component: {fileID: 1454763841515942424}
+  - component: {fileID: 7287785775231924276}
   m_Layer: 0
   m_Name: Piedra
   m_TagString: Untagged
@@ -90,7 +91,7 @@ BoxCollider:
   m_GameObject: {fileID: 7729682114082394342}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.13, y: 0.25, z: 1.02}
   m_Center: {x: 1.42, y: 0, z: -0.29}
@@ -103,7 +104,7 @@ BoxCollider:
   m_GameObject: {fileID: 7729682114082394342}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.09, y: 0.36, z: 0.73}
   m_Center: {x: 1.15, y: 0.01, z: 0.58}
@@ -116,7 +117,7 @@ BoxCollider:
   m_GameObject: {fileID: 7729682114082394342}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.85, y: 0.84, z: 0.87}
   m_Center: {x: -0.01, y: -0.01, z: 0}
@@ -129,7 +130,21 @@ BoxCollider:
   m_GameObject: {fileID: 7729682114082394342}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.13, y: 1.63, z: 0.7}
   m_Center: {x: 0.63, y: 0.43, z: 0}
+--- !u!64 &7287785775231924276
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7729682114082394342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: beebbc9b9ef612f4c8c74d9258ec1d93, type: 3}

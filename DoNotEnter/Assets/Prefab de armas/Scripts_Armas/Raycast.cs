@@ -105,7 +105,6 @@ public class Raycast : MonoBehaviour
             //accede al script del enemigo
             //  GameObject objetoImpactado = hitInfo.collider.gameObject;
             //  VidaZombie vidzom = objetoImpactado.GetComponent<VidaZombie>();
-            Debug.Log(hitInfo.collider.gameObject.name);
             vidaenemigo vidzom = hitInfo.collider.gameObject.GetComponent<vidaenemigo>();
             // baja vida
             int puntuacion = Random.Range(minDamage, maxDamage);

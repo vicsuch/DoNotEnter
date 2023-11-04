@@ -9,6 +9,7 @@ TagManager:
   - Fuego
   - gunsTag
   - muniecotag
+  - Water
   layers:
   - Default
   - TransparentFX

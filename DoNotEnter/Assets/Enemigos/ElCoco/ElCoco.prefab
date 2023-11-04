@@ -93,6 +93,7 @@ MonoBehaviour:
   "da\xF1oPorFuego": 4
   animzombiescript: {fileID: 0}
   movimiento: {fileID: 0}
+  muerto: 0
 --- !u!114 &4041585801198742329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +120,7 @@ MonoBehaviour:
   hasSeenPlayer: 0
   atackPosLerp: 0
   lerpTimeMultiplier: 0.1
+  modelo3D: {fileID: 7312498599222381641}
 --- !u!64 &3261936505302759914
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -177,7 +179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c4671fee9a33fa9489528beb291a9a21, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.127
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c4671fee9a33fa9489528beb291a9a21, type: 3}
       propertyPath: m_LocalPosition.z

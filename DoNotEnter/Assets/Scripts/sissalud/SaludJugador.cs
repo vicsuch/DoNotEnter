@@ -11,8 +11,9 @@ public class SaludJugador : MonoBehaviour
     public Vector3 spawnPosition = new Vector3(0f, 2f, 0f);
     public CharacterController controller;
     public int zombiesAsesinados = 0;
-   
-    public int numHoguera=0;
+    [SerializeField] float alturaParaMorirse = 0f;
+
+    public int numHoguera = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +23,16 @@ public class SaludJugador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (vida < 1)
+        if (vida < 1 || transform.position.y < alturaParaMorirse)
         {
-            SceneManager.LoadScene(2);
-          
+            Morir();
         }
     }
+    private void Morir()
+    {
+        SceneManager.LoadScene(2);
+    }
+    
     public void ChangeVariable(Vector3 nuevoSpawn)
     {
         spawnPosition = nuevoSpawn ; 

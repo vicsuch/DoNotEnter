@@ -10,8 +10,10 @@ public class checkPoints : MonoBehaviour
     SaludJugador comprobacion;
     public GameObject hijo;
     [SerializeField] GameObject[] objetosParaAparecer;
+    [SerializeField] GameObject[] objetosParaDesaparecer;
     AudioSource audiolas;
-    int a = 0;
+    bool yaActivado = false;
+
     private void Start()
     {
         audiolas = gameObject.GetComponent<AudioSource>();
@@ -25,24 +27,18 @@ public class checkPoints : MonoBehaviour
         if (player != null)
         {
 
-            if (comprobacion.zombiesAsesinados>=minimoActivar)
+            if (comprobacion.zombiesAsesinados >= minimoActivar && !yaActivado)
             {
-               
+                yaActivado = true;
                 SaludJugador playerScript = player.GetComponent<SaludJugador>();
                 if (playerScript != null)
                 {
-
-                    if (a == 0)
-                    {
-                        musica();
-                        a++;
-                    }
-                    Debug.Log("Empieza el audio");
+                    musica();
                 
                     playerScript.ChangeVariable(targetPosition);
                     playerScript.ChangeVariableHoguera(numeroDeHoguera);
                     hijo.SetActive(true);
-                    ActivarObjetos();
+                    ActivarYDesactivarObjetos();
                 }
             }
         }
@@ -51,11 +47,12 @@ public class checkPoints : MonoBehaviour
     {
         audiolas.Play();
     }
-    void ActivarObjetos()
+    void ActivarYDesactivarObjetos()
     {
         for (int i = 0; i < objetosParaAparecer.Length; i++)
         {
             objetosParaAparecer[i].SetActive(true);
+            objetosParaDesaparecer[i].SetActive(false);
         }
     }
 }

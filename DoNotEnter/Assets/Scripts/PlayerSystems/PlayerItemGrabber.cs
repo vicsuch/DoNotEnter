@@ -72,7 +72,7 @@ public class PlayerItemGrabber : MonoBehaviour
             }
             if (secondarySlots[secondaryNum] != null)
             {
-                secondarySlots[secondaryNum].SetActive(usingGunSlot);
+                secondarySlots[secondaryNum].SetActive(!usingGunSlot);
             }
             ActivateCrossHair();
         }
@@ -87,14 +87,17 @@ public class PlayerItemGrabber : MonoBehaviour
             {
                 if (itemKey[i])
                 {
+                    Debug.Log(gunNum + " - " + i);
                     if (gunSlots[gunNum] != null)
                     {
                         gunSlots[gunNum].SetActive(false);
+                        Debug.Log("objeto des: " + gunSlots[gunNum].name);
                     }
                     gunNum = i;
                     if (gunSlots[gunNum] != null)
                     {
                         gunSlots[gunNum].SetActive(true);
+                        Debug.Log("objeto acti: " + gunSlots[gunNum].name);
                     }
                 }
                 ActivateCrossHair();
