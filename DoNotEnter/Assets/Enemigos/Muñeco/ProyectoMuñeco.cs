@@ -5,42 +5,57 @@ using UnityEngine;
 public class ProyectoMuñeco : MonoBehaviour
 {
     public Vector3 objetivo;
-    [SerializeField] float speed;
+    Vector3 start;
+    float speed;
     [SerializeField] float speedRandomAdd;
     [SerializeField] float deleteTime = 5f;
     [SerializeField] float multiGrav = 1f;
+    [SerializeField] ParticleSystem p;
+    float time = 0f;
+    float startPos;
+    float finishPos;
+    float gravity;
+    float startVelocity;
+    [SerializeField] float finishTime = 1f;
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+        start = transform.position;
+        rb = GetComponent<Rigidbody>();
+        p = GetComponent<ParticleSystem>();
         Vector3 dir = objetivo - transform.position;
         dir.Normalize();
         Vector3 obj = objetivo;
         obj.y = 0;
         Vector3 tr = transform.position;
         tr.y = 0;
-        float finishTime = Vector3.Distance(obj, tr)/speed;
-        float startPos = transform.position.y;
-        float finishPos = objetivo.y;
-        float gravity = Physics.gravity.y * multiGrav;
+        speed = Vector3.Distance(transform.position, obj) / finishTime;
+        startPos = transform.position.y;
+        finishPos = objetivo.y;
+        gravity = Physics.gravity.y * multiGrav;
         // Ecuacion: P(t) = startPos + startVelocity * t + 0.5 * gravity * t*t
         // finishPos = startPos + startVelocity * finishTime + 0.5 * gravity * finishTime * finishTime
         // 0 = startPos + startVelocity * finishTime + 0.5 * gravity * finishTime * finishTime - finishPos
         // startVelocity * -finishTime = startPos + 0.5 * gravity * finishTime * finishTime - finishPos
         // startVelocity = (startPos + 0.5 * gravity * finishTime * finishTime - finishPos) / -finishTime
-        float startVelocity = (startPos + (0.5f * gravity * finishTime * finishTime) - finishPos) / (-1f * finishTime);
-        Debug.Log(startVelocity + " g: " + gravity + " finishT: " + finishTime);
-        transform.GetComponent<Rigidbody>().velocity = dir * speed + Vector3.up * startVelocity;
+        startVelocity = (startPos + (0.5f * gravity * finishTime * finishTime) - finishPos) / (-1f * finishTime);
+        Debug.Log("startVel: " + startPos + " gravity: " + startPos + " finishTime: " + finishTime + " finishPos: " + finishPos);
         
         Dibujar(startPos, startVelocity, gravity, finishTime);
-        rb = GetComponent<Rigidbody>();
-        Debug.Log(rb.velocity - (dir * speed + Vector3.up * startVelocity));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Mover();
+        time += Time.deltaTime;
+    }
+    void Mover()
+    {
+        Vector3 pos = Vector3.Lerp(start, objetivo, time * finishTime);
+        pos.y = Funcion(startPos, startVelocity, gravity, finishTime * time);
+        transform.position = pos;
     }
     void Dibujar(float startPos, float startVelocity, float gravity, float finishTime)
     {
@@ -64,11 +79,23 @@ public class ProyectoMuñeco : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Invoke("Delete", deleteTime);
         SaludJugador salud = collision.gameObject.GetComponent<SaludJugador>();
         if(salud)
         {
             salud.AtaqueProyectilMuñeco();
         }
+        p.Emit(111);
+        Collider[] all = GetComponents<Collider>();
+        for(int i = 0; i < all.Length; i++)
+        {
+            all[i].enabled = false;
+        }
+        MeshRenderer[] all2 = GetComponentsInChildren<MeshRenderer>();
+        for (int i = 0; i < all2.Length; i++)
+        {
+            all2[i].enabled = false;
+        }
+        Invoke("Delete", p.main.startLifetimeMultiplier);
     }
+
 }
