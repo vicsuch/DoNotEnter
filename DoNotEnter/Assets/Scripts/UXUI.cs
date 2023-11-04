@@ -12,7 +12,7 @@ public class UXUI : MonoBehaviour
     public TextMeshProUGUI balas;
     public SaludJugador componenteenc;
     public Image healthBarFill;
-    public Image agarre;
+    public GameObject agarre;
     public bool a = false;
     public PlayerItemGrabber numin;
     public string objetoMano;

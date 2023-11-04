@@ -52,6 +52,9 @@ public class checkPoints : MonoBehaviour
         for (int i = 0; i < objetosParaAparecer.Length; i++)
         {
             objetosParaAparecer[i].SetActive(true);
+        }
+        for (int i = 0; i < objetosParaDesaparecer.Length; i++)
+        {
             objetosParaDesaparecer[i].SetActive(false);
         }
     }

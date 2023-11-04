@@ -25,9 +25,9 @@ TagManager:
   - Enemigo
   - GrabableObjects
   - Jugador
-  - 
-  - 
-  - 
+  - Muerte
+  - "Mu\xF1eco"
+  - "ProyectilMu\xF1e"
   - 
   - 
   - 

@@ -62,7 +62,7 @@ public class Raycast : MonoBehaviour
         Debug.DrawLine(itemData.puntoDeVista.position, itemData.puntoDeVista.position + (itemData.puntoDeVista.forward * alcance));
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(rayo, out hitInfo, alcance, ObjetosQueLePuedeDisparar))
+        if (Physics.Raycast(rayo, out hitInfo, alcance, ObjetosQueLePuedeDisparar, QueryTriggerInteraction.Ignore))
         {
             if (hitInfo.collider.gameObject.CompareTag("zombietag"))
             {

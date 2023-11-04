@@ -9,7 +9,13 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Sphere.002
-  externalObjects: {}
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: a5d20a242f2c65746a574ac6ff0dfa2e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -64,7 +70,7 @@ ModelImporter:
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 1
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4

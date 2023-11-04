@@ -17,8 +17,11 @@ public class vidaenemigo : MonoBehaviour
     {
         movimiento = GetComponent<NavMeshAgent>();
         //SaludJugador componenteEncontrado = FindObjectOfType<SaludJugador>();
-        jugador = GameObject.Find("FPSController");
-        componenteEncontrado = jugador.GetComponent<SaludJugador>();
+        if(!jugador)
+        {
+            jugador = GameObject.Find("FPSController");
+            componenteEncontrado = jugador.GetComponent<SaludJugador>();
+        }
         if (CompareTag("zombietag"))
         {
             animzombiescript = transform.GetChild(1).gameObject.GetComponent<animacionzombie>();
