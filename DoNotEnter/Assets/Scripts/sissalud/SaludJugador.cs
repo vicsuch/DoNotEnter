@@ -13,7 +13,7 @@ public class SaludJugador : MonoBehaviour
     public CharacterController controller;
     public int zombiesAsesinados = 0;
     [SerializeField] float alturaParaMorirse = 0f;
-
+    public int monedas_recogidas;
 
     public int numHoguera = 0;
     // Start is called before the first frame update
