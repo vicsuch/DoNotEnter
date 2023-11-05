@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using TMPro;
 
 public class PlayerItemGrabber : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class PlayerItemGrabber : MonoBehaviour
     [SerializeField] private Transform puntoDeVista;
     [SerializeField] private List<GameObject> itemNearPlayer = new List<GameObject>();
     [SerializeField] private GameObject CrossHair;
+    [SerializeField] private GameObject BalasRestantes;
+    [SerializeField] private TextMeshProUGUI Inventario;
+
     private List<ItemData> itemNearPlayerData = new List<ItemData>();
     public GameObject[] gunSlots = new GameObject[3];
     private Transform[] gunLastParent = new Transform[3];
@@ -36,6 +40,44 @@ public class PlayerItemGrabber : MonoBehaviour
         }
         GetButtons();
         ThrowObject();
+        ItemsUI();
+    }
+    void ItemsUI()
+    {
+        string UI = "";
+        if (usingGunSlot)
+        {
+            UI += "Armas:  (Q --> objetos)";
+            for(int i = 0; i < gunSlots.Length; i++)
+            {
+                UI += "\n[" + (i + 1) + "] ";
+                if(gunSlots[i])
+                {
+                    UI += gunSlots[i].name;
+                }
+                else
+                {
+                    UI += "Espacio vacio";
+                }
+            }
+        }
+        else
+        {
+            UI += "Objetos:  (Q --> armas)";
+            for (int i = 0; i < secondarySlots.Length; i++)
+            {
+                UI += "\n[" + (i + 1) + "] ";
+                if (secondarySlots[i])
+                {
+                    UI += secondarySlots[i].name;
+                }
+                else
+                {
+                    UI += "Espacio vacio";
+                }
+            }
+        }
+        Inventario.text = UI;
     }
     void ThrowObject()
     {
@@ -75,6 +117,17 @@ public class PlayerItemGrabber : MonoBehaviour
                 secondarySlots[secondaryNum].SetActive(!usingGunSlot);
             }
             ActivateCrossHair();
+            if(usingGunSlot)
+            {
+                if(gunSlots[gunNum])
+                {
+                    BalasRestantes.SetActive(true);
+                }
+            }
+            else
+            {
+                BalasRestantes.SetActive(false);
+            }
         }
         bool[] itemKey = new bool[3];
         for(int i = 0; i < 3; i++)
@@ -87,17 +140,19 @@ public class PlayerItemGrabber : MonoBehaviour
             {
                 if (itemKey[i])
                 {
-                    Debug.Log(gunNum + " - " + i);
                     if (gunSlots[gunNum] != null)
                     {
                         gunSlots[gunNum].SetActive(false);
-                        Debug.Log("objeto des: " + gunSlots[gunNum].name);
                     }
                     gunNum = i;
                     if (gunSlots[gunNum] != null)
                     {
                         gunSlots[gunNum].SetActive(true);
-                        Debug.Log("objeto acti: " + gunSlots[gunNum].name);
+                        BalasRestantes.SetActive(true);
+                    }
+                    else
+                    {
+                        BalasRestantes.SetActive(false);
                     }
                 }
                 ActivateCrossHair();
@@ -209,7 +264,6 @@ public class PlayerItemGrabber : MonoBehaviour
     }
     public GameObject PasarArma()
     {
-
         return gunSlots[gunNum];
     }
 }
