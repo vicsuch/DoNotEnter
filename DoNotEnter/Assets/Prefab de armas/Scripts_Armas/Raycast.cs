@@ -66,7 +66,7 @@ public class Raycast : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.CompareTag("zombietag"))
             {
-                Debug.Log("dA AEN CUERPO");
+               
                 Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 
                 GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
@@ -88,12 +88,13 @@ public class Raycast : MonoBehaviour
                 {
                     dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
                 }
-                Debug.Log("DA EN CABEZA");
+            
                 hitInfo.collider.transform.parent.GetComponent<vidaenemigo>().matarzombieanim();
 
             }
             else if (hitInfo.collider.gameObject.CompareTag("muniecotag"))
             {
+               
                 Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 
                 GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
@@ -106,6 +107,7 @@ public class Raycast : MonoBehaviour
             }
             else    
             {
+              
                 Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 
                 GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);

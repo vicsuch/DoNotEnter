@@ -40,7 +40,7 @@ public class ProyectoMuñeco : MonoBehaviour
         // startVelocity * -finishTime = startPos + 0.5 * gravity * finishTime * finishTime - finishPos
         // startVelocity = (startPos + 0.5 * gravity * finishTime * finishTime - finishPos) / -finishTime
         startVelocity = (startPos + (0.5f * gravity * finishTime * finishTime) - finishPos) / (-1f * finishTime);
-        Debug.Log("startVel: " + startPos + " gravity: " + startPos + " finishTime: " + finishTime + " finishPos: " + finishPos);
+       // Debug.Log("startVel: " + startPos + " gravity: " + startPos + " finishTime: " + finishTime + " finishPos: " + finishPos);
         
         Dibujar(startPos, startVelocity, gravity, finishTime);
     }
