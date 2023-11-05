@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -64,21 +65,42 @@ public class Raycast : MonoBehaviour
 
         if (Physics.Raycast(rayo, out hitInfo, alcance, ObjetosQueLePuedeDisparar, QueryTriggerInteraction.Ignore))
         {
+            vidaenemigo vidzom = hitInfo.collider.gameObject.GetComponent<vidaenemigo>();
+            // baja vida
+            int puntuacion = UnityEngine.Random.Range(minDamage, maxDamage);
             if (hitInfo.collider.gameObject.CompareTag("zombietag"))
             {
-               
-                Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
+                 vidzom = hitInfo.collider.gameObject.GetComponent<vidaenemigo>();
+                // baja vida
+                 puntuacion = UnityEngine.Random.Range(minDamage, maxDamage);
 
-                GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
-                dardo.transform.SetParent(hitInfo.collider.transform.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
-                Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
-                if (dardoRigidbody != null)
+                if (vidzom != null)
                 {
-                    dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
+                    vidzom.RestarVida(puntuacion);
                 }
+                if(vidzom.vida_zombie <= 0)
+                {
+
+                }
+                else
+                {
+                    Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
+
+                    GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
+                    dardo.transform.SetParent(hitInfo.collider.transform.GetChild(1).gameObject.transform.GetChild(3)); // Hacer que el dardo sea hijo del objeto impactado
+                    Rigidbody dardoRigidbody = dardo.GetComponent<Rigidbody>();
+                    if (dardoRigidbody != null)
+                    {
+                        dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
+                    }
+                }
+
+                
 
             }else if (hitInfo.collider.gameObject.CompareTag("headshot"))
             {
+
+              
                 Quaternion dardoRotation = Quaternion.LookRotation(rayo.direction);
 
                 GameObject dardo = Instantiate(prefabdardo, hitInfo.point + transform.forward * dardoSumaRecorrido, dardoRotation);
@@ -90,6 +112,8 @@ public class Raycast : MonoBehaviour
                 }
             
                 hitInfo.collider.transform.parent.GetComponent<vidaenemigo>().matarzombieanim();
+                hitInfo.collider.transform.parent.GetComponent<vidaenemigo>().vida_zombie = -1;
+                Destroy(hitInfo.collider.gameObject);
 
             }
             else if (hitInfo.collider.gameObject.CompareTag("muniecotag"))
@@ -104,6 +128,14 @@ public class Raycast : MonoBehaviour
                 {
                     dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
                 }
+                 vidzom = hitInfo.collider.gameObject.GetComponent<vidaenemigo>();
+                // baja vida
+                 puntuacion = UnityEngine.Random.Range(minDamage, maxDamage);
+
+                if (vidzom != null)
+                {
+                    vidzom.RestarVida(puntuacion);
+                }
             }
             else    
             {
@@ -116,20 +148,21 @@ public class Raycast : MonoBehaviour
                 {
                     dardoRigidbody.isKinematic = true; // Desactivar la física del dardo para que se quede pegado
                 }
+                 vidzom = hitInfo.collider.gameObject.GetComponent<vidaenemigo>();
+                // baja vida
+                 puntuacion = UnityEngine.Random.Range(minDamage, maxDamage);
+
+                if (vidzom != null)
+                {
+                    vidzom.RestarVida(puntuacion);
+                }
             }
 
             //accede al script del enemigo
             //  GameObject objetoImpactado = hitInfo.collider.gameObject;
             //  VidaZombie vidzom = objetoImpactado.GetComponent<VidaZombie>();
 
-            vidaenemigo vidzom = hitInfo.collider.gameObject.GetComponent<vidaenemigo>();
-            // baja vida
-            int puntuacion = Random.Range(minDamage, maxDamage);
-
-            if (vidzom != null)
-            {
-                vidzom.RestarVida(puntuacion);
-            }
+          
         }
         Invoke("SetCoolDownOver", coolDownInSeconds);
     }
