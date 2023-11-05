@@ -6,4 +6,5 @@ public class IntentoInfo
 {
     public string[] nombre;
     public float[] time;
+    public int[] monedas;
 }

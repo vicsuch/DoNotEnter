@@ -19261,6 +19261,11 @@ PrefabInstance:
       propertyPath: objetosParaDesaparecer.Array.data[0]
       value: 
       objectReference: {fileID: 581877598}
+    - target: {fileID: 7359425451120175515, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf,
+        type: 3}
+      propertyPath: minimoActivar
+      value: 38
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf, type: 3}
 --- !u!4 &1817793459 stripped
