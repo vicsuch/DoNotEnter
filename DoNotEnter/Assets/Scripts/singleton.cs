@@ -9,7 +9,7 @@ public class singleton : MonoBehaviour
 {
     public static singleton Instance;
     [SerializeField] TMP_InputField input;
-    [SerializeField] string folder = "Intentos";
+    [SerializeField] string fileName = "Intentos.jsop";
     string nombre;
     [SerializeField] bool gameStarted = false;
     float timer = 0;
@@ -32,27 +32,48 @@ public class singleton : MonoBehaviour
         if (scene.name == "menu" && gameStarted)
         {
             gameStarted = false;
-            IntentoInfo a = new IntentoInfo();
-            a.nombre = nombre;
-            a.time = timer;
-            string json = JsonUtility.ToJson(a);
-            string fileName = nombre + "_" + timer + ".json";
-            string path = Path.Combine(Application.persistentDataPath, folder);
 
-            if(!System.IO.Directory.Exists(path))
+            //string json = JsonUtility.ToJson(a);
+            string path = Path.Combine(Application.persistentDataPath, fileName);
+            string json;
+            IntentoInfo a;
+
+            if (System.IO.File.Exists(path))
             {
-                Directory.CreateDirectory(path);
+                json = System.IO.File.ReadAllText(path);
+                a = JsonUtility.FromJson<IntentoInfo>(json);
             }
-            path = Path.Combine(path, fileName);
+            else
+            {
+                a = new IntentoInfo();
+                a.nombre = new string[0];
+                a.time = new float[0];
+            }
 
+            string[] nombres = new string[a.nombre.Length + 1];
+            float[] times = new float[a.time.Length + 1];
+
+            for (int i = 0; i < a.nombre.Length; i++)
+            {
+                nombres[i] = a.nombre[i];
+                times[i] = a.time[i];
+            }
+            nombres[nombres.Length - 1] = nombre;
+            times[nombres.Length - 1] = timer;
+
+            a.nombre = nombres;
+            a.time = times;
+
+            json = JsonUtility.ToJson(a);
             System.IO.File.WriteAllText(path, json);
+            Debug.Log("PATH: " +  path  + " JSON: " + json);
+
             timer = 0;
         }
         if(scene.name == "EscenaIsla")
         {
             gameStarted = true;
         }
-        Debug.Log(scene.name);
         timer += Time.deltaTime;
     }
     public void EscenaJuego()

@@ -114,10 +114,12 @@ public class MuñecoController : MonoBehaviour
                 closestDistance = Vector3.Distance(validHidingPlaces[closest].position, jugador.transform.position);
             }
         }
+        if (!agent.isActiveAndEnabled) { return; }
         agent.destination = validHidingPlaces[closest].position;
     }
     void WalkBackWards()
     {
+        if (!agent.isActiveAndEnabled) { return; }
         if ((agent.remainingDistance > 1f && escaping) || distanceToPlayerToStopEscaping < Vector3.Distance(jugador.transform.position, transform.position)) { return; }
         escaping = true;
         agent.destination = ReflectRay(transform.position, transform.forward * -1f, backwardsStepDistance);
@@ -170,5 +172,9 @@ public class MuñecoController : MonoBehaviour
                 }
             }
         }
+    }
+    void EnemigoRecibioDaño()
+    {
+        hasSeenPlayer = true;
     }
 }

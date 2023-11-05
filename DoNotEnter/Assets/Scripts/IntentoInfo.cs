@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class IntentoInfo
 {
-    public string nombre;
-    public float time;
+    public string[] nombre;
+    public float[] time;
 }

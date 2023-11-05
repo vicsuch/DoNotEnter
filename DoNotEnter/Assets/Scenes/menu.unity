@@ -4201,7 +4201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 1197577399}
-  folder: Intentos
+  fileName: Intentos.json
   gameStarted: 0
 --- !u!4 &1910296277
 Transform:
