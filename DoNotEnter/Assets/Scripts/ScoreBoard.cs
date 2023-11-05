@@ -38,7 +38,7 @@ public class ScoreBoard : MonoBehaviour
             IntentoInfo a = JsonUtility.FromJson<IntentoInfo>(json);
             for (int i = 0; i < a.nombre.Length; i++)
             {
-                if (a.nombre[i] == "") { continue; }
+                if (a.nombre[i] == "" || a.nombre[i] == "Nombre...") { continue; }
                 UI.text += "\n" + a.nombre[i] + " Monedas: " + a.monedas[i] + " Tiempo: " + Mathf.Round((a.time[i]/60f)*100f)/100f + " Minutos ";
             }
         }
