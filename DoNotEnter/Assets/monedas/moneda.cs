@@ -9,11 +9,12 @@ public class moneda : MonoBehaviour
     float unitMovement = 0.5f;
     float movementSpeed = 1f;
     float initialY;
-
+    [SerializeField] AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
+        audio=gameObject.transform.parent.gameObject.GetComponent<AudioSource>();
         initialY = transform.position.y;
         componenteEncontrado = GameObject.Find("FPSController").GetComponent<SaludJugador>();
     }
@@ -29,6 +30,7 @@ public class moneda : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             componenteEncontrado.monedas_recogidas++;
+            audio.Play();
             Destroy(gameObject);
         }
     }
