@@ -37,6 +37,7 @@ public class checkPoints : MonoBehaviour
                 
                     playerScript.ChangeVariable(targetPosition);
                     playerScript.ChangeVariableHoguera(numeroDeHoguera);
+                    playerScript.vida = 100;
                     hijo.SetActive(true);
                     ActivarYDesactivarObjetos();
                 }
