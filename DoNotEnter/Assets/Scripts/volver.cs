@@ -12,6 +12,7 @@ public class volver : MonoBehaviour
     }
     public void menuinicio()
     {
+        Debug.Log("entra a menu inicio");
         SceneManager.LoadScene(0);
     }
 

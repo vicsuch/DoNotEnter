@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/EscenaIsla.unity
     guid: 314faf5fed34bf3469ffb54e76948a67
   - enabled: 1
-    path: Assets/Scenes/muerte.unity
-    guid: 95ab663d76dba6d48aa7125af0615a1a
+    path: Assets/Scenes/muerto.unity
+    guid: b54f52b9dd2b27d45ba62b269adba4dc
   m_configObjects: {}
