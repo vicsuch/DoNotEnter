@@ -8647,7 +8647,7 @@ PrefabInstance:
     - target: {fileID: 7359425451120175515, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf,
         type: 3}
       propertyPath: objetosParaAparecer.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7359425451120175515, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf,
         type: 3}
@@ -8674,6 +8674,11 @@ PrefabInstance:
       propertyPath: objetosParaDesaparecer.Array.data[0]
       value: 
       objectReference: {fileID: 598937561}
+    - target: {fileID: 7359425451120175515, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf,
+        type: 3}
+      propertyPath: objetosParaAparecer.Array.data[1]
+      value: 
+      objectReference: {fileID: 581877598}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf, type: 3}
 --- !u!4 &1041459957 stripped
@@ -15551,14 +15556,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7359425451120175515, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf,
         type: 3}
+      propertyPath: objetosParaAparecer.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359425451120175515, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf,
+        type: 3}
       propertyPath: objetosParaDesaparecer.Array.data[0]
       value: 
       objectReference: {fileID: 581877598}
     - target: {fileID: 7359425451120175515, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf,
         type: 3}
       propertyPath: minimoActivar
-      value: 38
+      value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 7359425451120175515, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf,
+        type: 3}
+      propertyPath: objetosParaAparecer.Array.data[0]
+      value: 
+      objectReference: {fileID: 581877598}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9de32c9f27bbd6549b7f20f1c3e5deaf, type: 3}
 --- !u!4 &1817793459 stripped

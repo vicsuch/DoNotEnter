@@ -36,7 +36,7 @@ public class ScoreBoard : MonoBehaviour
         {
             string json = System.IO.File.ReadAllText(path);
             IntentoInfo a = JsonUtility.FromJson<IntentoInfo>(json);
-            int[] top3 = a.TopScores(4);
+            int[] top3 = a.TopScores(3);
             for (int i = 0; i < top3.Length; i++)
             {
                 UI.text += "\n" + a.nombre[top3[i]] + " Monedas: " + a.monedas[top3[i]] + " Tiempo: " + Mathf.Round((a.time[top3[i]] /60f)*100f)/100f + " Minutos ";
