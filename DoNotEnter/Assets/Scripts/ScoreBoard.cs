@@ -36,10 +36,10 @@ public class ScoreBoard : MonoBehaviour
         {
             string json = System.IO.File.ReadAllText(path);
             IntentoInfo a = JsonUtility.FromJson<IntentoInfo>(json);
-            for (int i = 0; i < a.nombre.Length; i++)
+            int[] top3 = a.TopScores(4);
+            for (int i = 0; i < top3.Length; i++)
             {
-                if (a.nombre[i] == "" || a.nombre[i] == "Nombre...") { continue; }
-                UI.text += "\n" + a.nombre[i] + " Monedas: " + a.monedas[i] + " Tiempo: " + Mathf.Round((a.time[i]/60f)*100f)/100f + " Minutos ";
+                UI.text += "\n" + a.nombre[top3[i]] + " Monedas: " + a.monedas[top3[i]] + " Tiempo: " + Mathf.Round((a.time[top3[i]] /60f)*100f)/100f + " Minutos ";
             }
         }
         else

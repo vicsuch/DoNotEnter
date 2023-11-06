@@ -1614,7 +1614,6 @@ GameObject:
   - component: {fileID: 711909374}
   - component: {fileID: 711909373}
   - component: {fileID: 711909372}
-  - component: {fileID: 711909375}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1727,18 +1726,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711909370}
   m_CullTransparentMesh: 0
---- !u!114 &711909375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711909370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f58818114cf04049b137931c6433978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &724604055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ad73ef5e02307f34eb01e9e2e08a135d,
@@ -2010,7 +1997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -279, y: 33}
+  m_AnchoredPosition: {x: -288, y: 33}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806577331
@@ -2610,7 +2597,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -305, y: -241}
+  m_AnchoredPosition: {x: -268, y: -241}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1085331431
@@ -5080,7 +5067,6 @@ GameObject:
   - component: {fileID: 2003717236}
   - component: {fileID: 2003717235}
   - component: {fileID: 2003717234}
-  - component: {fileID: 2003717237}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -5193,18 +5179,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003717232}
   m_CullTransparentMesh: 0
---- !u!114 &2003717237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003717232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f58818114cf04049b137931c6433978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2010851806
 GameObject:
   m_ObjectHideFlags: 0
