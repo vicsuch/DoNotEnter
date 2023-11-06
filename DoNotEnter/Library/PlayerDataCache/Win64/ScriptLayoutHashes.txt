@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-T:/DoNotEnterExe/DoNotEnter.exe
+C:/Users/47701283/Desktop/DoNotEnter/DoNotEnter.exe
 SceneListBegin?
 Assets/Scenes/menu.unity
 Assets/Scenes/EscenaIsla.unity
