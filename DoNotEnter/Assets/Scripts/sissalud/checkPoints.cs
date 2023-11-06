@@ -5,14 +5,15 @@ using UnityEngine;
 public class checkPoints : MonoBehaviour
 {
     public Vector3 targetPosition;
-    public float distanceThreshold = 5f; // Distancia umbral para el cambio
     public int minimoActivar;
     public int numeroDeHoguera;
     SaludJugador comprobacion;
     public GameObject hijo;
     [SerializeField] GameObject[] objetosParaAparecer;
+    [SerializeField] GameObject[] objetosParaDesaparecer;
     AudioSource audiolas;
-    int a = 0;
+    bool yaActivado = false;
+
     private void Start()
     {
         audiolas = gameObject.GetComponent<AudioSource>();
@@ -25,26 +26,20 @@ public class checkPoints : MonoBehaviour
 
         if (player != null)
         {
-            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 
-            if (distanceToPlayer <= distanceThreshold && comprobacion.zombiesAsesinados>=minimoActivar)
+            if (comprobacion.zombiesAsesinados >= minimoActivar && !yaActivado)
             {
-               
+                yaActivado = true;
                 SaludJugador playerScript = player.GetComponent<SaludJugador>();
                 if (playerScript != null)
                 {
-
-                    if (a == 0)
-                    {
-                        musica();
-                        a++;
-                    }
-                    Debug.Log("Empieza el audio");
+                    musica();
                 
                     playerScript.ChangeVariable(targetPosition);
                     playerScript.ChangeVariableHoguera(numeroDeHoguera);
+                    playerScript.vida = 100;
                     hijo.SetActive(true);
-                    ActivarObjetos();
+                    ActivarYDesactivarObjetos();
                 }
             }
         }
@@ -53,11 +48,15 @@ public class checkPoints : MonoBehaviour
     {
         audiolas.Play();
     }
-    void ActivarObjetos()
+    void ActivarYDesactivarObjetos()
     {
         for (int i = 0; i < objetosParaAparecer.Length; i++)
         {
             objetosParaAparecer[i].SetActive(true);
+        }
+        for (int i = 0; i < objetosParaDesaparecer.Length; i++)
+        {
+            objetosParaDesaparecer[i].SetActive(false);
         }
     }
 }

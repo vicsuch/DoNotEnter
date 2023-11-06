@@ -8,6 +8,10 @@ TagManager:
   - cocotag
   - Fuego
   - gunsTag
+  - muniecotag
+  - Water
+  - headshot
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -21,9 +25,9 @@ TagManager:
   - Enemigo
   - GrabableObjects
   - Jugador
-  - 
-  - 
-  - 
+  - Muerte
+  - "Mu\xF1eco"
+  - "ProyectilMu\xF1e"
   - 
   - 
   - 

@@ -7,18 +7,24 @@ public class vidaenemigo : MonoBehaviour
 {
     public GameObject jugador;
     public int vida_zombie = 100;
-    public  SaludJugador componenteEncontrado;
+    public SaludJugador componenteEncontrado;
     [SerializeField] private int dañoPorFuego = 100;
     public animacionzombie animzombiescript;
     public NavMeshAgent movimiento;
+    [SerializeField]  bool muerto = false;
     // Start is called before the first frame update
     void Start()
     {
-       movimiento = GetComponent<NavMeshAgent>();
-       //SaludJugador componenteEncontrado = FindObjectOfType<SaludJugador>();
-       jugador= GameObject.Find("FPSController");
-       componenteEncontrado = jugador.GetComponent<SaludJugador>();
-        animzombiescript = transform.GetChild(1).gameObject.GetComponent<animacionzombie>();
+        movimiento = GetComponent<NavMeshAgent>();
+        //SaludJugador componenteEncontrado = FindObjectOfType<SaludJugador>();
+        
+        jugador = GameObject.Find("FPSController");
+        componenteEncontrado = jugador.GetComponent<SaludJugador>();
+        if (CompareTag("zombietag"))
+        {
+            animzombiescript = transform.GetChild(1).gameObject.GetComponent<animacionzombie>();
+        }
+
     }
 
     // Update is called once per frame
@@ -26,15 +32,52 @@ public class vidaenemigo : MonoBehaviour
     {
         if (vida_zombie <= 0)
         {
-           
             matarzombieanim();
         }
     }
     public void matarzombieanim()
     {
         movimiento.enabled = false;
-        animzombiescript.muerto();
-        Invoke("matarzombie", 3);
+        if (CompareTag("zombietag"))
+        {
+            if (muerto)
+            {
+
+            }
+            else
+            {
+                animzombiescript.muerto();
+                // Encuentra el GameObject hijo que deseas desligar
+                GameObject objetoHijo = gameObject.transform.GetChild(1).gameObject; // Cambia el índice (0) según tus necesidades
+
+                // Desliga el objeto hijo del objeto padre
+                objetoHijo.transform.parent = null;
+                Invoke("desmayo", 3);
+                muerto = true;
+            }
+            
+        }
+        if (CompareTag("cocotag"))
+        {
+            componenteEncontrado.SumarMuerte();
+            Destroy(gameObject);
+        }
+        if (CompareTag("muniecotag"))
+        {
+            GetComponent<MuñecoAtack>().matarmunie();
+
+            Invoke("matarzombie", 3);
+        }
+
+    
+
+    }
+    public void desmayo()
+    {
+        componenteEncontrado.SumarMuerte();
+
+        // Destruye el objeto padre
+        Destroy(gameObject);
     }
     public void matarzombie()
     {
@@ -49,7 +92,8 @@ public class vidaenemigo : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if(other.CompareTag("Fuego"))
+        Debug.Log("Onparticle collision");
+        if (other.CompareTag("Fuego"))
         {
             RestarVida(dañoPorFuego);
         }
@@ -59,3 +103,4 @@ public class vidaenemigo : MonoBehaviour
         }
     }
 }
+

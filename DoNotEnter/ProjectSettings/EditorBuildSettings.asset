@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/menu.unity
     guid: 96f30e1f75e49434b852922366712a5e
   - enabled: 1
-    path: Assets/Scenes/isla.unity
-    guid: 3d9ffc6b40f7d0240a171f37ae9ac3c8
+    path: Assets/Scenes/EscenaIsla.unity
+    guid: 314faf5fed34bf3469ffb54e76948a67
+  - enabled: 1
+    path: Assets/Scenes/muerto.unity
+    guid: b54f52b9dd2b27d45ba62b269adba4dc
   m_configObjects: {}

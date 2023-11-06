@@ -12,7 +12,7 @@ public class UXUI : MonoBehaviour
     public TextMeshProUGUI balas;
     public SaludJugador componenteenc;
     public Image healthBarFill;
-    public Image agarre;
+    public GameObject agarre;
     public bool a = false;
     public PlayerItemGrabber numin;
     public string objetoMano;
@@ -27,14 +27,14 @@ public class UXUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        killText.text = "Kills: " + componenteenc.zombiesAsesinados.ToString();
+        killText.text =  componenteenc.zombiesAsesinados.ToString();
        
         float fillAmount = componenteenc.vida / 100.0f;
         healthBarFill.fillAmount = fillAmount;
         if (numin.PasarArma() != null)
         {
             objetoMano = numin.PasarArma().name;
-            balas.text = "Blasa: " + numin.PasarArma().GetComponent<ItemData>().balasRestantes.ToString();
+            balas.text = numin.PasarArma().GetComponent<ItemData>().balasRestantes.ToString();
 
         }
         if (quitarCartel)

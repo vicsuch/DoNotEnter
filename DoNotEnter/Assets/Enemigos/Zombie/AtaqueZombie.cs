@@ -14,10 +14,12 @@ public class AtaqueZombie : MonoBehaviour
     bool atackStarted;
     private float atackTimer;
     public animacionzombie animscript;
+    [SerializeField] AudioSource audio;
     // Start is called before the first frame update
+
     void Start()
     {
-        
+        audio = GetComponent<AudioSource>();    
         atackTimer = Time.time;
         agent = GetComponent<NavMeshAgent>();
         controller = GetComponent<ZombieController>();
@@ -31,7 +33,6 @@ public class AtaqueZombie : MonoBehaviour
         
     }
 
-
     void Atack()
     {
         if (atackStarted)
@@ -42,9 +43,9 @@ public class AtaqueZombie : MonoBehaviour
         {
             atackStarted = true;
             UnityStandardAssets.Characters.FirstPerson.FirstPersonController a = transformAtacar.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
+            audio.Play();
             a.AddForce(transform.forward * knockBackFoward + transform.up * knockBackUp);
-            Debug.Log("abc");
-            saludPlayer.AtatqueZombie();
+            saludPlayer.AtaqueZombie();
             
         }
         atackStarted = false;
@@ -54,9 +55,10 @@ public class AtaqueZombie : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        saludPlayer = other.GetComponent<SaludJugador>();
-        if(saludPlayer != null)
+        SaludJugador nuevo = other.GetComponent<SaludJugador>();
+        if(nuevo)
         {
+            saludPlayer = nuevo;
             transformAtacar = other.transform;
             animscript.animationpegar();
             Invoke("Atack",0.8f);

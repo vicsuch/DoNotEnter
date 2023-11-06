@@ -2,38 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class SaludJugador : MonoBehaviour
 {
+    public UnityStandardAssets.Characters.FirstPerson.FirstPersonController controllerscript;
     public int vida = 100;
     public Vector3 spawnPosition = new Vector3(0f, 2f, 0f);
     public CharacterController controller;
     public int zombiesAsesinados = 0;
-   
-    public int numHoguera=0;
+    [SerializeField] float alturaParaMorirse = 0f;
+    public int monedas_recogidas;
+
+    public int numHoguera = 0;
     // Start is called before the first frame update
     void Start()
     {
+        controllerscript= GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
         controller = transform.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-     
-        
-        if (vida < 1)
+        if (vida < 1 || transform.position.y < alturaParaMorirse)
         {
-           
-            controller.enabled = false;
-            transform.position = spawnPosition;
-            controller.enabled = true;
-            vida = 100;
+            Morir();
         }
-     
     }
+    private void Morir()
+    {
+        SceneManager.LoadScene(2);
+    }
+    
     public void ChangeVariable(Vector3 nuevoSpawn)
     {
         spawnPosition = nuevoSpawn ; 
@@ -42,7 +44,7 @@ public class SaludJugador : MonoBehaviour
     {
         numHoguera = numero_;
     }
-    public void AtatqueZombie()
+    public void AtaqueZombie()
     {
         vida -= 20;
     }
@@ -52,7 +54,26 @@ public class SaludJugador : MonoBehaviour
     }
     public void SumarMuerte()
     {
-        Debug.Log("Sumar");
-        zombiesAsesinados++; ;
+        zombiesAsesinados++;
     }
+    public void AtaqueProyectilMuñeco()
+    {
+        vida -= 20;
+    }
+    public void pocion()
+    {
+        controllerscript.m_WalkSpeed = controllerscript.m_WalkSpeed * 1.5f;
+        controllerscript.m_RunSpeed = controllerscript.m_RunSpeed * 1.5f;
+        controllerscript.m_JumpSpeed = controllerscript.m_JumpSpeed * 1.5f;
+        controllerscript.m_DoubleJumpSpeed = controllerscript.m_DoubleJumpSpeed * 1.5f;
+        Invoke("desactivarpocion", 20);
+    }
+    public void desactivarpocion()
+    {
+        controllerscript.m_WalkSpeed = controllerscript.m_WalkSpeed / 1.5f;
+        controllerscript.m_RunSpeed = controllerscript.m_RunSpeed / 1.5f;
+        controllerscript.m_JumpSpeed = controllerscript.m_JumpSpeed / 1.5f;
+        controllerscript.m_DoubleJumpSpeed = controllerscript.m_DoubleJumpSpeed / 1.5f;
+    }
+
 }

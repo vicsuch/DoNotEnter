@@ -64,8 +64,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bd9e7ebe062a147be45d15ee837a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 0}
-  damageAmount: 15
+  particleSystem: {fileID: 3876465417423414022}
+  damageAmount: 100
   unaVez: 1
 --- !u!135 &8879658806652183668
 SphereCollider:
@@ -93,11 +93,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabable: 1
-  isGun: 1
+  isGun: 0
   puntoDeVista: {fileID: 0}
   isGrabbed: 0
   balasRestantes: 0
-  throwAble: 0
+  throwAble: 1
 --- !u!54 &8879658806652183678
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3822,7 +3822,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -4848,7 +4848,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 767950e19d6160440962b76af004acdd, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

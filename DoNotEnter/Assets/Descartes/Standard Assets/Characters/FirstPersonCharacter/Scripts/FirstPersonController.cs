@@ -10,12 +10,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
     {
+      
+
+
         [SerializeField] private bool m_IsWalking;
-        [SerializeField] private float m_WalkSpeed;
-        [SerializeField] private float m_RunSpeed;
+        [SerializeField] public float m_WalkSpeed;
+        [SerializeField] public float m_RunSpeed;
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
-        [SerializeField] private float m_JumpSpeed;
-        [SerializeField] private float m_DoubleJumpSpeed;
+        [SerializeField] public float m_JumpSpeed;
+        [SerializeField] public float m_DoubleJumpSpeed;
         [SerializeField] private float groundDrag;
         [SerializeField] private float airDrag;
         [SerializeField] private float minSpeed;
@@ -68,7 +71,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
 
-
+    
         // Update is called once per frame
         private void Update()
         {

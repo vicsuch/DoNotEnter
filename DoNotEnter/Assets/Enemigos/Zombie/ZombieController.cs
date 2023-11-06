@@ -8,8 +8,8 @@ public class ZombieController : MonoBehaviour
     //Esto los diferenciara mas y dara mas individualidad
     [SerializeField] Transform jugador;
     [SerializeField] Transform puntoDeVista;
-    [SerializeField] float velVarietion = 0.7f; 
-    [SerializeField] float angularVelVarietion = 10f; 
+    [SerializeField] float velVarietion = 0.7f;
+    [SerializeField] float angularVelVarietion = 10f;
     [SerializeField] float accelerationVarietion = 2f;
     [SerializeField] float maxRaycastDistance = 200f;
     [SerializeField] float maxViewDistance = 100;
@@ -26,6 +26,10 @@ public class ZombieController : MonoBehaviour
 
     void Start()
     {
+        if (!jugador)
+        {
+            jugador = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         jugadorCC = jugador.GetComponent<CharacterController>();
         Iniciar();
     }
@@ -92,7 +96,7 @@ public class ZombieController : MonoBehaviour
             fow.y = 0;
             sideView.y = 0;
             float angle = Vector3.Angle(fow, sideView);
-            SeeingPlayer(hasHit && angle < maxViewAngle && Vector3.Distance(puntoDeVista.position, transform.position) < maxViewDistance);
+            SeeingPlayer(hasHit && angle < maxViewAngle && Vector3.Distance(puntoDeVista.position, jugador.position) < maxViewDistance);
         }
         if(hasHit)
         {
