@@ -82,13 +82,13 @@ public class singleton : MonoBehaviour
 
             json = JsonUtility.ToJson(a);
             System.IO.File.WriteAllText(path, json);
-            Debug.Log("PATH: " +  path  + " JSON: " + json);
 
             timer = 0;
         }
         if(scene.name == "EscenaIsla")
         {
             gameStarted = true;
+            setButton = true;
             if (!jugador)
             {
                 jugador = FindObjectOfType<SaludJugador>();
@@ -102,7 +102,6 @@ public class singleton : MonoBehaviour
         {
             gameStarted = false;
             setButton = true;
-
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
