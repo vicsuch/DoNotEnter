@@ -177,6 +177,7 @@
      <Compile Include="Assets\Scripts\aparicionUI.cs" />
      <Compile Include="Assets\Scripts\CheatSwitch.cs" />
      <Compile Include="Assets\Scripts\Ciclodianoche.cs" />
+     <Compile Include="Assets\Scripts\cursorforce.cs" />
      <Compile Include="Assets\Scripts\Ganaste.cs" />
      <Compile Include="Assets\Scripts\IntentoInfo.cs" />
      <Compile Include="Assets\Scripts\Linterna.cs" />
